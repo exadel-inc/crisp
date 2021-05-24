@@ -1,0 +1,39 @@
+# VSCode project files
+crisp.code-workspace
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+.vscode/extensions.json
+
+# IntelliJ project files
+*.iml
+*.iws
+*.ipr
+.idea/
+
+# Eclipse project file
+.settings/
+.classpath
+.project
+
+# NetBeans specific
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# OS
+.DS_Store
+.idea
+*.iml
+
+node_modules
+npm-debug.log
+
+dist/
+packages/
+
+package-lock.json

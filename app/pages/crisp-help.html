@@ -1,0 +1,665 @@
+<html>
+
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <style type="text/css">
+      body {
+        background-color: #fff;
+        padding: 20pt;
+      }
+
+      li {
+        color: #000;
+        font-size: 11pt;
+      }
+
+      p {
+        color: #000;
+        font-size: 11pt;
+      }
+
+      h1 {
+        padding-top: 20pt;
+        color: #000;
+        font-size: 20pt;
+        padding-bottom: 6pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+
+      h2 {
+        padding-top: 18pt;
+        color: #000;
+        font-size: 16pt;
+        padding-bottom: 6pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+
+      h3 {
+        padding-top: 16pt;
+        color: #434343;
+        font-size: 14pt;
+        padding-bottom: 4pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+
+      h4 {
+        padding-top: 14pt;
+        color: #666;
+        font-size: 12pt;
+        padding-bottom: 4pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+
+      h5 {
+        padding-top: 12pt;
+        color: #666;
+        font-size: 11pt;
+        padding-bottom: 4pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+
+      h6 {
+        padding-top: 12pt;
+        color: #666;
+        font-size: 11pt;
+        padding-bottom: 4pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        font-style: italic;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+
+      hr {
+        margin-top: 20pt;
+        margin-bottom: 20pt;
+      }
+
+      .title {
+        padding-top: 0;
+        color: #000;
+        font-size: 26pt;
+        padding-bottom: 3pt;
+        line-height: 1.15;
+        page-break-after: avoid;
+        orphans: 2;
+        widows: 2;
+        text-align: left;
+      }
+
+      .content-item {
+        color: #000;
+        text-align: left;
+        text-decoration: none;
+      }
+
+      .content-item:hover {
+        text-decoration: underline;
+      }
+
+      .pl-0 {
+        padding-left: 0;
+      }
+
+      .pl-1 {
+        padding-left: 10pt;
+      }
+
+      .pl-2 {
+        padding-left: 20pt;
+      }
+
+      .pl-3 {
+        padding-left: 30pt;
+      }
+
+      .pl-4 {
+        padding-left: 40pt;
+      }
+    </style>
+  </head>
+
+  <body >
+    <p class="title"><b >CRISP User Manual</b></p>
+    <p ><b ><a class="content-item pl-0" href="#crisp-overview">CRISP overview</a></b></p>
+    <p ><b ><a class="content-item pl-0" href="#how-to-get-started">How to get started</a></b></p>
+    <p ><b ><a class="content-item pl-0" href="#how-to-use-crisp">How to use CRISP</a></b></p>
+    <p ><b ><a class="content-item pl-1" href="#settings-link">Settings</a></b></p>
+    <p ><span ><a class="content-item pl-2" href="#common-link">Common</a></span></p>
+    <p ><span ><a class="content-item pl-2" href="#project-link">Project</a></span></p>
+    <p ><span ><a class="content-item pl-3" href="#configuration-link">Configuration</a></span></p>
+    <p ><span ><a class="content-item pl-3" href="#saved-pages">Saved Pages</a></span></p>
+    <p ><span ><a class="content-item pl-2" href="#framework-link">Framework</a></span></p>
+    <p ><span ><a class="content-item pl-3" href="#configuration-link">Configuration</a></span></p>
+    <p ><span ><a class="content-item pl-3" href="#page-objects-link">Page Objects</a></span></p>
+    <p ><span ><a class="content-item pl-3" href="#action-patterns-link">Actions/Verifications</a></span></p>
+    <p ><b ><a class="content-item pl-1" href="#add-element-link">Add element</a></b></p>
+    <p ><b ><a class="content-item pl-1" href="#add-elements">Add elements in bulk</a></b></p>
+    <p ><b ><a class="content-item pl-1" href="#main-page">Main page</a></b></p>
+    <p ><span ><a class="content-item pl-2" href="#elements-link">Elements</a></span></p>
+    <p ><span ><a class="content-item pl-2" href="#generated-output">Generated Output</a></span></p>
+    <hr>
+    <h1 id="crisp-overview"><span >CRISP overview</span></h1>
+    <p ><span >CRISP is an open-source Chrome extension which helps to select web elements on the
+        page, automatically populate its selectors, assign configured actions and generate ready test code based on the
+        customized patterns. It can speed up the process of test development by replacing manual time-consuming operations
+        with automated features.</span></p>
+    <p ></p>
+    <h1 id="how-to-get-started"><span >How to get started</span></h1>
+    <p ><span >To start using CRISP:</span></p>
+    <ol >
+      <li ><span >Launch Chrome browser.</span></li>
+      <li ><span >Open Developer tools:</span></li>
+      <ol type="a">
+        <li ><span >Click &ldquo;Customize and control Google Chrome&rdquo; (3-dots icon) &nbsp;at the
+            status bar -&gt; Select &ldquo;More Tools&rdquo; -&gt; select &ldquo;Developer Tools&rdquo;;</span></li>
+        <li ><span >Or press Ctrl+Shift+I;</span></li>
+        <li ><span >Or press F12 key.</span></li>
+      </ol>
+      <li ><span >Open &ldquo;Elements&rdquo; tab.</span></li>
+      <li ><span >Open &quot;CRISP&quot; sub-tab on the same level with the &quot;Styles&quot;
+          sub-tab.</span></li>
+    </ol>
+    <p ><span>As a result,</span><span>&nbsp;the main page of CRISP</span><span>&nbsp;extension
+        &ldquo;</span><span ><a  href="#add-element-link">Add element</a></span><span
+        >&rdquo; is displayed and ready for usage with default settings.</span></p>
+    <p ></p>
+    <h1  id="how-to-use-crisp"><span >How to use CRISP</span></h1>
+    <h2  id="settings-link"><span >Settings</span></h2>
+    <p ><span >&ldquo;Settings&rdquo; screen is displayed as the start screen after clicking the
+        related icon
+        <svg class="bi bi-gear" width="1em" height="1em" viewBox="0 0 16 16" fill="blue" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
+          <path fill-rule="evenodd" d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
+        </svg>
+        in the top menu. Here you should configure patterns and manage pages in order to use it when
+        generating test output.</span></p>
+    <p ><span >There are 3 tabs available:</span></p>
+    <ul >
+      <li ><span >Common;</span></li>
+      <li ><span >Project - with sub-tabs &ldquo;Configuration&rdquo; and &ldquo;Saved
+          Pages&rdquo;;</span></li>
+      <li ><span >Framework - with sub-tabs &ldquo;Configuration&rdquo;, &ldquo;Page Objects&rdquo;
+          and &ldquo;Actions/Verifications&rdquo;.</span></li>
+    </ul>
+    <p ></p>
+    <h3  id="common-link"><span >Common</span></h3>
+    <p ><span >Here you can import and/or export all that CRISP is storing. </span></p>
+    <p ><span >The storage includes data related to:</span></p>
+    <ul >
+      <li ><span >&nbsp;all projects - saved pages, elements with their locators and assigned
+          patterns;</span></li>
+      <li ><span >&nbsp;all frameworks - page object and actions\verifications patterns.</span></li>
+    </ul>
+    <p ><span >Click the button [Import storage] to import all project and framework data.</span></p>
+    <p ><span>Click the button [Export storage] to export saved project and framework data into copied text or
+        JSON file.</span></p>
+    <p ><span>It is a great idea to Export your storage and share it with teammates.</span></p>
+    <h3  id="project-link"><span >Project </span></h3>
+    <p ><span >This is the tab to select and manage the necessary project with its pages.</span></p>
+    <h4  id="configuration-link"><span >Configuration</span></h4>
+    <p ><span >The sub-tab &ldquo;Configuration&rdquo; allows you to make the following
+        actions:</span></p>
+    <ol >
+      <li ><span >To view the list of existing projects or an empty list with the field to add a
+          project.</span></li>
+      <li ><span >To add a new project and assign framework: </span></li>
+
+      <ol type="a">
+        <li ><span>Enter project name and click &lsquo;+&rsquo;</span><span>;</span></li>
+        <li ><span>Select framework from the list </span><span>&nbsp;(populated from another tab
+            &quot;Framework&quot;, see details in </span><span ><a 
+              href="#framework-link">Framework</a></span><span>) </span></li>
+        <li ><span>Provide project description in the optional text area with hint</span><span>&nbsp;&ldquo;Enter
+            description&rdquo;.</span></li>
+        <li ><span >Click [SAVE] -&gt; the project is displayed in the list. </span></li>
+        <li ><span>Click [CANCEL] if you want to cancel entered changes.</span></li>
+        <li ><span>Note:</span><span>&nbsp;If a project has already been added with the same name and framework,
+            an error message is displayed </span><span>&ldquo;Unable to save. A record with name: test !_1, type: action and
+            selected framework has already existed&rdquo;</span><span >. It&rsquo;s necessary to make a project
+            name unique or select another framework in order to avoid duplicates.</span></li>
+      </ol>
+
+      <li ><span >To view project details (assigned framework): </span></li>
+      <ol type="a">
+        <li ><span >Select project from the list &nbsp;-&gt; list of frameworks is displayed in
+            read-only mode. </span></li>
+      </ol>
+
+      <li ><span >To edit project name and/or select another framework: </span></li>
+      <ol type="a">
+        <li ><span >Select project from the list and click [EDIT] icon -&gt; project name and the list
+            of frameworks are displayed.</span></li>
+        <li ><span >Change project name and/or select another framework if needed.</span></li>
+        <li ><span >Click [SAVE] to apply changes. </span></li>
+        <li ><span >Click [CANCEL] if you want to cancel entered changes.</span></li>
+      </ol>
+
+      <li ><span >To delete saved projects: </span></li>
+      <ol type="a">
+        <li ><span>Click [DELETE] icon for the project in the list -&gt;</span>
+          <span>&nbsp;confirmation popup is displayed with the text
+            &quot;Delete Project "XXX" with its Pages and saved Elements ?&quot;.
+          </span></li>
+        <li ><span >Click [DELETE] button on the popup -&gt; the project with its saved pages will be
+            removed from the list and storage. It will be also removed from selecting the project in ELEMENTS screen.
+          </span></li>
+        <li ><span >Note: List of frameworks will not be changed, only relation between deleted project
+            and framework will be destroyed.</span></li>
+      </ol>
+
+      <li ><span >To copy a project:</span></li>
+      <ol type="a">
+        <li ><span>Click [COPY] icon for the project with name &ldquo;OriginalProject&rdquo; in the list -&gt; the
+            project with its saved pages will be copied and added</span><span>&nbsp;with project name
+            &ldquo;OriginalProject_1&rdquo; </span><span >to the list and storage. </span></li>
+        <li ><span >If you click [COPY] icon again for the project with name
+            &ldquo;OriginalProject&rdquo; -&gt; one more copied project with the same saved pages will be added to the list
+            with name &ldquo;OriginalProject_2&rdquo;.</span></li>
+        <li ><span >If you click [COPY] icon for the copied project with name
+            &ldquo;OriginalProject_1&rdquo; -&gt; copy of the copied project with the same saved pages will be added to the
+            list with name &ldquo;OriginalProject_1_1&rdquo;.</span></li>
+      </ol>
+
+      <li ><span >To set a project:</span></li>
+      <ol type="a">
+        <li ><span>Go to the list of projects and select the radio button next to the necessary
+            project -&gt; confirmation popup is displayed with the text</span><span>&nbsp;&quot;Are you sure you want to
+            switch to the project: ${project name}?&rdquo;. </span></li>
+        <li ><span >Click [OK] -&gt; &nbsp;project will be set. Label &ldquo;Project&rdquo; &nbsp;in the
+            line with the top menu follows the value of the selected project in the read-only mode.</span></li>
+      </ol>
+    </ol>
+    <p ><span >Click the button [Import Project] to import only project data.</span></p>
+    <p ><span>Click the button [Export Project] to export selected project data into copied text or JSON
+        file.</span></p>
+    <h4  id="saved-pages"><span >Saved Pages</span></h4>
+    <p ><span >Here you can manage the list of pages of your application which is under the
+        test.</span></p>
+    <p ><span >List of saved pages is displayed for the selected project.</span></p>
+    <p ><span >The following actions are available for the list of saved pages:</span></p>
+    <ol >
+      <li ><span>To add a new page:</span></li>
+      <ol type="a">
+        <li ><span >Enter page name.</span></li>
+        <li ><span >Click [+]&rsquo; -&gt; the page name is saved and displayed in the list.</span></li>
+        <li ><span>Note: Page name should be unique within a project. If a page has already been added with the
+            same name within 1 project, an error message is displayed</span><span>&nbsp;&ldquo;</span><span
+            >Unable to save. A record with name: {pageName} and selected project has already existed&rdquo;.
+            It&rsquo;s necessary to make a page name unique or select another project in order to avoid duplicates.</span>
+        </li>
+      </ol>
+
+      <li ><span >To edit a page:</span></li>
+      <ol type="a">
+        <li ><span >Select saved page from the list and click [EDIT] icon -&gt; page name is
+            editable.</span></li>
+        <li ><span >Change page name.</span></li>
+        <li ><span >Click [SAVE] to apply changes. </span></li>
+        <li ><span >Click [CANCEL] if you want to cancel entered changes.</span></li>
+      </ol>
+
+      <li ><span >To delete a page:</span></li>
+      <ol type="a">
+        <li ><span>Click [DELETE] icon for the page name in the list -&gt;</span>
+          <span>&nbsp;confirmation popup is displayed with the text
+              &quot;Delete Page "XXX" with saved Elements ? &quot;.
+          </span></li>
+        <li ><span >Click [DELETE] button on the popup -&gt; the page will be removed from the list and
+            storage.</span></li>
+      </ol>
+
+      <li ><span >To copy a page:</span></li>
+      <ol type="a">
+        <li ><span >Click [COPY] icon for the page with name &ldquo;OriginalPage&rdquo; -&gt; the page
+            will be copied and added with project name &ldquo;OriginalPage_1&rdquo; to the list and storage. </span></li>
+        <li ><span >If you click [COPY] icon again for the page with name &ldquo;OriginalPage&rdquo;
+            -&gt; one more copied page will be added to the list with name &ldquo;OriginalPage_2&rdquo;.</span></li>
+        <li ><span >If you click [COPY] icon for the copied page with name &ldquo;OriginalPage_1&rdquo;
+            -&gt; copy of the copied page will be added to the list with name &ldquo;OriginalPage_1_1&rdquo;.</span></li>
+        <li ><span>Note: Two different projects can have pages with the duplicated names, but one project cannot
+          </span><span>have two pages with the same name.</span></li>
+      </ol>
+    </ol>
+    <p ><span >Click the button [Import Saved Pages] to import only project data.</span></p>
+    <p ><span>Click the button [Export Saved Pages] to export selected project data into copied text or JSON
+        file.</span></p>
+    <p ><span>Click the button [Remove all] -&gt; confirmation popup is displayed with the text
+        &quot;</span><span>Delete each Page with saved Elements ? </span><span >&quot;. Click
+        [OK] button on the popup -&gt; all saved pages with their elements will be removed from the list and storage.
+        Click [Cancel] button on the popup to leave the list of saved pages with no changes.</span></p>
+    <p ></p>
+    <p ></p>
+    <h3  id="framework-link"><span >Framework</span></h3>
+    <p ><span >This is the tab to add and manage a framework with its Page Objects and
+        Actions/Verifications patterns.</span></p>
+    <p ></p>
+    <h4  id="configuration-link"><span >Configuration</span></h4>
+    <p ><span >The sub-tab &ldquo;Configuration&rdquo; provides the following actions:</span></p>
+    <ol >
+      <li ><span >To view the list of existing frameworks or an empty list with the field to add a
+          framework.</span></li>
+      <li ><span >To add a new framework: </span></li>
+      <ol type="a">
+        <li ><span >Enter a framework name.</span></li>
+        <li ><span >Click [+] -&gt; the framework with the entered name is saved and added to the
+            list.</span></li>
+        <li ><span>Provide framework description in the optional text area with hint </span><span>&ldquo;Enter
+            description&rdquo;.</span></li>
+        <li ><span>Added framework will be defined as default for adding patterns in PO and Actions/verifications.
+            After adding a framework if you go to the next sub-tabs &ldquo;Page Objects&rdquo; or
+            &ldquo;Actions/Verifications&rdquo; -&gt; this framework will be displayed as selected.</span></li>
+        <li ><span >Note: If a framework has already been added with the same name, an error message is
+            displayed &nbsp;&ldquo;Unable to save. A record with name: &ldquo;name&rdquo; already exists&rdquo;. It&rsquo;s
+            necessary to make a framework name unique in order to avoid duplicates.</span></li>
+      </ol>
+
+      <li ><span >To edit a framework name: </span></li>
+      <ol type="a">
+        <li ><span >Select a framework from the list and click [EDIT] icon -&gt; framework name is
+            editable. </span></li>
+        <li ><span >Change the framework name.</span></li>
+        <li ><span >Click [SAVE] to apply changes.</span></li>
+        <li ><span >Click [CANCEL] if you want to cancel entered changes.</span></li>
+      </ol>
+
+      <li ><span >To copy a framework:</span></li>
+      <ol type="a">
+        <li ><span>Click [COPY] icon for the framework with name &ldquo;OriginalFramework&rdquo; in the list -&gt;
+            the framework with its PO patterns and Actions/Verifications will be copied and added</span><span>&nbsp;with
+            framework name &ldquo;OriginalFramework_1&rdquo; </span><span >to the list and storage. </span></li>
+        <li ><span >If you click [COPY] icon again for the framework with name
+            &ldquo;OriginalFramework&rdquo; -&gt; one more copied framework with the same PO patterns and
+            Actions/Verifications will be added to the list with name &ldquo;OriginalFramework_2&rdquo;.</span></li>
+        <li ><span >If you click [COPY] icon for the copied framework with name
+            &ldquo;OriginalFramework_1&rdquo; -&gt; copy of the copied framework with the same PO patterns and
+            Actions/Verifications will be added to the list with name &ldquo;OriginalFramework_1_1&rdquo;.</span></li>
+      </ol>
+
+      <li ><span >To delete saved frameworks:</span></li>
+      <ol type="a">
+        <li ><span>Click [DELETE] icon for the framework in the list -&gt; show confirmation popup
+            &quot;</span><span>Delete Framework "XXX" with Page Object and Actions\Verifications patterns ? &quot;. </span></li>
+        <li ><span>Click [DELETE] button on the popup -&gt; the framework with its PO and actions patterns will be
+            removed from the list and storage. </span><span>It will be also removed from selecting the framework in Project
+            -&gt; Configuration screen. </span></li>
+        <li ><span>Note: If the deleted framework was assigned for a project, the project will be displayed in red
+            as invalid with a message to select another framework.</span></li>
+      </ol>
+    </ol>
+    <p ></p>
+    <p ><span>Click the button [</span><span>Import Framework</span><span >] to import only framework data.</span></p>
+    <p ><span >Click the button [Export Framework] to export selected framework data into &nbsp;copied
+        text or JSON file.</span></p>
+    <h4  id="page-objects-link"><span >Page Objects</span></h4>
+    <p ><span>The sub-tab &ldquo;Page Objects&rdquo; allows you to add and</span><span >&nbsp;manage
+        patterns for a framework as the base for Page Objects generation. </span></p>
+    <p ><span >Before making any changes to a pattern it&rsquo;s necessary to select framework in the
+        dropdown with added framework (populated from &ldquo;Configuration&rdquo; sub-tab). The selected framework will
+        define scope of patterns, which is displayed in the list below.</span></p>
+    <p ></p>
+    <p ><span >How to add a new pattern for Page Objects:</span></p>
+    <ol >
+      <li ><span >Select a framework in the dropdown.</span></li>
+      <li ><span >Enter a unique pattern name in the text input.</span></li>
+      <li ><span >Click [+] button.</span></li>
+      <li ><span >Enter pattern itself in the text area with a hint &ldquo;Enter pattern&rdquo;.</span></li>
+      <ol type="a">
+        <li ><span >Note: You can use variables in your patterns, such as elementPage, elementName,
+            elementDescription, elementId, elementCss, elementXPath, parentElementName, parentElementDescription,
+            parentElementPage, parentElementId, parentElementCss, parentElementXPath. You can use custom variables as
+            well.</span></li>
+        <li ><span >To add a variable to your pattern, just put the variable name inside of curly
+            brackets and mark what you got with the dollar at the beginning like here: ${variable}. E.g. use ${elementId} in
+            your pattern if you want CRISP to put the real element Id on this place. Values for custom variables should be
+            provided during actions assignment from Add\Edit element page.</span></li>
+      </ol>
+
+      <li ><span >If needed, select a framework in the dropdown above the text area.</span></li>
+      <li ><span >Click [Save] button to apply changes or [Cancel] to cancel changes.</span></li>
+    </ol>
+    <p ></p>
+    <p ><span >Other actions are available for a pattern within a selected framework:</span></p>
+    <ul >
+      <li ><span >Edit pattern:</span></li>
+    </ul>
+    <ul >
+      <li ><span >Select a pattern from the list and click [EDIT] icon -&gt; fields with pattern name,
+          related framework and pattern itself are displayed and editable.</span></li>
+      <li ><span >Change any value in a field.</span></li>
+      <li ><span >Click [SAVE] to apply changes. </span></li>
+      <li ><span >Click [CANCEL] if you want to cancel entered changes.</span></li>
+    </ul>
+    <ul >
+      <li ><span >Copy pattern:</span></li>
+    </ul>
+    <ul >
+      <li ><span >Select a pattern from the list and click [COPY] icon for the pattern in the list
+          -&gt; the pattern will be copied, including related framework and pattern itself. </span></li>
+      <li ><span >The copied pattern will be added with a pattern name
+          &ldquo;OriginalPatternName_1&rdquo; to the list and storage. </span></li>
+    </ul>
+    <ul >
+      <li ><span >Delete pattern:</span></li>
+    </ul>
+    <ul >
+      <li ><span>Select a pattern from the list and click [DELETE] icon for the pattern name in the list
+          -&gt;</span><span>&nbsp;confirmation popup is displayed with the text
+            &quot;Delete Page Object pattern "XXX" ? &quot;.
+          </span></li>
+      <li ><span >Click [DELETE] button on the popup -&gt; the pattern will be removed from the list
+          and storage.</span></li>
+    </ul>
+    <p ></p>
+    <p ><span >Click the button [Restore basic PO patterns] -&gt; the confirmation popup &ldquo;Are
+        you sure to load defaults for page object patterns?&rdquo; will be displayed. After clicking &ldquo;OK&rdquo;
+        button, previously added Page Objects patterns will be reset to default patterns.</span></p>
+    <p ><span >Click the button [Import PO patterns] if you want to import patterns from json file.
+        Please take into account that it will rewrite existing patterns.</span></p>
+    <p ><span >Click the button [Export PO patterns] to export added patterns to json file.</span></p>
+    <p ></p>
+    <h4  id="action-patterns-link"><span >Actions/Verifications</span></h4>
+    <p ><span >The sub-tab &ldquo;Actions/Verifications&rdquo; is similar to the sub-tab &ldquo;Page
+        Objects&rdquo;, as it also allows to add and manage patterns. The difference is that these patterns will be used
+        for Test Actions or Methods generation. </span></p>
+    <p ><span >How to add a new pattern for Actions/Verifications:</span></p>
+    <ol >
+      <li ><span >Select a framework in the dropdown.</span></li>
+      <li ><span >Enter a unique pattern name in the text input.</span></li>
+      <li ><span >Click the [+] button.</span></li>
+      <li ><span >Enter pattern itself in the text area with a hint &ldquo;Enter pattern&rdquo;.</span></li>
+      <ol type="a">
+        <li ><span >Note: You can use the following standard variables in your Actions patterns:
+            elementName, elementDescription, elementPage, elementId, elementCss, elementXPath, parentElementName,
+            parentElementDescription, parentElementPage, parentElementId, parentElementCss, parentElementXPath and any other
+            custom variable names.</span></li>
+      </ol>
+
+      <li ><span >If needed, select a framework in the dropdown above the text area.</span></li>
+      <li ><span >Click [Save] button to apply changes or [Cancel] to cancel changes.</span></li>
+    </ol>
+    <p ></p>
+    <p ><span >Other actions are available for a pattern within a selected framework:</span></p>
+    <ul >
+      <li ><span >Edit pattern:</span></li>
+    </ul>
+    <ul >
+      <li ><span >Select a pattern from the list and click [EDIT] icon -&gt; fields with pattern name,
+          related framework and pattern itself are displayed and editable.</span></li>
+      <li ><span >Change any value in a field.</span></li>
+      <li ><span >Click [SAVE] to apply changes. </span></li>
+      <li ><span >Click [CANCEL] if you want to cancel entered changes.</span></li>
+    </ul>
+    <ul >
+      <li ><span >Copy pattern:</span></li>
+    </ul>
+    <ul >
+      <li ><span >Select a pattern from the list and click the [COPY] icon for the pattern in the list
+          -&gt; the pattern will be copied, including related framework and pattern itself. </span></li>
+      <li ><span >The copied pattern will be added with a pattern name
+          &ldquo;OriginalPatternName_1&rdquo; to the list and storage. </span></li>
+    </ul>
+    <ul >
+      <li ><span >Delete pattern:</span></li>
+    </ul>
+    <ul >
+      <li ><span>Select a pattern from the list and click the [DELETE] icon for the pattern name in the list
+          -&gt;</span><span>&nbsp;confirmation popup is displayed with the text
+            &quot;Delete Action\Verification pattern "XXX" ? &quot;.
+          </span></li>
+      <li ><span >Click [DELETE] button on the popup -&gt; the pattern will be removed from the list
+          and storage.</span></li>
+    </ul>
+    <p ></p>
+    <p ></p>
+    <p ><span >Click [Restore basic Actions patterns] button -&gt; it will reset Actions patterns to
+        default patterns.</span></p>
+    <p ><span >Click [Import Actions patterns] button if you want to import patterns from json
+        file.</span></p>
+    <p ><span >Click [Export Actions Patterns] to export patterns to json file.</span></p>
+    <h2  id="add-element-link"><span >Add element</span></h2>
+    <p ><span >&ldquo;Add element&rdquo; screen is displayed after clicking the related icon
+      <svg class="bi bi-plus-square" width="1em" height="1em" viewBox="0 0 16 16" fill="blue" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h3.5V4a.5.5 0 0 1 .5-.5z"/>
+        <path fill-rule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
+        <path fill-rule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+      </svg>
+        in the top menu. At this screen you can find element locators and save entered element info for further test output
+        generation. &nbsp;</span></p>
+    <p ><span >Label &ldquo;Project&rdquo; has the value of the project which is selected at the
+        &ldquo;Settings&rdquo; tab. </span></p>
+    <p ><span >Within the defined project you can add elements in the following steps:</span></p>
+    <ol >
+      <li ><span >Select a page from the list of saved pages (which is populated from
+          &ldquo;Settings&rdquo; -&gt;&rdquo;Project&rdquo;-&gt;&rdquo;Saved pages&rdquo; sub-tab). </span></li>
+      <li ><span >Enter a unique name for an element in &ldquo;Element name&rdquo; input.</span></li>
+    </ol>
+    <ol >
+      <li ><span >Note: Cannot be empty, otherwise an error message &ldquo;Please enter an element
+          name&rdquo; will be displayed under the input and the element is not added.</span></li>
+    </ol>
+    <ol >
+      <li ><span >Enter additional information about an element in &lsquo;Element description&ldquo;
+          input if needed. </span></li>
+      <li ><span >Select suitable PO pattern in &ldquo;Page object pattern&rdquo; dropdown menu, which
+          has values of added PO patterns within the assigned framework for the selected project.</span></li>
+      <li ><span >Select necessary Actions/Verification pattern in &ldquo;Actions/Verifications&rdquo;
+          dropdown menu, which is populated with values of added Actions patterns within the assigned framework for the
+          selected project.</span></li>
+      <li ><span >Launch the &ldquo;Inspect&rdquo; tool and select the necessary element at the page.
+          As a result, CRISP will populate found locators of the element into the related fields &ldquo;ID&rdquo;,
+          &ldquo;CSS&rdquo;, &ldquo;xPath&rdquo;. The values of locators are editable and can be manually corrected if
+          needed.</span></li>
+      <li ><span >Select parent element for the element if it has hierarchical structure. By default
+          it&rsquo;s set as &ldquo;None&rdquo;.</span></li>
+      <li ><span>Click [Save] button if you need to add only one element and quickly generate the test output.
+          After clicking the button you will be redirected to the &ldquo;Main page&rdquo; screen with the saved element
+          (more details in </span><span ><a  href="#elements-link">Elements</a></span><span
+          >&nbsp;section).</span></li>
+      <li ><span >Click [Save &amp; Add New] button if you need to continue adding several elements
+          before generating the test output. The element will be saved to &ldquo;Elements&rdquo; section without
+          redirecting to &ldquo;Main page&rdquo; screen, and you will stay at the &ldquo;Add element&rdquo; page to add a
+          new element.</span></li>
+      <li ><span>Click [Cancel] button if you don&rsquo;t need to save entered info about an element.</span>
+      </li>
+    </ol>
+    <h2  id="add-elements"><span >Add elements in bulk</span></h2>
+    <p ><span>The screen &ldquo;Add elements in bulk&rdquo; is displayed after clicking the icon</span>
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-journal-plus" fill="blue" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 1h5v1H4a1 1 0 0 0-1 1H2a2 2 0 0 1 2-2zm10 7v5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V8h1zM2 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2z"/>
+          <path fill-rule="evenodd" d="M13.5 1a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1H13V1.5a.5.5 0 0 1 .5-.5z"/>
+          <path fill-rule="evenodd" d="M13 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0v-2z"/>
+        </svg>
+      <span >from the top menu. This screen allows you to add many elements at once based on
+        a common attribute. </span></p>
+    <p ><span>Value of the selected project follows the &ldquo;Project&rdquo; label in the level of the top menu
+        and can be changed in the </span><span ><a 
+          href="#configuration-link">Configuration</a></span><span >&nbsp;sub-tab. </span></p>
+    <p ><span >To add elements in bulk, you should perform the following actions:</span></p>
+    <ol >
+      <li ><span >Select the necessary page for elements from the dropdown &ldquo;Page&rdquo;, which
+          is filtered by a project.</span></li>
+      <li ><span >Select Page object pattern from the list of patterns within the defined
+          framework.</span></li>
+      <li ><span >Define an attribute as a criteria to select particular elements.</span></li>
+      <li ><span >Click [Extract &amp; Save] button.</span></li>
+    </ol>
+    <p ><span>As a result, you will be redirected to the Main page, where found elements will be added to the
+        table within the tab of the selected page. Next actions are described in the section </span><span ><a
+          href="#main-page">Main page</a></span><span>.</span></p>
+    <h2  id="main-page"><span >Main page</span></h2>
+    <p ><span >The main page is displayed after clicking the list icon
+      <svg class="bi bi-file-text" width="1em" height="1em" viewBox="0 0 16 16" fill="blue" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z"/>
+        <path fill-rule="evenodd" d="M4.5 10.5A.5.5 0 0 1 5 10h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zm0-2A.5.5 0 0 1 5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5z"/>
+      </svg>
+        at the top menu or after
+        redirecting from the &ldquo;Add element&rdquo; page when a new element is added. The page consists of 2 main
+        sections: &ldquo;Elements&rdquo; and &ldquo;Generated Output&rdquo;.</span></p>
+    <h3  id="elements-link"><span >Elements</span></h3>
+    <p ><span>Section &ldquo;Elements&rdquo; is splitted into tabs per each page which was added in the Settings
+        -&gt; Configuration within the selected project. Value of the selected project follows the &ldquo;Project&rdquo;
+        label in the level of the top menu and can be changed in the </span><span ><a 
+          href="#configuration-link">Configuration</a></span><span >&nbsp;sub-tab. </span></p>
+    <p ><span >The table is populated with saved elements and its assigned actions, with possibility
+        to edit or delete an element. </span></p>
+    <p ><span >By default the table includes columns &ldquo;Element&rdquo;,
+        &ldquo;Actions/Verifications&rdquo;, &ldquo;Manage elements&rdquo;. To show more columns &ldquo;PO Pattern&rdquo;
+        and &ldquo;PO Params&rdquo;, you should click the &ldquo;Manage elements&rdquo; column name.</span></p>
+    <p ><span >The following actions are available for an element within the table:</span></p>
+    <ol >
+      <li ><span >To change an element: click [EDIT] icon in the right column for a row and provide
+          changes at the redirected &ldquo;Edit element&rdquo; page. Click [SAVE] or [CANCEL] to save or cancel entered
+          changes.</span></li>
+      <li ><span >To remove an element from the table and storage: click [DELETE] icon in the right
+          column for a row. </span></li>
+      <li ><span>To generate a test only for one element: click &ldquo;Output&rdquo; icon in the right column
+          for a row and see results in the next section </span><span ><a 
+            href="#generated-output">Generated Output</a></span><span >.</span></li>
+    </ol>
+    <p ><span >After selecting a tab of another page a new table will be displayed with elements of
+        the selected page. </span></p>
+    <p ><span>Click [Generate for page] button and CRISP will generate the test code for all elements within one
+        selected page and provide this result in </span>
+        <span ><a  href="#generated-output">Generated Output</a></span>
+        <span >&nbsp;section.</span></p>
+    <p ><span>Click [Generate for all pages] button -&gt; it will generate the test code for all saved pages and
+        display the result in </span>
+        <span ><a  href="#generated-output">Generated Output</a></span>
+        <span >&nbsp;section.</span>
+    </p>
+    <p ></p>
+    <h3  id="generated-output"><span >Generated Output</span></h3>
+    <p ><span >The section has 2 tabs &ldquo;Page Objects&rdquo; and &ldquo;Test
+        Actions\Verifications&rdquo; with a text area, which is populated with generated test results for each page. If
+        test output is generated for all pages, page name will be displayed as a comment with // before page name. </span>
+    </p>
+    <p ><span >Text area is editable and test results can be modified before its copying. </span></p>
+    <p ><span >Click [Copy] button to copy the displayed test result into clipboard and then paste it
+        into a testing tool or IDE.</span></p>
+    <p ><span >Click &nbsp;[Clear] button to clear generated test result from the text area.</span>
+    </p>
+  </body>
+
+</html>
