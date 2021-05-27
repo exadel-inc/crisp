@@ -4,10 +4,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CrispElement } from '../../elements/element';
 import { ElementPatternData } from '../../elements/element-selectors-interface';
 import { Pattern } from '../../patterns/pattern';
-import { PatternType } from '../../patterns/pattern-interface';
 import { SetInspectedElementAction } from '../../redux/reducers/inspected-element/inspected-element.actions';
 import { NavigateAction } from '../../redux/reducers/navigation/navigation.actions';
-import { elementsService, patternService, projectsService } from '../../shared/services';
+import { elementsService, patternService } from '../../shared/services';
 import { ActionListComponent } from '../action-list/action-list.component';
 import { NavigationTabType } from '../header/navigation-tabs';
 
