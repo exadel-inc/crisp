@@ -82,7 +82,8 @@ function getXPath(leaf: HTMLElement) {
     return count;
   }
   const [root, ...path] = getParentPath(leaf);
-  return [`//*[@id="${root.id}"]`, ...path.map(elem => {
+  const firstItem: string = root.id ? `//*[@id="${root.id}"]` : '/html';
+  return [firstItem, ...path.map(elem => {
     let idx = getElementIdx(elem);
     return `${elem.tagName.toLowerCase()}${idx > 1 ? `[${idx}]` : ''}`;
   })].join('/');
