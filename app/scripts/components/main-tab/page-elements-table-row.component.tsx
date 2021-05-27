@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { CrispElement } from '../../elements/element';
 import { ElementPatternData } from '../../elements/element-selectors-interface';
 import { Pattern } from '../../patterns/pattern';
+import { PatternType } from '../../patterns/pattern-interface';
 import { SetInspectedElementAction } from '../../redux/reducers/inspected-element/inspected-element.actions';
 import { NavigateAction } from '../../redux/reducers/navigation/navigation.actions';
-import { elementsService, patternService } from '../../shared/services';
+import { elementsService, patternService, projectsService } from '../../shared/services';
 import { ActionListComponent } from '../action-list/action-list.component';
 import { NavigationTabType } from '../header/navigation-tabs';
 
@@ -70,14 +71,27 @@ export function PageElemementsTableRow ({ element, onAddElement, onRemoveElement
   /**
    * Function that renders action list component regarding of displayActionList property
   */
-  const renderActionList = () => displayActionList
-    ? <div className="action-list-wrapper" data-key={element.id}>
+  const renderActionList = () => {
+
+    // calculate the width of table columns
+    const width: number = [1, 2, 3, 4]
+      .map(num => document.getElementById(`page-elements-table-${num}`))
+      .map(el => el?.clientWidth || 0)
+      .reduce((acc, val) => acc + val);
+
+    const style = {
+      width: `${width - 10}px`
+    }
+
+    return displayActionList
+    ? <div className="action-list-wrapper" data-key={element.id} style={style}>
         <ActionListComponent
           element={element}
           onChange={(actionPatterns: ElementPatternData[]) => updateElement(element, actionPatterns)}
         />
       </div>
-    : null;
+    : null
+  };
 
   /**
    * Close action list if the blur was because of outside focus
