@@ -185,6 +185,15 @@ export class ProjectService implements CommonService<Project> {
   }
 
   /**
+   * Analyze the storage, if there are no default project among storage projects, set first as default one.
+  */
+  public checkDefaultProject(): void {
+    if (this._storageProjects.every(project => !project.isDefault)) {
+      this._setDefault(this._storageProjects[0].id);
+    }
+  }
+
+  /**
    * Set all other projects isDefault to false
    * @param projectId {string} default project.
   */
@@ -211,16 +220,14 @@ export class ProjectService implements CommonService<Project> {
 
   /**
    * Analyze the storage, and if no projects, add default one.
-   * If there are no default project among storage projects, set first as default one.
+   * Checks for default project
   */
   private _init(): void {
     if (this._storageProjects.length === 0) {
       const projects = [new Project('Test Project 001', CUCUMBER, 'Default project', true, undefined, initialDate)];
       this._storage.write(projects);
     }
-    if (this._storageProjects.every(project => !project.isDefault)) {
-      this._setDefault(this._storageProjects[0].id);
-    }
+    this.checkDefaultProject();
   }
 
   /**
