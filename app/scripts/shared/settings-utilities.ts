@@ -262,7 +262,11 @@ export class WriteLoadedDataPayload {
         };
         onDefault = () => {
           if (parsedData.projects) {
-            projectsService.addMany((parsedData.projects as Project[]), AddType.SKIP_EXISTING);
+            projectsService.addMany((parsedData.projects as Project[]).map(project => {
+              project.isDefault = false;
+              return project;
+            }), AddType.SKIP_EXISTING);
+            projectsService.checkDefaultProject();
           }
           if (parsedData.pages) {
             pagesService.addMany(
@@ -282,7 +286,11 @@ export class WriteLoadedDataPayload {
         };
         onMerge = () => {
           if (parsedData.projects) {
-            projectsService.addMany((parsedData.projects as Project[]), AddType.OVERWRITE_OLDER);
+            projectsService.addMany((parsedData.projects as Project[]).map(project => {
+              project.isDefault = false;
+              return project;
+            }), AddType.OVERWRITE_OLDER);
+            projectsService.checkDefaultProject();
           }
           if (parsedData.pages) {
             pagesService.addMany(
@@ -302,7 +310,11 @@ export class WriteLoadedDataPayload {
         };
         onOverride = () => {
           if (parsedData.projects) {
-            projectsService.addMany((parsedData.projects as Project[]), AddType.FORCE_OVERRIDE);
+            projectsService.addMany((parsedData.projects as Project[]).map(project => {
+              project.isDefault = false;
+              return project;
+            }), AddType.FORCE_OVERRIDE);
+            projectsService.checkDefaultProject();
           }
           if (parsedData.pages) {
             pagesService.addMany(

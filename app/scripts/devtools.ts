@@ -16,6 +16,11 @@ chrome.devtools.panels.elements.createSidebarPane('CRISP', (sidebar) => {
       const response = await new Promise(done => chrome.tabs.sendMessage(tabId, { type: 'recalculatePaths' }, done));
       chrome.runtime.sendMessage({ target: 'passCurrentInspectedElement', data: response }, (response) => {
         console.log(response);
+        if (!window.chrome.runtime.lastError) {
+          console.log(response);
+        } else {
+          console.error('CRISP can`t access page elements. Please refresh the page');
+        }
       });
     }
   }
