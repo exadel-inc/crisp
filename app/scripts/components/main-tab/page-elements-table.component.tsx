@@ -50,11 +50,11 @@ export function PageElememntsTable ({isActive, page, onAddElement}: {
       <table className={`table table-bordered table-sm ${expanded ? 'crisp-table-expand' : ''}`}>
         <thead>
           <tr>
-            <th scope="col">Element</th>
-            <th scope="col" className="extended-param">PO Pattern</th>
-            <th scope="col" className="extended-param">PO Params</th>
-            <th scope="col" colSpan={2}>Actions\Verifications</th>
-            <th scope="col">
+            <th scope="col" id="page-elements-table-1">Element</th>
+            <th scope="col" className="extended-param" id="page-elements-table-2">PO Pattern</th>
+            <th scope="col" className="extended-param" id="page-elements-table-3">PO Params</th>
+            <th scope="col" colSpan={2} id="page-elements-table-4">Actions\Verifications</th>
+            <th scope="col" id="page-elements-table-5">
               <button type="button"
                 className="btn btn-white btn-sm btn-block table-control"
                 onClick={() => setExpanded(!expanded)}

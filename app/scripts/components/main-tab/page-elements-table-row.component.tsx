@@ -70,14 +70,27 @@ export function PageElemementsTableRow ({ element, onAddElement, onRemoveElement
   /**
    * Function that renders action list component regarding of displayActionList property
   */
-  const renderActionList = () => displayActionList
-    ? <div className="action-list-wrapper" data-key={element.id}>
+  const renderActionList = () => {
+
+    // calculate the width of table columns
+    const width: number = [1, 2, 3, 4]
+      .map(num => document.getElementById(`page-elements-table-${num}`))
+      .map(el => el?.clientWidth || 0)
+      .reduce((acc, val) => acc + val);
+
+    const style = {
+      width: `${width - 10}px`
+    }
+
+    return displayActionList
+    ? <div className="action-list-wrapper" data-key={element.id} style={style}>
         <ActionListComponent
           element={element}
           onChange={(actionPatterns: ElementPatternData[]) => updateElement(element, actionPatterns)}
         />
       </div>
-    : null;
+    : null
+  };
 
   /**
    * Close action list if the blur was because of outside focus
