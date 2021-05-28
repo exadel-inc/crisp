@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CrispElement } from '../../elements/element';
 import { ElementSelectors } from '../../elements/element-selectors-interface';
 import { elementsService, pagesService, projectsService } from '../../shared/services';
 import { Select, SelectOption } from '../shared/select/select.component';
+import { dismissAllToasts, showToast } from '../shared/toasts-component';
 
 type CrispElementEditableProps = Pick<CrispElement, 'page' | 'name' | 'description' | 'parentElement' | 'parentElement'>;
 
@@ -54,6 +55,11 @@ export function InspectorLeftSide ({ element, onChange }: {
   };
 
   /**
+   * Error count
+  */
+  let errorCount = 0;
+
+  /**
    * Listens to the contentscript events and change element with new received selectors
   */
   const inspectedElementListener = (
@@ -61,7 +67,19 @@ export function InspectorLeftSide ({ element, onChange }: {
     _sender: chrome.runtime.MessageSender,
     sendResponse: Function
   ): void => {
+    if (!request.data) {
+      errorCount ++;
+    }
+    if (errorCount > 5) {
+      showToast(
+        `CRISP can't access page elements. Please refresh the page`,
+        'danger',
+      );
+      return;
+    }
     if (request.target === 'passCurrentInspectedElement' && request.data) {
+      errorCount = 0;
+      dismissAllToasts();
       sendResponse('CRISP PANEL: received updated element data');
       element.selectors = request.data;
       onChange(element);
