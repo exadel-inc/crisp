@@ -8,6 +8,7 @@ export enum NavigationTabType {
   MAIN = 'main',
   BATCH = 'batch',
   INSPECTOR = 'inspector',
+  API_INSPECTOR = 'api-inspector',
   SETTINGS = 'settings',
 }
 
@@ -67,6 +68,13 @@ export function NavigationTabs () {
             <path fillRule="evenodd" d="M7.5 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0V8z"/>
             <path fillRule="evenodd" d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
           </svg>
+        </a>
+      </li>
+      <li className="nav-item text-primary">
+        <a className={`nav-link crisp-tab p-2 ${isActive(NavigationTabType.API_INSPECTOR) ? 'active' : ''}`} data-toggle="pill" data-tab-name="api-inspector"
+          onClick={() => handleTabClick(NavigationTabType.API_INSPECTOR)}
+        >
+          API
         </a>
       </li>
       <li className="nav-item text-primary">

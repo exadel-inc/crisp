@@ -16,11 +16,13 @@ import { ConfirmModal } from './components/shared/confirm-modal/confirm-modal.co
 import { ImportModal } from './components/shared/import-modal/import-modal.component';
 import { ImportTypeConfirmationModal } from './components/shared/import-type-confirmation-modal/import-type-confirmation-modal.component';
 import { ExportModal } from './components/shared/export-modal/export-modal.component';
+import { ApiInspectorTab } from './components/api-inspector/inspector-tab.component';
 
 const MainNavigation = () => <div className="tab-content">
   <MainTab/>
   <BatchGenerateTab/>
   <InspectorTab/>
+  <ApiInspectorTab/>
   <SettingsTab/>
 </div>;
 

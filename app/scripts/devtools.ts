@@ -24,6 +24,15 @@ chrome.devtools.panels.elements.createSidebarPane('CRISP', (sidebar) => {
       });
     }
   }
+
+  chrome.devtools.network.onRequestFinished.addListener(
+    function(request) {
+      console.log('request', request);
+      chrome.runtime.sendMessage({ target: 'passNewRequest', data: request }, (response) => {
+        console.log(response);
+      });
+    }
+  );
 });
 
 function evaluate(input: string): Promise<string> {
