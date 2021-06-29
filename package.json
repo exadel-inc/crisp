@@ -47,6 +47,8 @@
     "path": "^0.12.7",
     "redux-devtools": "^3.7.0",
     "require-dir": "1.x.x",
+    "sass": "^1.34.1",
+    "sass-loader": "^12.1.0",
     "stylelint": "^12.0.1",
     "stylelint-config-standard": "^19.0.0",
     "terser-webpack-plugin": "^5.0.3",
