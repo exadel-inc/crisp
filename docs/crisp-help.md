@@ -21,6 +21,7 @@
 
 ## CRISP overview
 CRISP is an open-source Chrome extension which helps to select web elements on the page, automatically populate its selectors, assign configured actions and generate ready test code based on the customized patterns. It can speed up the process of test development by replacing manual time-consuming operations with automated features.
+![](./overview.gif)
 ## How to get started
 To start using CRISP:
 1. Launch Chrome browser.
