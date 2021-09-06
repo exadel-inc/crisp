@@ -32,7 +32,7 @@ To start using CRISP:
 
 As a result, the main page of CRISP extension “Add element” is displayed and ready for usage with default settings.
 
-For more details please refer to the [CRISP manual](./app/pages/crisp-help.html).
+For more details please refer to the [CRISP manual](./docs/crisp-help.md).
 
 ## Upcoming features
 
