@@ -1,6 +1,8 @@
 # CRISP overview
 
 CRISP is an open-source Chrome extension which helps to select web elements on the page, automatically populate its selectors, assign configured actions and generate ready test code based on the customized patterns. It can speed up the process of test development by replacing manual time-consuming operations with automated features.
+<br>
+CRISP comes with predefined steps for [WebdriverIO Cucumber Boilerplate](https://github.com/webdriverio/cucumber-boilerplate#cucumber-boilerplate) project. Just follow the [Quick start](https://github.com/webdriverio/cucumber-boilerplate#quick-start) guide to setup the project, install and use CRISP to generate test steps, add them to [new scenario](https://github.com/webdriverio/cucumber-boilerplate#how-to-write-a-test) in Boilerplate project and [run](https://github.com/webdriverio/cucumber-boilerplate#how-to-run-the-test).
 ![](./docs/overview.gif)
 ## Installation
 
