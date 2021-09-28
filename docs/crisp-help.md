@@ -40,11 +40,9 @@ To start using CRISP:
 4. Open "CRISP" sub-tab on the same level with the "Styles" sub-tab.
 5. Click [+] icon to open “Add element” screen.
 6. Launch the “Inspect” tool and select the necessary element at the page. 
-<br>
-_(As a result, CRISP will populate found locators of the element into the related fields “ID”, “CSS”, “xPath”_).
+<br>_(As a result, CRISP will populate found locators of the element into the related fields “ID”, “CSS”, “xPath”_).
 7. Select the necessary test “Actions\Verifications” for this element.
-<br>
-_(e.g. “`click`” or “`expect element is displayed`”)_
+<br>_(e.g. “`click`” or “`expect element is displayed`”)_
 8. Click [Save] button.
 9. Open “Test Actions\Verifications” tab in the bottom.
 10. Click “Generate for page” button and see results.
