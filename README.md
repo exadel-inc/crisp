@@ -9,16 +9,27 @@ CRISP is an open-source Chrome extension which helps to select web elements on t
 1. [run](https://github.com/webdriverio/cucumber-boilerplate#how-to-run-the-test) the test
 
 ![](./docs/overview.gif)
+
+## Requirements
+- [Node](https://nodejs.org/en/) version 12 or higher
 ## Installation
 
+1. Download the latest stable release [here](https://github.com/exadel-inc/crisp/archive/refs/heads/master.zip) or clone the git repo: 
+```
+git clone https://github.com/exadel-inc/crisp.git
+```
+
+2. Navigate to the root folder and run the command to install the dependencies
 ```
 $ npm install
 ```
-
-## Usage
-
-Run `$ npm start` and load the `dist`-directory into chrome.
-_______
+3. Run the command to build the artifacts
+```
+$ npm start
+```
+5. Launch Chrome browser and open the Extension Management page by navigating to `chrome://extensions`
+6. Enable Developer Mode by clicking the toggle switch next to **Developer mode**.
+7. Click the **Load unpacked** button and select the `dist` directory from CRISP files.
 ## How to get started
 
 To start using CRISP:
@@ -43,7 +54,8 @@ To start using CRISP:
 ## Tips & Tricks
 - Use ![](./app/images/sign-in.svg) to generate test steps sequentially for different elements and create comprehensive E2E scenarios.
 - [Create new pages](./docs/crisp-help.md#saved-pages) to store elements.
-- Customize and define your own steps and patterns in the “Settings” -> [“Framework”](./docs/crisp-help.md#framework)
+- [Add many elements at once](./docs/crisp-help.md#addelementsinbulk) based on a common attribute.
+- Customize and define your own steps and patterns in the “Settings” -> [“Framework”](./docs/crisp-help.md#framework).
 
 For more details please refer to the [CRISP manual](./docs/crisp-help.md).
 _______
