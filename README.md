@@ -16,9 +16,8 @@ CRISP is an open-source Chrome extension which helps to select web elements on t
 
 1. Download the latest stable release [here](https://github.com/exadel-inc/crisp/archive/refs/heads/master.zip) or clone the git repo: 
 ```
-git clone https://github.com/exadel-inc/crisp.git
+$ git clone https://github.com/exadel-inc/crisp.git
 ```
-
 2. Navigate to the root folder and run the command to install the dependencies
 ```
 $ npm install
@@ -27,9 +26,9 @@ $ npm install
 ```
 $ npm start
 ```
-5. Launch Chrome browser and open the Extension Management page by navigating to `chrome://extensions`
-6. Enable Developer Mode by clicking the toggle switch next to **Developer mode**.
-7. Click the **Load unpacked** button and select the `dist` directory from CRISP files.
+4. Launch Chrome browser and open the Extension Management page by navigating to `chrome://extensions`
+5. Enable Developer Mode by clicking the toggle switch next to **Developer mode**.
+6. Click the **Load unpacked** button and select the `dist` directory from CRISP files.
 ## How to get started
 
 To start using CRISP:
