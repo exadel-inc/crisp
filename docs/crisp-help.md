@@ -38,7 +38,7 @@ To start using CRISP:
 	- Or press F12 key.
 3. Open “Elements” tab.
 4. Open "CRISP" sub-tab on the same level with the "Styles" sub-tab.
-![](./cirps_opened.png)
+![](./crisp_opened.png)
 5. Click [+] icon to open “Add element” screen.
 6. Launch the “Inspect” tool and select the necessary element at the page. 
 <br>_(As a result, CRISP will populate found locators of the element into the related fields “ID”, “CSS”, “xPath”_).
