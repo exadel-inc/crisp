@@ -21,6 +21,14 @@
 
 ## CRISP overview
 CRISP is an open-source Chrome extension which helps to select web elements on the page, automatically populate its selectors, assign configured actions and generate ready test code based on the customized patterns. It can speed up the process of test development by replacing manual time-consuming operations with automated features.
+<br>
+### CRISP configured to use [WebdriverIO Cucumber Boilerplate](https://github.com/webdriverio/cucumber-boilerplate#cucumber-boilerplate) project by default.
+1. follow the [quick start](https://github.com/webdriverio/cucumber-boilerplate#quick-start) guide to setup the project
+1. install and use CRISP to generate test steps
+1. add them to [new scenario](https://github.com/webdriverio/cucumber-boilerplate#how-to-write-a-test) in Boilerplate project
+1. [run](https://github.com/webdriverio/cucumber-boilerplate#how-to-run-the-test) the test
+
+![](./overview.gif)
 ## How to get started
 To start using CRISP:
 1. Launch Chrome browser.
@@ -30,8 +38,16 @@ To start using CRISP:
 	- Or press F12 key.
 3. Open “Elements” tab.
 4. Open "CRISP" sub-tab on the same level with the "Styles" sub-tab.
-
-As a result, the main page of CRISP extension 'Add element' is displayed and ready for usage with default settings.
+![](./crisp_opened.png)
+5. Click [+] icon to open “Add element” screen.
+6. Launch the “Inspect” tool and select the necessary element at the page. 
+<br>_(As a result, CRISP will populate found locators of the element into the related fields “ID”, “CSS”, “xPath”_).
+7. Select the necessary test “Actions\Verifications” for this element.
+<br>_(e.g. “`click`” or “`expect element is displayed`”)_
+8. Click [Save] button.
+9. Open “Test Actions\Verifications” tab in the bottom.
+10. Click “Generate for page” button and see results.
+11. Copy & Paste the generated test steps into new scenario in WebdriverIO Cucumber Boilerplate project and run it
 
 ## How to use CRISP
 ### Settings
