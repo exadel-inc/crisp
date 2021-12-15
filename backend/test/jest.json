@@ -1,0 +1,16 @@
+{
+  "notify": true,
+  "verbose": true,
+  "moduleNameMapper": {
+    "^src/(.*)$": "<rootDir>/src/$1",
+    "^test/(.*)$": "<rootDir>/test/$1"
+  },
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "../",
+  "testEnvironment": "node",
+  "testRegex": "/src/.*\\.(test|spec).(ts|tsx|js)$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "coverageReporters": ["json-summary", "text"]
+}

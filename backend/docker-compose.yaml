@@ -1,0 +1,24 @@
+version: "3.3"
+services:
+  mongo:
+    image: mongo
+    restart: always
+    ports:
+      - "27020:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: crisp
+      MONGO_INITDB_ROOT_PASSWORD: crisp
+    volumes:
+      - dbdata:/data/db
+    networks:
+      - default
+
+volumes:
+  dbdata:
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 173.16.57.0/24
