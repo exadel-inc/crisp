@@ -1,0 +1,11 @@
+body {
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+}
+
+a.nav-link:not(.active):hover {
+  background-color: rgba(13, 110, 253, 0.2);
+}
