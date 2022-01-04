@@ -1,1 +1,0 @@
-export const initialDate = new Date('1970-01-01');
