@@ -29,7 +29,7 @@ async function bootstrap() {
         errors: errorParser(errors),
       }),
     forbidNonWhitelisted: true,
-    forbidUnknownValues: true,
+    forbidUnknownValues: false,
     whitelist: true,
     transform: true,
     transformOptions: {

@@ -7,9 +7,11 @@ import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { JwtConfigService } from '../auth/jwt-config.service';
 import { ConfigService } from 'src/config';
+import { RoleModule } from '../role/role.module';
 
 @Module({
   imports: [
+    RoleModule,
     MongooseModule.forFeature([{ name: UserEntity.name, schema: UserSchema }]),
     JwtModule.registerAsync({ useClass: JwtConfigService, inject: [ConfigService] }),
     PassportModule.register({ defaultStrategy: 'jwt' }),

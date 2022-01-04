@@ -18,10 +18,11 @@
   },
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "nest build",
+    "build": "nest build && npm run remove-dts",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "cross-env NODE_ENV=development nest start --watch",
+    "start:exm": "cross-env NODE_ENV=example nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "NODE_ENV=production node dist/main",
     "doc": "npm run doc:generate -- -s",
@@ -31,7 +32,11 @@
     "test:watch": "npm run test -- --watch",
     "test:cov": "npm run test -- --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "migrate:build": "rm -rf dist/database/migrations && tsc src/database/migrations/*.ts --outDir dist --experimentalDecorators \"true\"",
+    "migrate": "NODE_ENV=development node dist/database/migrate.js",
+    "remove-dts": "find dist/database/migrations -name \"*.d.ts\" -delete",
+    "migrate-create": "./node_modules/migrate/bin/migrate-create --migrations-dir src/database/migrations/ -t ./src/database/migration.template.ts"
   },
   "dependencies": {
     "@nestjs/common": "7.4.4",
@@ -55,8 +60,11 @@
     "fastify-multipart": "^3.2.1",
     "fastify-rate-limit": "^4.0.3",
     "fastify-swagger": "^3.3.0",
+    "fs-extra": "^10.0.0",
+    "migrate": "^1.7.0",
     "mongoose": "^6.1.1",
     "node-fetch": "^2.6.1",
+    "p-retry": "^5.0.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "pg": "^8.3.3",

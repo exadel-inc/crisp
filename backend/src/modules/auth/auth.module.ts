@@ -7,11 +7,13 @@ import { JwtStrategy } from './jwt.strategy';
 import { JwtConfigService } from './jwt-config.service';
 import { ConfigService } from 'src/config';
 import { UserModule } from '../user';
-import { BcryptHashService } from '../../common/services/bcrypt-hash.service';
+import { BcryptHashService } from '../../common/services';
+import { RoleModule } from '../role/role.module';
 
 @Module({
   imports: [
     UserModule,
+    RoleModule,
     JwtModule.registerAsync({ useClass: JwtConfigService, inject: [ConfigService] }),
     PassportModule.register({ defaultStrategy: 'jwt' }),
   ],

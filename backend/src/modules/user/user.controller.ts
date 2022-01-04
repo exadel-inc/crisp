@@ -14,6 +14,9 @@ import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateUserDto, UpdateUserDto } from './dto';
 import { UserEntity } from './user.entity';
 import { AuthGuard } from '@nestjs/passport';
+import { Types } from 'mongoose';
+import { RoleGuard } from 'src/common/guards';
+import { RoleTypeEnum } from 'src/common/enums';
 
 @ApiTags('users')
 @Controller('users')
@@ -43,10 +46,11 @@ export class UserController {
     description: 'Not found user.',
   })
   public async getUserById(@Param('id') id: string): Promise<UserEntity> {
-    return this.userService.getUserById(id);
+    return this.userService.getUserById(new Types.ObjectId(id));
   }
 
   @Put(':id')
+  @UseGuards(RoleGuard(RoleTypeEnum.ADMIN))
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
@@ -62,10 +66,11 @@ export class UserController {
     @Param('id') id: string,
     @Body(new ValidationPipe()) updateUserDto: UpdateUserDto,
   ): Promise<UserEntity> {
-    return this.userService.updateUserById(id, updateUserDto);
+    return this.userService.updateUserById(new Types.ObjectId(id), updateUserDto);
   }
 
   @Delete(':id')
+  @UseGuards(RoleGuard(RoleTypeEnum.ADMIN))
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
@@ -77,7 +82,7 @@ export class UserController {
     description: 'Not found user.',
   })
   public async deleteUserById(@Param('id') id: string): Promise<UserEntity> {
-    return this.userService.deleteUserById(id);
+    return this.userService.deleteUserById(new Types.ObjectId(id));
   }
 
   @Post()

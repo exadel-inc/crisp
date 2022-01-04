@@ -1,5 +1,6 @@
-import { IsEmail, IsOptional, IsString, MaxLength, MinLength } from 'class-validator';
+import { IsArray, IsEmail, IsOptional, IsString, MaxLength, MinLength } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { Types } from 'mongoose';
 
 export class UpdateUserDto {
   @IsString()
@@ -19,4 +20,14 @@ export class UpdateUserDto {
   @IsOptional()
   @ApiProperty({ example: 'refreshToken' })
   public readonly currentHashedRefreshToken?: string;
+
+  @IsArray()
+  @IsOptional()
+  @ApiProperty({ example: [new Types.ObjectId(), new Types.ObjectId()] })
+  public readonly projects?: Types.ObjectId[];
+
+  @IsArray()
+  @IsOptional()
+  @ApiProperty({ description: 'Granted permissions for particular user.' })
+  public readonly grants?: string[];
 }

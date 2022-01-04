@@ -11,7 +11,7 @@ export function errorParser(errors: ValidationError[]): Record<string, unknown>[
     return Object.assign(
       { property },
       constraints && { constraints: Object.keys(constraints) },
-      children.length && { children: errorParser(children) },
+      children && children.length && { children: errorParser(children) },
     );
   });
 }

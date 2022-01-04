@@ -1,5 +1,6 @@
-import { IsEmail, IsString, MaxLength, MinLength } from 'class-validator';
+import { IsArray, IsEmail, IsString, MaxLength, MinLength } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
+import { Types } from 'mongoose';
 
 export class CreateUserDto {
   @IsString()
@@ -16,4 +17,8 @@ export class CreateUserDto {
   @IsString()
   @ApiProperty({ example: 'password' })
   public readonly password: string;
+
+  @IsArray()
+  @ApiProperty({ example: [new Types.ObjectId(), new Types.ObjectId()] })
+  public readonly roles: Types.ObjectId[];
 }
