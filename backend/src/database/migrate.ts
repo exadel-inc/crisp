@@ -44,7 +44,7 @@ store.connect().then(async () => {
   );
 });
 
-process.on('unhandledRejection', (reason, promise) => {
+process.on('unhandledRejection', (reason) => {
   logger.error(`unhandledRejection': ${reason})`);
   process.exit(1);
 });
