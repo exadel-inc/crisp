@@ -1,4 +1,4 @@
-import { Controller, Post, Body, ValidationPipe } from '@nestjs/common';
+import { Controller, Post, Body, ValidationPipe, HttpStatus } from '@nestjs/common';
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AuthService } from './services';
 import { RegisterDto, LoginDto, LogoutDto, RefreshAccessTokenDto } from './dto';
@@ -11,11 +11,11 @@ export class AuthController {
 
   @Post('/register')
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.CREATED,
     description: 'User has been successfully registrated.',
   })
   @ApiResponse({
-    status: 409,
+    status: HttpStatus.CONFLICT,
     description: 'Validation failed.',
   })
   @ApiBody({ type: RegisterDto })
@@ -25,11 +25,11 @@ export class AuthController {
 
   @Post('/login')
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'The user successfully logged in.',
   })
   @ApiResponse({
-    status: 409,
+    status: HttpStatus.CONFLICT,
     description: 'Invalid credentials: (email), please fill in correct one.',
   })
   @ApiBody({ type: LoginDto })
@@ -39,11 +39,11 @@ export class AuthController {
 
   @Post('/logout')
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Logged out successfully.',
   })
   @ApiResponse({
-    status: 409,
+    status: HttpStatus.CONFLICT,
     description: 'Invalid refreshToken.',
   })
   @ApiBody({ type: LogoutDto })
@@ -53,11 +53,11 @@ export class AuthController {
 
   @Post('/refresh-access-token')
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'New access token was generated successfully.',
   })
   @ApiResponse({
-    status: 409,
+    status: HttpStatus.CONFLICT,
     description: 'Invalid refreshToken.',
   })
   @ApiBody({ type: RefreshAccessTokenDto })
