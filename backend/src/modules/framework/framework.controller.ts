@@ -8,6 +8,7 @@ import {
   UseGuards,
   ValidationPipe,
   Post,
+  HttpStatus,
 } from '@nestjs/common';
 import { FrameworkService } from './services';
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -27,7 +28,7 @@ export class FrameworkController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned all frameworks.',
   })
   public async getFrameworks(): Promise<FrameworkEntity[]> {
@@ -38,11 +39,11 @@ export class FrameworkController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned a framework by id.',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found framework.',
   })
   public async getFrameworkById(@Param('id') id: string): Promise<FrameworkEntity> {
@@ -54,11 +55,11 @@ export class FrameworkController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Framework updated successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found framework.',
   })
   @ApiBody({ type: UpdateFrameworkDto })
@@ -74,11 +75,11 @@ export class FrameworkController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Framework deleted successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found framework.',
   })
   public async deleteFrameworkById(@Param('id') id: string): Promise<FrameworkEntity> {
@@ -90,7 +91,7 @@ export class FrameworkController {
   @UseGuards(PermissionGuard(PermissionTypeEnum.WRITE, ResourceTypeEnum.FRAMEWORK))
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.CREATED,
     description: 'Framework was successfully created.',
   })
   @ApiBody({ type: CreateFrameworkDto })

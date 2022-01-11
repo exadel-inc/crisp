@@ -8,6 +8,7 @@ import {
   UseGuards,
   ValidationPipe,
   Post,
+  HttpStatus,
 } from '@nestjs/common';
 import { UserService } from './services';
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -27,7 +28,7 @@ export class UserController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned all users.',
   })
   public async getUsers(): Promise<UserEntity[]> {
@@ -38,11 +39,11 @@ export class UserController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned a user by id.',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found user.',
   })
   public async getUserById(@Param('id') id: string): Promise<UserEntity> {
@@ -54,11 +55,11 @@ export class UserController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'User updated successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found user.',
   })
   @ApiBody({ type: UpdateUserDto })
@@ -74,11 +75,11 @@ export class UserController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'User deleted successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found user.',
   })
   public async deleteUserById(@Param('id') id: string): Promise<UserEntity> {
@@ -89,7 +90,7 @@ export class UserController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.CREATED,
     description: 'User was successfully created.',
   })
   @ApiBody({ type: CreateUserDto })

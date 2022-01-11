@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  HttpStatus,
   Param,
   Post,
   Put,
@@ -27,7 +28,7 @@ export class ProjectController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned all projects.',
   })
   public async getProjects(): Promise<ProjectEntity[]> {
@@ -38,11 +39,11 @@ export class ProjectController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned a project by id.',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found project.',
   })
   public async getProjectById(@Param('id') id: string): Promise<ProjectEntity> {
@@ -54,11 +55,11 @@ export class ProjectController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Project updated successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found project.',
   })
   @ApiBody({ type: UpdateProjectDto })
@@ -74,11 +75,11 @@ export class ProjectController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Project deleted successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found project.',
   })
   public async deleteProjectById(@Param('id') id: string): Promise<ProjectEntity> {
@@ -90,7 +91,7 @@ export class ProjectController {
   @UseGuards(PermissionGuard(PermissionTypeEnum.WRITE, ResourceTypeEnum.PROJECT))
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.CREATED,
     description: 'Project was successfully created.',
   })
   @ApiBody({ type: CreateProjectDto })

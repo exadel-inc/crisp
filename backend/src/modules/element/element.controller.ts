@@ -8,6 +8,7 @@ import {
   UseGuards,
   ValidationPipe,
   Post,
+  HttpStatus,
 } from '@nestjs/common';
 import { ElementService } from './services';
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -25,7 +26,7 @@ export class ElementController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned all elements.',
   })
   public async getElements(): Promise<ElementEntity[]> {
@@ -36,11 +37,11 @@ export class ElementController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned a element by id.',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found element.',
   })
   public async getElementById(@Param('id') id: string): Promise<ElementEntity> {
@@ -51,11 +52,11 @@ export class ElementController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Element updated successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found element.',
   })
   @ApiBody({ type: UpdateElementDto })
@@ -70,11 +71,11 @@ export class ElementController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Element deleted successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found element.',
   })
   public async deleteElementById(@Param('id') id: string): Promise<ElementEntity> {
@@ -85,7 +86,7 @@ export class ElementController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.CREATED,
     description: 'Element was successfully created.',
   })
   @ApiBody({ type: CreateElementDto })

@@ -8,6 +8,7 @@ import {
   UseGuards,
   ValidationPipe,
   Post,
+  HttpStatus,
 } from '@nestjs/common';
 import { ResourceService } from './services';
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -27,7 +28,7 @@ export class ResourceController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned all resources.',
   })
   public async getResources(): Promise<ResourceEntity[]> {
@@ -38,11 +39,11 @@ export class ResourceController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned a resource by id.',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found resource.',
   })
   public async getResourceById(@Param('id') id: string): Promise<ResourceEntity> {
@@ -54,11 +55,11 @@ export class ResourceController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Resource updated successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found resource.',
   })
   @ApiBody({ type: UpdateResourceDto })
@@ -74,11 +75,11 @@ export class ResourceController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Resource deleted successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found resource.',
   })
   public async deleteResourceById(@Param('id') id: string): Promise<ResourceEntity> {
@@ -90,7 +91,7 @@ export class ResourceController {
   @UseGuards(RoleGuard(RoleTypeEnum.ADMIN))
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.CREATED,
     description: 'Resource was successfully created.',
   })
   @ApiBody({ type: CreateResourceDto })

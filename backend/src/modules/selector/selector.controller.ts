@@ -8,6 +8,7 @@ import {
   UseGuards,
   ValidationPipe,
   Post,
+  HttpStatus,
 } from '@nestjs/common';
 import { SelectorService } from './services';
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
@@ -27,7 +28,7 @@ export class SelectorController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned all selectors.',
   })
   public async getSelectors(): Promise<SelectorEntity[]> {
@@ -38,11 +39,11 @@ export class SelectorController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned a selector by id.',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found selector.',
   })
   public async getSelectorById(@Param('id') id: string): Promise<SelectorEntity> {
@@ -54,11 +55,11 @@ export class SelectorController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Selector updated successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found selector.',
   })
   @ApiBody({ type: UpdateSelectorDto })
@@ -74,11 +75,11 @@ export class SelectorController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Selector deleted successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found selector.',
   })
   public async deleteSelectorById(@Param('id') id: string): Promise<SelectorEntity> {
@@ -90,7 +91,7 @@ export class SelectorController {
   @UseGuards(PermissionGuard(PermissionTypeEnum.WRITE, ResourceTypeEnum.SELECTOR))
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.CREATED,
     description: 'Selector was successfully created.',
   })
   @ApiBody({ type: CreateSelectorDto })

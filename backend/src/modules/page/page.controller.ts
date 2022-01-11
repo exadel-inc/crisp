@@ -8,6 +8,7 @@ import {
   UseGuards,
   ValidationPipe,
   Post,
+  HttpStatus,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatePageDto, UpdatePageDto } from './dto';
@@ -25,7 +26,7 @@ export class PageController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned all pages.',
   })
   public async getPages(): Promise<PageEntity[]> {
@@ -36,11 +37,11 @@ export class PageController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned a page by id.',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found page.',
   })
   public async getPageById(@Param('id') id: string): Promise<PageEntity> {
@@ -51,11 +52,11 @@ export class PageController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Page updated successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found page.',
   })
   @ApiBody({ type: UpdatePageDto })
@@ -70,11 +71,11 @@ export class PageController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Page deleted successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found page.',
   })
   public async deletePageById(@Param('id') id: string): Promise<PageEntity> {
@@ -85,7 +86,7 @@ export class PageController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.CREATED,
     description: 'Page was successfully created.',
   })
   @ApiBody({ type: CreatePageDto })

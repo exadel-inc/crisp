@@ -8,6 +8,7 @@ import {
   UseGuards,
   ValidationPipe,
   Post,
+  HttpStatus,
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatePatternDto, UpdatePatternDto } from './dto';
@@ -27,7 +28,7 @@ export class PatternController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned all patterns.',
   })
   public async getPatterns(): Promise<PatternEntity[]> {
@@ -38,11 +39,11 @@ export class PatternController {
   @ApiBearerAuth()
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 200,
+    status: HttpStatus.OK,
     description: 'Returned a pattern by id.',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found pattern.',
   })
   public async getPatternById(@Param('id') id: string): Promise<PatternEntity> {
@@ -54,11 +55,11 @@ export class PatternController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Pattern updated successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found pattern.',
   })
   @ApiBody({ type: UpdatePatternDto })
@@ -74,11 +75,11 @@ export class PatternController {
   @UseGuards(AuthGuard())
   @ApiBearerAuth()
   @ApiResponse({
-    status: 204,
+    status: HttpStatus.NO_CONTENT,
     description: 'Pattern deleted successfully',
   })
   @ApiResponse({
-    status: 404,
+    status: HttpStatus.NOT_FOUND,
     description: 'Not found pattern.',
   })
   public async deletePatternById(@Param('id') id: string): Promise<PatternEntity> {
@@ -90,7 +91,7 @@ export class PatternController {
   @UseGuards(PermissionGuard(PermissionTypeEnum.WRITE, ResourceTypeEnum.PATTERN))
   @UseGuards(AuthGuard())
   @ApiResponse({
-    status: 201,
+    status: HttpStatus.CREATED,
     description: 'Pattern was successfully created.',
   })
   @ApiBody({ type: CreatePatternDto })
