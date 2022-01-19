@@ -85,7 +85,10 @@ After installing the above, you need to perform the following steps to set your 
    ```
 
    Note that this doest not run migrations and synchronizes db instance on startup. If you want to run it,
-   additionally `npm run migrate`.
+   additionally:
+
+   - `npm run build`
+   - `npm run migrate up`.
 
 ### Common conventions
 
