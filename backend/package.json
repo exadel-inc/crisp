@@ -86,7 +86,6 @@
     "@types/passport": "^1.0.4",
     "@types/passport-jwt": "^3.0.3",
     "@types/supertest": "^2.0.8",
-    "@types/twilio": "^2.11.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "chai": "^4.2.0",
