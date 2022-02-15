@@ -25,7 +25,7 @@ RUN npm run build
 
 ### Runtime
 FROM node:12-alpine as runtime
-ENV NODE_ENV=development
+ENV NODE_ENV=production
 
 # Copy runtime dependencies
 COPY --chown=node:node --from=base /app/node_modules ./node_modules
@@ -33,4 +33,4 @@ COPY --chown=node:node --from=base /app/.env.${NODE_ENV} ./
 COPY --chown=node:node --from=base /app/package.json ./
 COPY --chown=node:node --from=builder /app/dist ./dist
 
-CMD ["npm", "run", "start:dev"]
+CMD ["npm", "run", "start:prod"]
