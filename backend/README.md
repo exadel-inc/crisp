@@ -47,7 +47,7 @@ Use `.env.example` as a reference.
 
 ### 3. Start app dependencies under docker project
 
-`docker-compose up -d`
+`docker-compose --env-file .env.<env-name e.g: production> up -d`
 
 ### 4. Start app
 
@@ -71,7 +71,7 @@ After installing the above, you need to perform the following steps to set your 
 1. Do not forget to run `npm install` to install the required dependencies.
 2. Use `.env.example` file as guidance and set up the environment variables listed there.
    Reach out to others to get the necessary configurations. _This is required to set up the app!_
-3. Run `docker-compose up` in your command shell to spin up local db instances.
+3. Run `docker-compose --env-file .env.<env-name e.g: production> up` in your command shell to spin up local db instances.
 4. Run
 
    ```shell

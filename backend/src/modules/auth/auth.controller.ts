@@ -2,7 +2,12 @@ import { Controller, Post, Body, ValidationPipe, HttpStatus } from '@nestjs/comm
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { AuthService } from './services';
 import { RegisterDto, LoginDto, LogoutDto, RefreshAccessTokenDto } from './dto';
-import { ResponseSuccess, RefreshAccessTokenResponse, LoginResponse } from './auth.interface';
+import {
+  ResponseSuccess,
+  RefreshAccessTokenResponse,
+  LoginResponse,
+  LogoutResponse,
+} from './auth.interface';
 
 @ApiTags('auth')
 @Controller('auth')
@@ -47,7 +52,7 @@ export class AuthController {
     description: 'Invalid refreshToken.',
   })
   @ApiBody({ type: LogoutDto })
-  public logout(@Body(new ValidationPipe()) credentials: LogoutDto): Promise<ResponseSuccess> {
+  public logout(@Body(new ValidationPipe()) credentials: LogoutDto): Promise<LogoutResponse> {
     return this.authService.logout(credentials);
   }
 
