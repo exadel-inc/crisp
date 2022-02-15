@@ -39,6 +39,7 @@
     "migrate-create": "./node_modules/migrate/bin/migrate-create --migrations-dir src/database/migrations/ -t ./src/database/migration.template.ts"
   },
   "dependencies": {
+    "@compodoc/compodoc": "^1.1.18",
     "@nestjs/common": "7.4.4",
     "@nestjs/core": "7.4.4",
     "@nestjs/jwt": "^7.2.0",
@@ -64,19 +65,15 @@
     "migrate": "^1.7.0",
     "mongoose": "^6.1.1",
     "node-fetch": "^2.6.1",
-    "p-retry": "^5.0.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "pg": "^8.3.3",
     "reflect-metadata": "0.1.13",
     "rxjs": "^7.4.0",
-    "twilio": "^3.54.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-angular": "^11.0.0",
-    "@compodoc/compodoc": "^1.1.11",
     "@nestjs/cli": "^7.0.0",
     "@nestjs/schematics": "^7.0.0",
     "@nestjs/testing": "^7.0.0",
@@ -89,7 +86,6 @@
     "@types/passport": "^1.0.4",
     "@types/passport-jwt": "^3.0.3",
     "@types/supertest": "^2.0.8",
-    "@types/twilio": "^2.11.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
     "chai": "^4.2.0",

@@ -12,17 +12,26 @@ import { Types } from 'mongoose';
 import { Type } from 'class-transformer';
 import { ElementSelectorsDto } from './element-selectors.dto';
 import { ElementPatternDataDto } from './element-pattern-data.dto';
+import { setValidationMessage } from 'src/common/helpers';
 
 export class CreateElementDto {
   @IsString()
-  @MinLength(2)
-  @MaxLength(50)
+  @MinLength(2, {
+    message: setValidationMessage('Element name should be more than'),
+  })
+  @MaxLength(50, {
+    message: setValidationMessage('Element name should be less than'),
+  })
   @ApiProperty({ example: 'Placeholder (for steps without elements)' })
   public readonly name: string;
 
   @IsString()
-  @MinLength(0)
-  @MaxLength(50)
+  @MinLength(0, {
+    message: setValidationMessage('Element description should be more than'),
+  })
+  @MaxLength(50, {
+    message: setValidationMessage('Element description should be less than'),
+  })
   @ApiProperty({ example: 'element desciption' })
   public readonly description: string;
 

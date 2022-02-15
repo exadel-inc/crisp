@@ -18,7 +18,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
         .status(exception.getStatus())
         .send({ statusCode: exception.getStatus(), messages: exceptionBody.errors });
     }
-    console.log('My error message', { statusCode: exception.getStatus(), messages: [messageObj] });
+    console.dir('My error message', { statusCode: exception.getStatus(), messages: [messageObj] });
     return response
       .status(exception.getStatus())
       .send({ statusCode: exception.getStatus(), messages: [messageObj] });

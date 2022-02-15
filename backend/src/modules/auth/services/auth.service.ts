@@ -3,7 +3,12 @@ import { JwtService } from '@nestjs/jwt';
 import { UserService } from 'src/modules/user';
 import { ConfigService } from 'src/config';
 import { RegisterDto, LoginDto, LogoutDto } from '../dto';
-import { ResponseSuccess, RefreshAccessTokenResponse, LoginResponse } from '../auth.interface';
+import {
+  ResponseSuccess,
+  RefreshAccessTokenResponse,
+  LoginResponse,
+  LogoutResponse,
+} from '../auth.interface';
 import { createError } from '../../../common/helpers/error-handling.helpers';
 import { ErrorTypeEnum, RoleTypeEnum } from '../../../common/enums';
 import { BcryptHashService } from '../../../common/services/bcrypt-hash.service';
@@ -11,6 +16,7 @@ import { TokenPayload } from '../token-payload.interface';
 import { UserEntityWithId } from 'src/modules/user/user.entity';
 import { Types } from 'mongoose';
 import { RoleService } from 'src/modules/role';
+import { secondsToHours } from 'src/common/helpers';
 
 @Injectable()
 export class AuthService {
@@ -31,12 +37,18 @@ export class AuthService {
     const hashedPassword = await this.bcryptHashService.hashPassword(credentials.password);
     const userRole = await this.roleService.getRoleByName(RoleTypeEnum.USER);
 
-    await this.userService.createUser({
+    const user = await this.userService.createUser({
       ...credentials,
       password: hashedPassword,
       roles: [userRole._id],
     });
-    return { result: 'success' };
+    const accessToken: string = await this.getAndGenerateJwtAccessToken(user._id);
+    const refreshToken: string = await this.getAndGenerateJwtRefreshToken(user.email);
+    await this.userService.setCurrentRefreshTokenAndGetUser(user._id, refreshToken);
+    const expiresIn: number = secondsToHours(
+      this.configService.get('JWT_ACCESS_TOKEN_EXPIRATION_TIME'),
+    );
+    return { accessToken, refreshToken, expiresIn: `${expiresIn}h` };
   }
 
   public async login(credentials: LoginDto): Promise<LoginResponse> {
@@ -50,15 +62,18 @@ export class AuthService {
     const accessToken: string = await this.getAndGenerateJwtAccessToken(user._id);
     const refreshToken: string = await this.getAndGenerateJwtRefreshToken(user.email);
     await this.userService.setCurrentRefreshTokenAndGetUser(user._id, refreshToken);
-    return { accessToken, refreshToken };
+    const expiresIn: number = secondsToHours(
+      this.configService.get('JWT_ACCESS_TOKEN_EXPIRATION_TIME'),
+    );
+    return { accessToken, refreshToken, expiresIn: `${expiresIn}h` };
   }
 
-  public async logout(credentials: LogoutDto): Promise<ResponseSuccess> {
+  public async logout(credentials: LogoutDto): Promise<LogoutResponse> {
     const user: UserEntityWithId = await this.userService.getUserIfRefreshTokenMatches(
       credentials.refreshToken,
     );
     await this.userService.removeRefreshToken(user._id);
-    return { result: 'success' };
+    return { userId: user._id.toString() };
   }
 
   public async getAndGenerateJwtAccessToken(userId: Types.ObjectId): Promise<string> {

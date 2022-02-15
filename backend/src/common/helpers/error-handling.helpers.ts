@@ -10,7 +10,7 @@ export function errorParser(errors: ValidationError[]): Record<string, unknown>[
   return errors.map(({ property, constraints, children }) => {
     return Object.assign(
       { property },
-      constraints && { constraints: Object.keys(constraints) },
+      constraints,
       children && children.length && { children: errorParser(children) },
     );
   });
