@@ -180,3 +180,27 @@ footer {
     }
   }
 }
+
+.search {
+  min-width: 320px;
+  padding: 10px 8px 11px 16px;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  background: url('../images/icons/inputBackgraund.svg') no-repeat center right 8px;
+
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    background: url('../images/icons/cancelInput.svg') no-repeat center right;
+    height: 20px;
+    width: 20px;
+  }
+
+  &:focus {
+    outline: 1px solid #0093fe;
+    font-weight: bold;
+
+    &::placeholder {
+      font-weight: normal;
+    }
+  }
+}
