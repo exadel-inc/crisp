@@ -204,3 +204,32 @@ footer {
     }
   }
 }
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  button {
+    background-color: #0093fe;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding-top: 11px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    transition: background-color ease-in 300ms;
+
+    &:hover {
+      background-color: darken(#0093fe, 10%);
+    }
+  }
+
+  .disabled {
+    background-color: #dcdcdc;
+
+    &:hover {
+      background-color: #dcdcdc;
+    }
+  }
+}
