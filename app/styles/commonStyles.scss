@@ -1,0 +1,19 @@
+//Colors
+$activeColor: #0093fe;
+$darkMainColor: rgba(94, 92, 92, 1);
+$lightMainColor: #dcdcdc;
+
+//Animation
+$common-animation: all 200ms ease-in;
+
+//Shadow
+$commonShadow: 0 0 3px 0 $darkMainColor;
+
+//Exports
+:export {
+  activeColor: $activeColor;
+  lightMainColor: $lightMainColor;
+  darkMainColor: $darkMainColor;
+  commonAnimation: $common-animation;
+  commonShadow: $commonShadow;
+}

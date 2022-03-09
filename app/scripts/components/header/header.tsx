@@ -39,22 +39,10 @@ export function Header() {
       <div className="container">
         <div className="nav-logo-wrapper">
           <div>Logo</div>
-          {/*<div className="row">*/}
-          {/*  <div className="col project-name-container">*/}
-          {/*    <span>Project: </span>*/}
-          {/*    <span className="project-name">{projectName}</span>*/}
-          {/*  </div>*/}
-          {/*  <div className="col d-flex align-items-center">*/}
-          {/*    <div id="crisp-title" className="text-center flex-fill">{title}</div>*/}
-          {/*  </div>*/}
-          {/*  <div className="col-4">*/}
           <NavigationTabs/>
         </div>
         <div>
-
         </div>
-        {/*</div>*/}
-        {/*</div>*/}
       </div>
     </header>
   );
