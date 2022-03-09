@@ -10,6 +10,7 @@ import {HelpIcon} from '../tab-icons/helpIcon';
 import {CommonTabLogic} from '../tab-icons/commonTabLogic';
 import {SearchIcon} from '../tab-icons/searchIcon';
 import {TAB_ICON_COLOR} from '../../constant/constnat';
+import './navigation-tabs.scss';
 
 export enum NavigationTabType {
   MAIN = 'main',
