@@ -1,0 +1,22 @@
+@use './commonStyles';
+
+//Icons Colors
+
+.defaultIconFill {
+  fill: commonStyles.$darkMainColor;
+}
+
+.hoverIconFill {
+  fill: commonStyles.$activeColor;
+}
+
+.activeIconFill {
+  fill: commonStyles.$lightMainColor;
+}
+
+// Icons sizes
+
+.navigationIconSize {
+  height: commonStyles.$tabIconSize;
+  width: commonStyles.$tabIconSize;
+}
