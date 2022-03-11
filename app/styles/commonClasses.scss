@@ -1,22 +1,22 @@
-@use './commonStyles';
+@use './commonStyles' as *;
 
 //Icons Colors
 
 .defaultIconFill {
-  fill: commonStyles.$darkMainColor;
+  fill: $darkMainColor;
 }
 
 .hoverIconFill {
-  fill: commonStyles.$activeColor;
+  fill: $activeColor;
 }
 
 .activeIconFill {
-  fill: commonStyles.$lightMainColor;
+  fill: $lightMainColor;
 }
 
 // Icons sizes
 
 .navigationIconSize {
-  height: commonStyles.$tabIconSize;
-  width: commonStyles.$tabIconSize;
+  height: getSize(2);
+  width: getSize(2);
 }
