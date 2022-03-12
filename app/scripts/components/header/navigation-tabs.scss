@@ -1,19 +1,19 @@
-@use './app/styles/commonStyles';
+@use './app/styles/commonStyles' as *;
 
 .nav-item {
   .nav-link:hover:not(.active) {
     cursor: pointer;
     filter: brightness(80%);
     border-radius: 3px;
-    box-shadow: commonStyles.$commonShadow;
+    box-shadow: $commonShadow;
   }
 
   .nav-link {
-    transition: commonStyles.$common-animation;
+    transition: $common-animation;
   }
 
   .nav-link:hover:not(.active) .nav-svg {
-    fill: commonStyles.$activeColor;
+    fill: $activeColor;
   }
 
   .nav-link.active {

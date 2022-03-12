@@ -1,0 +1,40 @@
+@use './app/styles/commonStyles' as *;
+
+.mainCheckBox {
+  height: getSize(2);
+  width: getSize(2);
+
+  :checked {
+    background-color: $lightMainColor;
+  }
+}
+
+.checkBoxWrapper {
+  display: flex;
+  align-items: center;
+  gap: $baseSize;
+  color: $darkMainColor;
+  cursor: pointer;
+}
+
+.checkboxSquare {
+  height: getSize(2);
+  width: getSize(2);
+  box-shadow: $commonShadow;
+  border-radius: 2px;
+}
+
+.checked {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $activeColor;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 0 $activeColor;
+
+  svg {
+    width: getSize(1.6);
+    height: getSize(1.4);
+  }
+
+}

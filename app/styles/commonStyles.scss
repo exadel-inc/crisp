@@ -9,8 +9,13 @@ $common-animation: all 200ms ease-in;
 //Shadow
 $commonShadow: 0 0 3px 0 $darkMainColor;
 
-//icon size
-$tabIconSize: 20px;
+//baseSize
+$baseSize: 10px;
+
+//Functions
+@function getSize($multiplier) {
+  @return $multiplier*$baseSize;
+}
 
 //Exports
 :export {
@@ -19,5 +24,6 @@ $tabIconSize: 20px;
   darkMainColor: $darkMainColor;
   commonAnimation: $common-animation;
   commonShadow: $commonShadow;
-  tabIconSize: $tabIconSize
+  baseSize: $baseSize;
+  getSize: getSize;
 }

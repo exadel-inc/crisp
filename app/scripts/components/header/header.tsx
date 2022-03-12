@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
 import {elementsService, projectsService} from '../../shared/services';
 import {NavigationTabs, NavigationTabType} from './navigation-tabs';
+import {Checkbox} from '../checkbox/checkbox';
 
 /**
  * Application Header
@@ -41,6 +42,7 @@ export function Header() {
           <div>Logo</div>
           <NavigationTabs/>
         </div>
+        <Checkbox/>
         <div>
         </div>
       </div>
