@@ -12,8 +12,7 @@
 .checkBoxWrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  max-width: 108px;
+  gap: $baseSize;
   color: $darkMainColor;
   cursor: pointer;
 }
