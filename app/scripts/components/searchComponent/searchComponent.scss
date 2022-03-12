@@ -1,0 +1,53 @@
+@use './app/styles/commonStyles' as *;
+
+.search {
+  padding: 10px 8px 11px 16px;
+  border-radius: 4px;
+  border: 1px solid $lightMainColor;
+  background: url('../../../images/icons/inputBackgraund.svg') no-repeat center right $baseSize;
+
+  &::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    background: url('../../../images/icons/cancelInput.svg') no-repeat center right;
+    height: getSize(2);
+    width: getSize(2);
+  }
+
+  &:focus {
+    outline: 1px solid $activeColor;
+    font-weight: bold;
+
+    &::placeholder {
+      font-weight: normal;
+    }
+  }
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: getSize(2.4);
+
+  button {
+    background-color: $activeColor;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding-top: 11px;
+    padding-bottom: 10px;
+    font-size: getSize(1.6);
+    transition: $common-animation;
+
+    &:hover {
+      background-color: darken($activeColor, 10%);
+    }
+  }
+
+  .disabled {
+    background-color: $lightMainColor;
+
+    &:hover {
+      background-color: $lightMainColor;
+    }
+  }
+}

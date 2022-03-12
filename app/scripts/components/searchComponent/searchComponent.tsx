@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {useState} from 'react';
 import {BigButton} from '../bigButton/bigButton';
+import './searchComponent.scss';
+import {SEARCH_BUTTON_NAME, SEARCH_PLACEHOLDER} from '../../constants/constants';
 
 export const SearchComponent = () => {
   const [value, setValue] = useState('');
@@ -10,15 +12,15 @@ export const SearchComponent = () => {
   };
 
   return (
-    <form className="searchForm">
+    <form onSubmit={e => e.preventDefault()} className="searchForm">
       <input
         onChange={(e) => setValue(e.target.value)}
         className="search"
-        placeholder="Search a framework, project, or element"
+        placeholder={SEARCH_PLACEHOLDER}
         type="search"
         style={checkLengthValue() ? {background: 'none'} : {}}
       />
-      <BigButton buttonName='Search' disable={checkLengthValue()}/>
+      <BigButton buttonName={SEARCH_BUTTON_NAME} disable={checkLengthValue()}/>
     </form>
   );
 };
