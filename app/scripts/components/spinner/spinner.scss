@@ -1,0 +1,15 @@
+@use './app/styles/commonStyles' as *;
+
+.spinner {
+  width: getSize(2);
+  height: getSize(2);
+  fill: $activeColor;
+  fill-opacity: 0.5;
+  animation: rotate 1s linear infinite;
+
+  @keyframes rotate {
+    from {
+      transform: rotate(360deg);
+    }
+  }
+}
