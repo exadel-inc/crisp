@@ -17,6 +17,7 @@ export enum NavigationTabType {
   BATCH = 'batch',
   INSPECTOR = 'inspector',
   SETTINGS = 'settings',
+  SEARCH = 'search',
 }
 
 /**
@@ -72,8 +73,8 @@ export function NavigationTabs() {
                         'activeIconFill' : 'defaultIconFill'}/>}/>
       <CommonTabLogic handleTabClick={handleTabClick}
                       isActive={isActive}
-                      activeTab={NavigationTabType.SETTINGS}
-                      children={<SearchIcon className={isActive(NavigationTabType.SETTINGS) ?
+                      activeTab={NavigationTabType.SEARCH}
+                      children={<SearchIcon className={isActive(NavigationTabType.SEARCH) ?
                         'activeIconFill' : 'defaultIconFill'}/>}/>
       <CommonTabLogic handleTabClick={handleTabClick}
                       isActive={isActive}
