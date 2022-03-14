@@ -16,16 +16,16 @@ export const SearchComponent = () => {
 
   const isActive = useSelector((state: RootState) => state.navigation.tab) === NavigationTabType.SEARCH;
 
-  return (isActive &&
-    <form onSubmit={e => e.preventDefault()} className="searchForm">
-      <input
-        onChange={(e) => setValue(e.target.value)}
-        className="search"
-        placeholder={SEARCH_PLACEHOLDER}
-        type="search"
-        style={checkLengthValue() ? {background: 'none'} : {}}
-      />
-      <BigButton buttonName={SEARCH_BUTTON_NAME} disable={checkLengthValue()}/>
-    </form>
+  return (isActive ?
+      <form onSubmit={e => e.preventDefault()} className="searchForm">
+        <input
+          onChange={(e) => setValue(e.target.value)}
+          className="search"
+          placeholder={SEARCH_PLACEHOLDER}
+          type="search"
+          style={checkLengthValue() ? {background: 'none'} : {}}
+        />
+        <BigButton buttonName={SEARCH_BUTTON_NAME} disable={checkLengthValue()}/>
+      </form> : null
   );
 };
