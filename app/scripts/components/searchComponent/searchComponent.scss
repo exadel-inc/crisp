@@ -1,8 +1,10 @@
 @use './app/styles/commonStyles' as *;
 
+$borderRadiusSize: 4px;
+
 .search {
-  padding: 10px 8px 11px 16px;
-  border-radius: 4px;
+  padding: $baseSize getSize(0.8) $baseSize getSize(1.6);
+  border-radius: $borderRadiusSize;
   border: 1px solid $lightMainColor;
   background: url('../../../images/icons/inputBackgraund.svg') no-repeat center right $baseSize;
 
@@ -32,9 +34,9 @@
     background-color: $activeColor;
     color: white;
     border: none;
-    border-radius: 4px;
-    padding-top: 11px;
-    padding-bottom: 10px;
+    border-radius: $borderRadiusSize;
+    padding-top: $baseSize;
+    padding-bottom: $baseSize;
     font-size: getSize(1.6);
     transition: $common-animation;
 
