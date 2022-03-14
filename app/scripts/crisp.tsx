@@ -5,6 +5,7 @@ import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import '../styles/crisp.less';
+import '../styles/crisp.scss';
 import { BatchGenerateTab } from './components/batch-generate/batch-generate.component';
 import store from './redux/store';
 import { Header } from './components/header/header';
