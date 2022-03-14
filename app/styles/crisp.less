@@ -37,6 +37,13 @@ footer {
   background-repeat: no-repeat;
 }
 
+.nav-item {
+  .nav-link:hover:not(.active) {
+    cursor: pointer;
+    filter: brightness(80%);
+  }
+}
+
 /* Main tab */
 #main {
   .option-btn-icon {
@@ -172,10 +179,4 @@ footer {
       display: none;
     }
   }
-}
-
-.nav-logo-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }

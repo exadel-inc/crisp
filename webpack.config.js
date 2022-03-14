@@ -46,19 +46,6 @@ module.exports = {
         test: /\.(css|less)$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader']
       },
-      {
-        test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        loader: 'file-loader',
-        options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts',
-            publicPath: '../fonts'
-        }
-      },
     ],
   },
   resolve: {
@@ -71,8 +58,7 @@ module.exports = {
         { from: 'app/manifest.json', to: 'manifest.json'},
         { from: 'app/images', to: 'images' },
         { from: 'app/libs', to: 'libs' }, // TODO import all libs' stylesheets and scripts from node_modules
-        { from: 'app/pages', to: 'pages' },
-        { from: 'app/fonts', to: 'fonts' },
+        { from: 'app/pages', to: 'pages' }
       ],
     }),
     new MiniCssExtractPlugin({ filename: 'styles/[name].css' }),
