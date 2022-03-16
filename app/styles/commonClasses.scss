@@ -7,7 +7,12 @@
 }
 
 .hoverIconFill {
-  fill: $activeColor;
+  cursor: pointer;
+  transition: $common-animation;
+
+  &:hover {
+    fill: $activeColor;
+  }
 }
 
 .activeIconFill {

@@ -33,8 +33,8 @@
   box-shadow: 1px 1px 0 $activeColor;
 
   svg {
+    fill: $activeColor;
     width: getSize(1.6);
     height: getSize(1.4);
   }
-
 }
