@@ -1,0 +1,49 @@
+@use './app/styles/commonStyles' as *;
+
+.pill {
+  display: flex;
+  align-items: baseline;
+  gap: getSize(1.2);
+  padding: getSize(0.4) getSize(0.8) getSize(0.4) getSize(1.6);
+  border: 1px solid $lightMainColor;
+  border-radius: getSize(1.6);
+  transition: $common-animation;
+  cursor: pointer;
+  color: $darkMainColor;
+
+  &:hover {
+    box-shadow: $commonShadow;
+  }
+
+  &:hover p {
+    color: black;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  svg {
+    width: $baseSize;
+    height: $baseSize;
+    fill: $darkMainColor;
+    transition: $common-animation;
+
+    &:hover {
+      fill: $dangerousColor;
+    }
+  }
+}
+
+.active {
+  color: black;
+  border-color: $activeColor;
+
+  svg {
+    fill: $activeColor;
+
+    &:hover {
+      fill: $activeColor;
+    }
+  }
+}
