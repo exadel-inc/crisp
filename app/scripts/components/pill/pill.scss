@@ -4,6 +4,7 @@
   display: flex;
   align-items: baseline;
   gap: getSize(1.2);
+  margin-bottom: getSize(0.5);
   padding: getSize(0.4) getSize(0.8) getSize(0.4) getSize(1.6);
   border: 1px solid $lightMainColor;
   border-radius: getSize(1.6);

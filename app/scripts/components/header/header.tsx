@@ -5,9 +5,7 @@ import {elementsService, projectsService} from '../../shared/services';
 import {NavigationTabs, NavigationTabType} from './navigation-tabs';
 import {Checkbox} from '../checkbox/checkbox';
 import {SearchComponent} from '../searchComponent/searchComponent';
-import {ProjectPanel} from '../projectPanel/projectPanel';
-import {Pill} from '../pill/pill';
-import {DEFAULT_PROJECT_PAGE_NAME} from '../../constants/constants';
+import {ProjectComponent} from '../projectComponent/projectComponent';
 
 /**
  * Application Header
@@ -49,8 +47,7 @@ export function Header() {
         <SearchComponent/>
         <Checkbox/>
         <div>
-          <ProjectPanel projectName='Project001 web redisineskjnsdjknv' counter='2'/>
-          <Pill pageName={DEFAULT_PROJECT_PAGE_NAME}/>
+          <ProjectComponent/>
         </div>
       </div>
     </header>
