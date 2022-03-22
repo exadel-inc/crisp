@@ -1,0 +1,28 @@
+@use './app/styles/commonStyles' as *;
+
+.addPageButton {
+  display: flex;
+  align-items: center;
+  gap: $baseSize;
+  cursor: pointer;
+
+  &:hover p {
+    color: lighten($activeColor, 10%);
+  }
+
+  &:hover svg {
+    fill: $activeColor;
+  }
+
+  svg {
+    height: getSize(1.4);
+    width: getSize(1.4);
+    transition: $common-animation;
+  }
+
+  p {
+    margin: 0;
+    color: $activeColor;
+    transition: $common-animation;
+  }
+}
