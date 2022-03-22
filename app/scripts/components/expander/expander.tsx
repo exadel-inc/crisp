@@ -1,13 +1,9 @@
-import * as React from 'react';
-import {useState} from 'react';
-
+import React from 'react';
+import {useContext} from 'react';
+import {IsOpenProject} from '../projectComponent/projectComponent';
 
 export const Expander = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const changeState = () => {
-    setIsOpen(prevState => !prevState);
-  };
+  const {isOpen, changeState} = useContext(IsOpenProject);
 
   return (
     isOpen ? <svg onClick={changeState} className='defaultIconFill navigationIconSize hoverIconFill' viewBox="0 0 12 8"
