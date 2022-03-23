@@ -5,3 +5,4 @@ export const SEARCH_BUTTON_NAME = 'Search';
 export const DEFAULT_PROJECT_PANEL_COUNT = '1';
 export const DEFAULT_PROJECT_PANEL_NAME = 'Project001 web redisineskjnsdjknv';
 export const DEFAULT_PROJECT_PAGE_NAME = 'reg_09';
+export const ADD_PAGE_BUTTON_NAME = 'Add page';
