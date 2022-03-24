@@ -5,7 +5,8 @@ import {elementsService, projectsService} from '../../shared/services';
 import {NavigationTabs, NavigationTabType} from './navigation-tabs';
 import {Checkbox} from '../checkbox/checkbox';
 import {SearchComponent} from '../searchComponent/searchComponent';
-import {ProjectComponent} from '../projectComponent/projectComponent';
+import {ProjectPage} from '../projectPage/projectPage';
+import '../projectPage/projectPage.scss';
 
 /**
  * Application Header
@@ -46,9 +47,7 @@ export function Header() {
         </div>
         <SearchComponent/>
         <Checkbox/>
-        <div>
-          <ProjectComponent/>
-        </div>
+        <ProjectPage/>
       </div>
     </header>
   );

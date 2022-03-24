@@ -6,3 +6,4 @@ export const DEFAULT_PROJECT_PANEL_COUNT = '1';
 export const DEFAULT_PROJECT_PANEL_NAME = 'Project001 web redisineskjnsdjknv';
 export const DEFAULT_PROJECT_PAGE_NAME = 'reg_09';
 export const ADD_PAGE_BUTTON_NAME = 'Add page';
+export const ADD_PROJECT_BUTTON_NAME = 'Add new Project';

@@ -1,0 +1,20 @@
+@use './app/styles/commonStyles' as *;
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  button {
+    padding: $baseSize getSize(7);
+    background-color: $activeColor;
+    color: white;
+    border: none;
+    border-radius: getSize(0.4);
+    transition: $common-animation;
+
+    &:hover {
+      background-color: darken($activeColor, 10%);
+    }
+  }
+}
