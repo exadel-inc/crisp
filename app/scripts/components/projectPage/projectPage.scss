@@ -1,5 +1,9 @@
 @use './app/styles/commonStyles' as *;
 
+.projectPage {
+  margin-top: getSize(2);
+}
+
 .buttonWrapper {
   display: flex;
   flex-direction: column;

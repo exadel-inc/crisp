@@ -5,6 +5,8 @@
   align-items: center;
   gap: $baseSize;
   cursor: pointer;
+  padding-top: $baseSize;
+  padding-bottom: $baseSize;
 
   &:hover p {
     color: lighten($activeColor, 10%);

@@ -5,7 +5,7 @@ import './projectList.scss';
 
 export const ProjectList = () => {
   const projectsList = projectsListMoc.map(
-    (el, index) => <ProjectComponent key={index + el} counter={index} projectName={el}/>
+    (el, index) => <ProjectComponent key={index + el} counter={index+1} projectName={el}/>
   );
 
   return (
