@@ -2,7 +2,7 @@ export const DEFAULT_SELECT_COUNT = 10;
 export const MAIN_CHECKBOX_LABEL = 'Select all';
 export const SEARCH_PLACEHOLDER = 'Search a framework, project, or element';
 export const SEARCH_BUTTON_NAME = 'Search';
-export const DEFAULT_PROJECT_PANEL_COUNT = '1';
+export const DEFAULT_PROJECT_PANEL_COUNT = 1;
 export const DEFAULT_PROJECT_PANEL_NAME = 'Project001 web redisineskjnsdjknv';
 export const DEFAULT_PROJECT_PAGE_NAME = 'reg_09';
 export const ADD_PAGE_BUTTON_NAME = 'Add page';
@@ -12,3 +12,4 @@ export const PAGE_TABLE_HEADER_COLUMN = {
   PARAMETER: 'PO par..',
   ACTIONS: 'Actions/Veri.'
 };
+export const ADD_PROJECT_BUTTON_NAME = 'Add new Project';
