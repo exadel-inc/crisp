@@ -9,7 +9,7 @@ export const IsOpenProject = createContext({
 });
 const {Provider} = IsOpenProject;
 
-export const ProjectComponent = ({projectName, counter}: { projectName: string; counter: string | number }) => {
+export const ProjectComponent = ({projectName, counter}: { projectName: string; counter: number }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const changeState = () => {
