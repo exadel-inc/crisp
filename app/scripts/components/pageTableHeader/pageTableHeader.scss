@@ -1,2 +1,21 @@
 @use './app/styles/commonStyles' as *;
 
+.pageTableHeader {
+  display: flex;
+  align-items: baseline;
+
+  p {
+    padding: 0 $baseSize;
+    width: 100%;
+    border-right: 1px solid $lightMainColor;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    color: $darkMainColor;
+  }
+
+  p:last-child {
+    border: none;
+  }
+}

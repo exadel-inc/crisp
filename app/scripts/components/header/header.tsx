@@ -7,6 +7,7 @@ import {Checkbox} from '../checkbox/checkbox';
 import {SearchComponent} from '../searchComponent/searchComponent';
 import {ProjectPage} from '../projectPage/projectPage';
 import '../projectPage/projectPage.scss';
+import {PageTableHeader} from "../pageTableHeader/pageTableHeader";
 
 /**
  * Application Header
@@ -47,6 +48,7 @@ export function Header() {
         </div>
         <SearchComponent/>
         <Checkbox/>
+        <PageTableHeader/>
         <ProjectPage/>
       </div>
     </header>
