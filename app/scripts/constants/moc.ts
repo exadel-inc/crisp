@@ -12,3 +12,12 @@ export const projectPageMoc = [
   'log_10',
   'registration_05'
 ];
+
+export const projectsListMoc = [
+  'Project 001 Website_Registration',
+  'Project 002 Website_Authentication',
+  'Project 003 Website_Pagination',
+  'Project 004 Website_Pagination',
+  'Project 005 Website_Pagination',
+  'Project 006 Website_Pagination',
+];

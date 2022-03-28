@@ -9,7 +9,7 @@ export const ProjectPanel = ({
                                counter = DEFAULT_PROJECT_PANEL_COUNT,
                                projectName = DEFAULT_PROJECT_PANEL_NAME
                              }: {
-  counter: string;
+  counter: number;
   projectName: string;
 }) => {
   return (
