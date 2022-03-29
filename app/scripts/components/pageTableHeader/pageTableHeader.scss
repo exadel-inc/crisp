@@ -2,11 +2,12 @@
 
 .pageTableHeader {
   display: flex;
-  align-items: baseline;
+  align-items: center;
 
   p {
-    padding: 0 $baseSize;
     width: 100%;
+    margin: 0;
+    padding: 0 $baseSize;
     border-right: 1px solid $lightMainColor;
     white-space: nowrap;
     overflow: hidden;
@@ -15,7 +16,7 @@
     color: $darkMainColor;
   }
 
-  p:last-child {
+  p:last-of-type {
     border: none;
   }
 }
