@@ -1,0 +1,21 @@
+@use './app/styles/commonStyles' as *;
+
+.projectSort {
+  color: $darkMainColor;
+
+  select {
+    padding-left: $baseSize;
+    padding-right: getSize(3);
+    border: none;
+    appearance: none;
+    background: url('../../../images/icons/selectorArrow.svg') no-repeat center right;
+    cursor: pointer;
+    color: $darkMainColor;
+    transition: $common-animation;
+
+    &:hover {
+      color: black;
+      background-image: url('../../../images/icons/selectorArrowHover.svg');
+    }
+  }
+}
