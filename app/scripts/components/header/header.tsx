@@ -6,8 +6,8 @@ import {NavigationTabs, NavigationTabType} from './navigation-tabs';
 import {Checkbox} from '../checkbox/checkbox';
 import {SearchComponent} from '../searchComponent/searchComponent';
 import {ProjectPage} from '../projectPage/projectPage';
+import {PageTableHeader} from '../pageTableHeader/pageTableHeader';
 import '../projectPage/projectPage.scss';
-import {PageTableHeader} from "../pageTableHeader/pageTableHeader";
 
 /**
  * Application Header

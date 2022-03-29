@@ -4,14 +4,11 @@ import {PageHeaderExpander} from '../pageHeaderExpander/pageHeaderExpander';
 import './pageTableHeader.scss';
 
 export const PageTableHeader = () => {
-  const {ELEMENT, PATTERN, PARAMETER, ACTIONS} = PAGE_TABLE_HEADER_COLUMN;
+  const tableHeader = Object.values(PAGE_TABLE_HEADER_COLUMN).map(el => <p>{el}</p>);
 
   return (
     <div className='pageTableHeader'>
-      <p>{ELEMENT}</p>
-      <p>{PATTERN}</p>
-      <p>{PARAMETER}</p>
-      <p>{ACTIONS}</p>
+      {tableHeader}
       <PageHeaderExpander/>
     </div>
   );

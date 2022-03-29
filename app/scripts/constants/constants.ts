@@ -8,8 +8,6 @@ export const DEFAULT_PROJECT_PAGE_NAME = 'reg_09';
 export const ADD_PAGE_BUTTON_NAME = 'Add page';
 export const ADD_PROJECT_BUTTON_NAME = 'Add new Project';
 export const PAGE_TABLE_HEADER_COLUMN = {
-  ELEMENT: 'Element name',
-  PATTERN: 'PO pattern',
-  PARAMETER: 'Selector',
-  ACTIONS: 'Actions/Verifications'
+  ELEMENT: 'Element',
+  ACTIONS: 'Actions'
 };
