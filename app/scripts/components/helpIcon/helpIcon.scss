@@ -1,0 +1,16 @@
+@use './app/styles/commonStyles' as *;
+
+.helpIcon {
+  background-color: $darkMainColor;
+  border-radius: 50%;
+  box-shadow: $commonShadow;
+  transition: $common-animation;
+
+  &:hover {
+    background-color: $activeColor;
+  }
+
+  svg {
+    fill: white;
+  }
+}

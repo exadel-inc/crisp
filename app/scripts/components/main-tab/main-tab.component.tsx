@@ -18,7 +18,7 @@ export function MainTab () {
   /**
    * Is current tab active
   */
-  const isActive = useSelector((state: RootState) => state.navigation.tab) === NavigationTabType.MAIN;
+  const isActive =false;
 
   /**
    * Pages of current project from storage

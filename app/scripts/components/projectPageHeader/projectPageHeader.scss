@@ -1,0 +1,16 @@
+@use './app/styles/commonStyles' as *;
+
+.projectHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  div {
+    display: flex;
+    align-items: baseline;
+  }
+
+  label {
+    margin-right: getSize(1.5);
+  }
+}

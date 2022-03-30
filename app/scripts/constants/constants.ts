@@ -7,6 +7,8 @@ export const DEFAULT_PROJECT_PANEL_NAME = 'Project001 web redisineskjnsdjknv';
 export const DEFAULT_PROJECT_PAGE_NAME = 'reg_09';
 export const ADD_PAGE_BUTTON_NAME = 'Add page';
 export const ADD_PROJECT_BUTTON_NAME = 'Add new Project';
+export const COUNT_PROJECT_TITLE = 'Project';
+export const SORT_LABEL = 'Sort by:';
 export const PAGE_TABLE_HEADER_COLUMN = {
   ELEMENT: 'Element',
   ACTIONS: 'Actions'

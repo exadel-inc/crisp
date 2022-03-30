@@ -6,7 +6,6 @@ import {RootState} from '../../redux/store';
 import {AddIcon} from '../tab-icons/addIcon';
 import {AddBulkIcon} from '../tab-icons/addBulkIcon';
 import {SettingsIcon} from '../tab-icons/settingsIcon';
-import {HelpIcon} from '../tab-icons/helpIcon';
 import {CommonTabLogic} from '../tab-icons/commonTabLogic';
 import {SearchIcon} from '../tab-icons/searchIcon';
 import './navigation-tabs.scss';
@@ -81,7 +80,6 @@ export function NavigationTabs() {
                       activeTab={NavigationTabType.SETTINGS}
                       children={<SettingsIcon className={isActive(NavigationTabType.SETTINGS) ?
                         'activeIconFill' : 'defaultIconFill'}/>}/>
-      <HelpIcon/>
     </ul>
   );
 }
