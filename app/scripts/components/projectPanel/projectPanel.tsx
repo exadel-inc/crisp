@@ -1,8 +1,10 @@
 import * as React from 'react';
+import {useContext} from 'react';
 import {EditComponent} from '../editComponent/editComponent';
 import {Expander} from '../expander/expander';
 import {DeleteComponent} from '../deletComponent/deleteComponent';
 import {DEFAULT_PROJECT_PANEL_COUNT, DEFAULT_PROJECT_PANEL_NAME} from '../../constants/constants';
+import {IsOpenProject} from '../projectComponent/projectComponent';
 import './projectPanel.scss';
 
 export const ProjectPanel = ({
@@ -12,6 +14,8 @@ export const ProjectPanel = ({
   counter: number;
   projectName: string;
 }) => {
+  const {isOpen, changeState} = useContext(IsOpenProject);
+
   return (
     <div className='projectPanelWrapper'>
       <div>
@@ -21,7 +25,7 @@ export const ProjectPanel = ({
       <div className='controlWrapper'>
         <EditComponent/>
         <DeleteComponent/>
-        <Expander/>
+        <Expander changeState={changeState} isOpen={isOpen}/>
       </div>
     </div>
   );

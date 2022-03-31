@@ -1,0 +1,33 @@
+@use './app/styles/commonStyles' as *;
+
+.tableElement {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $baseSize;
+  padding-right: getSize(1.4);
+  border: 1px solid $lightMainColor;
+  border-radius: getSize(0.3);
+}
+
+.infoSection {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+
+  p {
+    margin: 0;
+    width: 40%;
+    text-align: center;
+  }
+}
+
+.coloredPart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: getSize(1.4);
+  height: getSize(4.4);
+  background-color: $activeColor;
+  border-radius: getSize(0.3) 0 0 getSize(0.3);
+}
