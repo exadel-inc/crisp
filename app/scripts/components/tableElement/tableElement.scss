@@ -1,10 +1,13 @@
 @use './app/styles/commonStyles' as *;
 
+.tableElementWrapper {
+  margin-bottom: $baseSize;
+}
+
 .tableElement {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: $baseSize;
   padding-right: getSize(1.4);
   border: 1px solid $lightMainColor;
   border-radius: getSize(0.3);
@@ -12,12 +15,13 @@
 
 .infoSection {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
+  color: $darkMainColor;
 
   p {
     margin: 0;
-    width: 40%;
+    width: 50%;
     text-align: center;
   }
 }
@@ -30,4 +34,19 @@
   height: getSize(4.4);
   background-color: $activeColor;
   border-radius: getSize(0.3) 0 0 getSize(0.3);
+
+  svg {
+    width: getSize(0.3);
+    height: getSize(1.6);
+    fill: white;
+  }
+}
+
+.openTable {
+  border-bottom: none;
+  border-radius: getSize(0.3) getSize(0.3) 0 0;
+
+  .coloredPart {
+    border-radius: getSize(0.3) 0 0 0;
+  }
 }
