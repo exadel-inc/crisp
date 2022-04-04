@@ -13,3 +13,7 @@ export const PAGE_TABLE_HEADER_COLUMN = {
   ELEMENT: 'Element',
   ACTIONS: 'Actions'
 };
+export const SORT_TYPES = {
+  NEWEST: 'newest',
+  OLDEST: 'oldest'
+};

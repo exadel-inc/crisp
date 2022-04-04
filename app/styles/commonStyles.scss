@@ -3,6 +3,8 @@ $activeColor: #0093fe;
 $darkMainColor: rgba(94, 92, 92, 1);
 $lightMainColor: #dcdcdc;
 $dangerousColor: #d1505f;
+$verticalSeparatorColor: #bee4ff;
+$lightBackgroundColor: #F5FBFF;
 
 //Animation
 $common-animation: all 200ms ease-in;
@@ -24,6 +26,8 @@ $baseSize: 10px;
   lightMainColor: $lightMainColor;
   darkMainColor: $darkMainColor;
   dangerousColor: $dangerousColor;
+  verticalSeparatorColor: $verticalSeparatorColor;
+  lightBackgroundColor: $lightBackgroundColor;
   commonAnimation: $common-animation;
   commonShadow: $commonShadow;
   baseSize: $baseSize;

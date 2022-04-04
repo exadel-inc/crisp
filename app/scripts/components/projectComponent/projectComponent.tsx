@@ -2,6 +2,8 @@ import React, {createContext, useState} from 'react';
 import {ProjectPanel} from '../projectPanel/projectPanel';
 import {PillList} from '../pillList/pillList';
 import {AddPageButton} from '../addPageButton/addPageButton';
+import {PageTableHeader} from '../pageTableHeader/pageTableHeader';
+import {TableElement} from '../tableElement/tableElement';
 
 export const IsOpenProject = createContext({
   isOpen: false, changeState: () => {
@@ -21,7 +23,10 @@ export const ProjectComponent = ({projectName, counter}: { projectName: string; 
       <ProjectPanel counter={counter} projectName={projectName}/>
       {isOpen &&
         <><PillList/>
-          <AddPageButton/></>
+          <AddPageButton/>
+          <PageTableHeader/>
+          <TableElement/>
+        </>
       }
     </Provider>
   );

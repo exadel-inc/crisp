@@ -3,6 +3,8 @@
 .pageTableHeader {
   display: flex;
   align-items: center;
+  margin-bottom: $baseSize;
+  padding-right: $baseSize;
 
   p {
     width: 100%;

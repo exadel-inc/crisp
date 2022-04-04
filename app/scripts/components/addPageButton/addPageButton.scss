@@ -4,9 +4,10 @@
   display: flex;
   align-items: center;
   gap: $baseSize;
-  cursor: pointer;
+  margin-bottom: $baseSize;
   padding-top: $baseSize;
   padding-bottom: $baseSize;
+  cursor: pointer;
 
   &:hover p {
     color: lighten($activeColor, 10%);

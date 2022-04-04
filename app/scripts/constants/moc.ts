@@ -21,3 +21,10 @@ export const projectsListMoc = [
   'Project 005 Website_Pagination',
   'Project 006 Website_Pagination',
 ];
+
+export const userSteps = [
+  'User clicks',
+  'User enters text',
+  'User clicks',
+  'User enters text'
+];
