@@ -2,10 +2,14 @@ import * as React from 'react';
 import {useState} from 'react';
 import {Expander} from '../expander/expander';
 import {OpenTableElement} from '../openTableElemet/openTableElement';
+import {Button} from '../button/button';
+import {TABLE_BUTTON_NAME} from '../../constants/constants';
 import './tableElement.scss';
+
 
 export const TableElement = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const {DELETE, EDIT, INSERT} = TABLE_BUTTON_NAME;
 
   const changeState = () => {
     setIsOpen(prevState => !prevState);
@@ -20,8 +24,19 @@ export const TableElement = () => {
           </svg>
         </div>
         <div className='infoSection'>
-          <p>avt</p>
-          <p>not displayed</p>
+          {isOpen ? <>
+            <Button buttonName={DELETE} action={() => {
+            }} iconClass='tableDeleteButton'/>
+            <Button buttonName={EDIT} action={() => {
+            }} iconClass='tableEditButton'/>
+            <Button buttonName={INSERT} action={() => {
+            }} iconClass='tableInsertButton'/>
+          </> : <>
+            <p>avt</p>
+            <p>not displayed</p>
+          </>
+          }
+
           <Expander isOpen={isOpen} changeState={changeState}/>
         </div>
       </div>

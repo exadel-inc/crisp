@@ -17,3 +17,8 @@ export const SORT_TYPES = {
   NEWEST: 'newest',
   OLDEST: 'oldest'
 };
+export const TABLE_BUTTON_NAME = {
+  EDIT: 'Edit',
+  DELETE: 'Delete',
+  INSERT: 'Insert'
+};

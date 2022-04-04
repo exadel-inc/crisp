@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Expander = ({isOpen, changeState}: { isOpen: boolean; changeState: () => {} }) => {
+export const Expander = ({isOpen, changeState}: { isOpen: boolean; changeState: () => void }) => {
   return (
     isOpen ? <svg onClick={changeState} className='defaultIconFill navigationIconSize hoverIconFill' viewBox="0 0 12 8"
                   fill="none"
