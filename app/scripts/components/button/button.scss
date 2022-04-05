@@ -1,0 +1,62 @@
+@use './app/styles/commonStyles' as *;
+
+.tableButton {
+  width: getSize(8.6);
+  box-sizing: border-box;
+  margin-left: getSize(2);
+  padding: getSize(0.4) getSize(1.5) getSize(0.4) getSize(3);
+  background-color: white;
+  border: 1px solid $lightMainColor;
+  border-radius: getSize(0.3);
+  color: $darkMainColor;
+  transition: $common-animation;
+
+  &:hover {
+    color: $activeColor;
+    border-color: $activeColor;
+  }
+
+  &:active {
+    background-color: $activeColor;
+    color: white;
+  }
+}
+
+.tableDeleteButton {
+  background: url('../../../images/icons/delete.svg') no-repeat center left $baseSize;
+
+  &:hover {
+    background-image: url('../../../images/icons/deleteHover.svg');
+    color: $dangerousColor;
+    border-color: $dangerousColor;
+  }
+
+  &:active {
+    background-image: url('../../../images/icons/deleteActive.svg');
+    color: white;
+  }
+}
+
+.tableEditButton {
+  background: url('../../../images/icons/edit.svg') no-repeat center left $baseSize;
+
+  &:hover {
+    background-image: url('../../../images/icons/editHover.svg');
+  }
+
+  &:active {
+    background-image: url('../../../images/icons/editActive.svg');
+  }
+}
+
+.tableInsertButton {
+  background: url('../../../images/icons/insert.svg') no-repeat center left $baseSize;
+
+  &:hover {
+    background-image: url('../../../images/icons/insertHover.svg');
+  }
+
+  &:active {
+    background-image: url('../../../images/icons/insertActive.svg');
+  }
+}
