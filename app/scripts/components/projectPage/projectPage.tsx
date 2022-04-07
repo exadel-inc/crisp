@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
 import {NavigationTabType} from '../header/navigation-tabs';
 import {ProjectPageHeader} from '../projectPageHeader/projectPageHeader';
+import {TextComponent} from '../textComponent/textComponent';
 
 export const ProjectPage = () => {
   const isActive = useSelector((state: RootState) => state.navigation.tab) === NavigationTabType.MAIN;
@@ -16,6 +17,7 @@ export const ProjectPage = () => {
         <ProjectPageHeader/>
         <div className='projectPage'>
           <ProjectList/>
+          <TextComponent/>
           <div className='buttonWrapper'>
             <BigButton buttonName={ADD_PROJECT_BUTTON_NAME} disable={true}/>
           </div>
