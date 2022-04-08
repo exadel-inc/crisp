@@ -4,8 +4,8 @@ import {Expander} from '../expander/expander';
 import {OpenTableElement} from '../openTableElemet/openTableElement';
 import {Button} from '../button/button';
 import {TABLE_BUTTON_NAME} from '../../constants/constants';
+import {DeleteComponent} from '../deletComponent/deleteComponent';
 import './tableElement.scss';
-
 
 export const TableElement = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,18 +25,18 @@ export const TableElement = () => {
         </div>
         <div className='infoSection'>
           {isOpen ? <>
-            <Button buttonName={DELETE} action={() => {
-            }} iconClass='tableDeleteButton'/>
             <Button buttonName={EDIT} action={() => {
             }} iconClass='tableEditButton'/>
             <Button buttonName={INSERT} action={() => {
             }} iconClass='tableInsertButton'/>
+            <Button buttonName={DELETE} action={() => {
+            }} iconClass='tableDeleteButton'/>
           </> : <>
             <p>avt</p>
             <p>not displayed</p>
+            <DeleteComponent style='tableDeleteIcon'/>
           </>
           }
-
           <Expander isOpen={isOpen} changeState={changeState}/>
         </div>
       </div>
