@@ -1,0 +1,27 @@
+@use './commonStyles' as *;
+
+//Icons Colors
+
+.defaultIconFill {
+  fill: $darkMainColor;
+}
+
+.hoverIconFill {
+  cursor: pointer;
+  transition: $common-animation;
+
+  &:hover {
+    fill: $activeColor;
+  }
+}
+
+.activeIconFill {
+  fill: $lightMainColor;
+}
+
+// Icons sizes
+
+.navigationIconSize {
+  height: getSize(2);
+  width: getSize(2);
+}

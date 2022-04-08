@@ -1,0 +1,7 @@
+@use './app/styles/commonStyles' as *;
+
+.pillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: getSize(0.5);
+}

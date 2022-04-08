@@ -1,13 +1,17 @@
 import * as React from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../../redux/store';
-import { elementsService, projectsService } from '../../shared/services';
-import { NavigationTabs, NavigationTabType } from './navigation-tabs';
+import {useSelector} from 'react-redux';
+import {RootState} from '../../redux/store';
+import {elementsService, projectsService} from '../../shared/services';
+import {NavigationTabs, NavigationTabType} from './navigation-tabs';
+import {Checkbox} from '../checkbox/checkbox';
+import {SearchComponent} from '../searchComponent/searchComponent';
+import {ProjectPage} from '../projectPage/projectPage';
+import '../projectPage/projectPage.scss';
 
 /**
  * Application Header
  */
-export function Header () {
+export function Header() {
 
   /**
    * Current project name
@@ -21,30 +25,30 @@ export function Header () {
     const isEditMode: boolean = !!(state.inspectedElement && elementsService.findById(state.inspectedElement.id));
     const currentTab: NavigationTabType = state.navigation.tab;
     switch (currentTab) {
-      case NavigationTabType.MAIN: return 'Elements';
-      case NavigationTabType.SETTINGS: return 'Settings';
-      case NavigationTabType.BATCH: return 'Add elements in bulk';
-      case NavigationTabType.INSPECTOR: return isEditMode ? 'Edit element' : 'Add element';
-      default: return '';
+      case NavigationTabType.MAIN:
+        return 'Elements';
+      case NavigationTabType.SETTINGS:
+        return 'Settings';
+      case NavigationTabType.BATCH:
+        return 'Add elements in bulk';
+      case NavigationTabType.INSPECTOR:
+        return isEditMode ? 'Edit element' : 'Add element';
+      default:
+        return '';
     }
   });
 
   return (
     <header>
       <div className="container">
-        <div className="row">
-          <div className="col project-name-container">
-            <span>Project: </span>
-            <span className="project-name">{projectName}</span>
-          </div>
-          <div className="col d-flex align-items-center">
-            <div id="crisp-title" className="text-center flex-fill">{title}</div>
-          </div>
-          <div className="col-4">
-            <NavigationTabs />
-          </div>
+        <div className="nav-logo-wrapper">
+          <div>Logo</div>
+          <NavigationTabs/>
         </div>
+        <SearchComponent/>
+        <Checkbox/>
+        <ProjectPage/>
       </div>
     </header>
   );
-};
+}

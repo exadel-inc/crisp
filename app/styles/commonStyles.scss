@@ -1,0 +1,35 @@
+//Colors
+$activeColor: #0093fe;
+$darkMainColor: rgba(94, 92, 92, 1);
+$lightMainColor: #dcdcdc;
+$dangerousColor: #d1505f;
+$verticalSeparatorColor: #bee4ff;
+$lightBackgroundColor: #F5FBFF;
+
+//Animation
+$common-animation: all 200ms ease-in;
+
+//Shadow
+$commonShadow: 0 0 3px 0 $darkMainColor;
+
+//baseSize
+$baseSize: 10px;
+
+//Functions
+@function getSize($multiplier) {
+  @return $multiplier*$baseSize;
+}
+
+//Exports
+:export {
+  activeColor: $activeColor;
+  lightMainColor: $lightMainColor;
+  darkMainColor: $darkMainColor;
+  dangerousColor: $dangerousColor;
+  verticalSeparatorColor: $verticalSeparatorColor;
+  lightBackgroundColor: $lightBackgroundColor;
+  commonAnimation: $common-animation;
+  commonShadow: $commonShadow;
+  baseSize: $baseSize;
+  getSize: getSize;
+}

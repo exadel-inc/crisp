@@ -1,0 +1,30 @@
+@use './app/styles/commonStyles' as *;
+
+.openTableElement {
+  display: flex;
+  padding: $baseSize getSize(2.5) $baseSize $baseSize;
+  border: 1px solid $lightMainColor;
+  border-radius: getSize(0.3);
+
+  div {
+    width: 50%;
+    padding-left: $baseSize;
+    border-right: 1px dashed $verticalSeparatorColor;
+  }
+
+  div:last-of-type {
+    border-right: none;
+  }
+
+  p {
+    margin: 0;
+    padding: getSize(0.3) $baseSize;
+    background-color: $lightBackgroundColor;
+    color: $darkMainColor;
+  }
+}
+
+.openTableElement {
+  border-top: 1px dashed $lightMainColor;
+  border-radius:  0 0 getSize(0.3) getSize(0.3);
+}

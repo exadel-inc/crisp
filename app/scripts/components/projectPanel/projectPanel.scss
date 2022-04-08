@@ -1,0 +1,26 @@
+@use './app/styles/commonStyles' as *;
+
+.projectPanelWrapper {
+  display: flex;
+  justify-content: space-between;
+
+  div:first-child {
+    display: flex;
+    overflow: hidden;
+  }
+}
+
+.projectName {
+  padding-left: $baseSize;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: underline;
+}
+
+.controlWrapper {
+  display: flex;
+  gap: getSize(2);
+  padding-left: $baseSize;
+}

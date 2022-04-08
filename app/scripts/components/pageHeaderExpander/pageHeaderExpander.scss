@@ -1,0 +1,18 @@
+@use './app/styles/commonStyles' as *;
+
+.expanderWrapper {
+  padding: getSize(0.3);
+  border-radius: 50%;
+  box-shadow: $commonShadow;
+  cursor: pointer;
+
+  &:hover svg {
+    fill: $activeColor;
+  }
+
+  svg {
+    width: getSize(0.8);
+    height: getSize(0.8);
+    transition: $common-animation;
+  }
+}

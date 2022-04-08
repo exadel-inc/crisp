@@ -1,0 +1,26 @@
+@use './app/styles/commonStyles' as *;
+
+.nav-item {
+  .nav-link:hover:not(.active) {
+    cursor: pointer;
+    filter: brightness(80%);
+    border-radius: 3px;
+    box-shadow: $commonShadow;
+  }
+
+  .nav-link {
+    transition: $common-animation;
+  }
+
+  .nav-link:hover:not(.active) .nav-svg {
+    fill: $activeColor;
+  }
+
+  .nav-link.active {
+    background-color: white;
+  }
+
+  .nav-link .active {
+    border-radius: 1px;
+  }
+}
