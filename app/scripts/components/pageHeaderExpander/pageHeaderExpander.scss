@@ -16,3 +16,7 @@
     transition: $common-animation;
   }
 }
+
+.rotatedExpander {
+  transform: rotate(-180deg);
+}

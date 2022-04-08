@@ -1,0 +1,90 @@
+@use './app/styles/commonStyles' as *;
+
+$textBorderRadius: getSize(0.4);
+
+.textComponent {
+  display: flex;
+  flex-direction: column;
+
+  textarea {
+    min-height: getSize(10);
+    margin-bottom: getSize(1.6);
+    padding: $baseSize;
+    border-radius: $textBorderRadius;
+    color: $darkMainColor;
+  }
+}
+
+.textTabWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: $baseSize;
+}
+
+.textTab {
+  margin: 0;
+  font-size: getSize(1.6);
+  transition: $common-animation;
+  cursor: pointer;
+  border-bottom: 3px solid white;
+  color: $darkMainColor;
+}
+
+.activeTextTab {
+  font-weight: bold;
+  border-bottom: 3px solid $activeTabColor;
+  color: black;
+}
+
+.textButtonWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  button {
+    min-width: getSize(12);
+    padding: $baseSize;
+    color: white;
+    border-radius: $textBorderRadius;
+    font-size: getSize(1.6);
+    text-align: center;
+    border: 1px solid $activeColor;
+    background-color: $activeColor;
+    transition: $common-animation;
+  }
+
+  button:first-of-type {
+    background-color: $lightBackgroundColor;
+    color: $activeColor;
+    border-color: $lightBorderColor;
+
+    &:hover {
+      color: $dangerousColor;
+      border-color: $dangerousColor;
+    }
+
+    &:active {
+      color: white;
+      background-color: $dangerousColor;
+      border-color: $dangerousColor;
+    }
+  }
+
+  button:last-of-type {
+    padding-left: getSize(3);
+    text-align: left;
+    background-image: url('../../../images/icons/fileCopy.svg');
+    background-repeat: no-repeat;
+    background-position: center right getSize(2);
+
+    &:hover {
+      background-color: darken($activeColor, 10%);
+    }
+
+    &:active {
+      background-color: darken($activeColor, 20%);
+    }
+  }
+
+}

@@ -1,6 +1,6 @@
 @use './app/styles/commonStyles' as *;
 
-.openTableElement {
+.activeOpenTableElement {
   display: flex;
   padding: $baseSize getSize(2.5) $baseSize $baseSize;
   border: 1px solid $lightMainColor;
@@ -16,15 +16,51 @@
     border-right: none;
   }
 
-  p {
+  .openTableCommonText {
     margin: 0;
     padding: getSize(0.3) $baseSize;
     background-color: $lightBackgroundColor;
     color: $darkMainColor;
   }
+
+  p {
+    cursor: pointer;
+    transition: $common-animation;
+    border-left: 1px solid $lightBackgroundColor;
+
+    &:hover {
+      color: black;
+      border-color: $lightBorderColor;
+    }
+
+    &:active {
+      color: $activeColor;
+      border-color: $activeColor;
+    }
+  }
+
+  a {
+    display: block;
+    margin-bottom: $baseSize;
+    padding: getSize(0.3) $baseSize;
+    color: $activeColor;
+    cursor: pointer;
+    transition: $common-animation;
+    border-left: 1px solid white;
+
+    &:hover {
+      color: darken($activeColor, 10%);
+      border-color: $lightBorderColor;
+    }
+
+    &:active {
+      color: darken($activeColor, 20%);
+      border-color: $activeColor;
+    }
+  }
 }
 
-.openTableElement {
+.activeOpenTableElement {
   border-top: 1px dashed $lightMainColor;
-  border-radius:  0 0 getSize(0.3) getSize(0.3);
+  border-radius: 0 0 getSize(0.3) getSize(0.3);
 }

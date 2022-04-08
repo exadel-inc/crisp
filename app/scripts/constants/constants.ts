@@ -22,3 +22,11 @@ export const TABLE_BUTTON_NAME = {
   DELETE: 'Delete',
   INSERT: 'Insert'
 };
+export const TEXT_COMPONENT_TAB_NAME = {
+  TEST_ACTION: 'Test action',
+  PAGE_OBJECT: 'Page object'
+};
+export const TEXT_COMPONENT_BUTTON_NAME = {
+  COPY: 'Copy',
+  RESET: 'Reset'
+};

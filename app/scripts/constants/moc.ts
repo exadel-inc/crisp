@@ -28,3 +28,5 @@ export const userSteps = [
   'User clicks',
   'User enters text'
 ];
+
+export const textComponentMoc = '//page reg_09';
