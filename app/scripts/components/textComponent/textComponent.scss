@@ -51,16 +51,24 @@ $textBorderRadius: getSize(0.4);
     text-align: center;
     border: 1px solid $activeColor;
     background-color: $activeColor;
-
-    &:hover {
-      background-color: darken($activeColor, 10%);
-    }
+    transition: $common-animation;
   }
 
   button:first-of-type {
     background-color: $lightBackgroundColor;
     color: $activeColor;
     border-color: $lightBorderColor;
+
+    &:hover {
+      color: $dangerousColor;
+      border-color: $dangerousColor;
+    }
+
+    &:active {
+      color: white;
+      background-color: $dangerousColor;
+      border-color: $dangerousColor;
+    }
   }
 
   button:last-of-type {
@@ -69,6 +77,14 @@ $textBorderRadius: getSize(0.4);
     background-image: url('../../../images/icons/fileCopy.svg');
     background-repeat: no-repeat;
     background-position: center right getSize(2);
+
+    &:hover {
+      background-color: darken($activeColor, 10%);
+    }
+
+    &:active {
+      background-color: darken($activeColor, 20%);
+    }
   }
 
 }
