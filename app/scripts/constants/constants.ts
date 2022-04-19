@@ -30,3 +30,6 @@ export const TEXT_COMPONENT_BUTTON_NAME = {
   COPY: 'Copy',
   RESET: 'Reset'
 };
+
+export const BREAD_CRUMB_SEPARATOR = ' >';
+export const GENERATE_BUTTON_NAME = 'Generate';
