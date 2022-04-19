@@ -7,6 +7,7 @@ import {RootState} from '../../redux/store';
 import {NavigationTabType} from '../header/navigation-tabs';
 import {ProjectPageHeader} from '../projectPageHeader/projectPageHeader';
 import {TextComponent} from '../textComponent/textComponent';
+import {PageBar} from '../pageBar/pageBar';
 
 export const ProjectPage = () => {
   const isActive = useSelector((state: RootState) => state.navigation.tab) === NavigationTabType.MAIN;
@@ -15,6 +16,7 @@ export const ProjectPage = () => {
     isActive ?
       <>
         <ProjectPageHeader/>
+        <PageBar selectedCount={2}/>
         <div className='projectPage'>
           <ProjectList/>
           <TextComponent/>

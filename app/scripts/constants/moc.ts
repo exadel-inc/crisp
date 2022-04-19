@@ -30,3 +30,8 @@ export const userSteps = [
 ];
 
 export const textComponentMoc = '//page reg_09';
+
+export const breadcrambsMoc = [
+  'Project 001 Web21',
+  'reg_09'
+];

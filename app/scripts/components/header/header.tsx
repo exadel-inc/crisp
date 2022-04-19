@@ -3,7 +3,6 @@ import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
 import {elementsService, projectsService} from '../../shared/services';
 import {NavigationTabs, NavigationTabType} from './navigation-tabs';
-import {Checkbox} from '../checkbox/checkbox';
 import {SearchComponent} from '../searchComponent/searchComponent';
 import {ProjectPage} from '../projectPage/projectPage';
 import '../projectPage/projectPage.scss';
@@ -46,7 +45,6 @@ export function Header() {
           <NavigationTabs/>
         </div>
         <SearchComponent/>
-        <Checkbox/>
         <ProjectPage/>
       </div>
     </header>
