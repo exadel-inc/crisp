@@ -7,6 +7,8 @@ $verticalSeparatorColor: #bee4ff;
 $lightBackgroundColor: #f5fBff;
 $activeTabColor: #4c82e9;
 $lightBorderColor: #aadbff;
+$ultraLightBackgroundColor: #fafafa;
+$almostWhite: #fdfdfd;
 
 //Animation
 $common-animation: all 200ms ease-in;
@@ -32,6 +34,8 @@ $baseSize: 10px;
   lightBackgroundColor: $lightBackgroundColor;
   activeTabColor: $activeTabColor;
   lightBorderColor: $lightBorderColor;
+  ultraLightBackgroundColor: $ultraLightBackgroundColor;
+  almostWhite: $almostWhite;
   commonAnimation: $common-animation;
   commonShadow: $commonShadow;
   baseSize: $baseSize;

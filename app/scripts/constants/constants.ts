@@ -33,3 +33,16 @@ export const TEXT_COMPONENT_BUTTON_NAME = {
 
 export const BREAD_CRUMB_SEPARATOR = ' >';
 export const GENERATE_BUTTON_NAME = 'Generate';
+export const GENERAL_FIELDS_NAME = {
+  PROJECT: 'Project',
+  PAGE: 'Page',
+  ELEMENT_NAME: 'Element name',
+  ELEMENT_DESCRIPTION: 'Element description'
+};
+
+export const PLACEHOLDER_INPUT = {
+  FIRST_PART: 'Enter',
+  SECOND_PART: 'here'
+};
+
+export const BUTTON_NAME_ADD = 'Add';

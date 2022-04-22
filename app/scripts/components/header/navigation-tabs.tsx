@@ -17,6 +17,7 @@ export enum NavigationTabType {
   INSPECTOR = 'inspector',
   SETTINGS = 'settings',
   SEARCH = 'search',
+  ADD_ELEMENT = 'addElement'
 }
 
 /**
@@ -61,8 +62,8 @@ export function NavigationTabs() {
       </li>
       <CommonTabLogic handleTabClick={handleTabClick}
                       isActive={isActive}
-                      activeTab={NavigationTabType.INSPECTOR}
-                      children={<AddIcon className={isActive(NavigationTabType.INSPECTOR) ?
+                      activeTab={NavigationTabType.ADD_ELEMENT}
+                      children={<AddIcon className={isActive(NavigationTabType.ADD_ELEMENT) ?
                         'activeIconFill' : 'defaultIconFill'
                       }/>}/>
       <CommonTabLogic handleTabClick={handleTabClick}

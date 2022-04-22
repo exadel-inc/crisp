@@ -1,0 +1,20 @@
+@use '../../../styles/commonStyles' as *;
+
+.selectWrapper {
+}
+
+.selectName {
+  padding-top: getSize(1.6);
+  padding-bottom: getSize(.8);
+  color: $darkMainColor;
+}
+
+.select {
+  width: 100%;
+  padding: getSize(1.2) getSize(1.6);
+  border-radius: getSize(0.4);
+  border: 1px solid $lightMainColor;
+  color: $darkMainColor;
+  appearance: none;
+  background: $almostWhite url('../../../images/icons/selectExpander.svg') no-repeat center right getSize(1.6);
+}

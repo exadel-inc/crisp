@@ -4,8 +4,9 @@ import {RootState} from '../../redux/store';
 import {elementsService, projectsService} from '../../shared/services';
 import {NavigationTabs, NavigationTabType} from './navigation-tabs';
 import {SearchComponent} from '../searchComponent/searchComponent';
-import {ProjectPage} from '../projectPage/projectPage';
-import '../projectPage/projectPage.scss';
+import {ProjectPage} from '../../componentPages/projectPage/projectPage';
+import {AddElementPage} from '../../componentPages/addElementPage/addElementPage';
+import '../../componentPages/projectPage/projectPage.scss';
 
 /**
  * Application Header
@@ -46,6 +47,7 @@ export function Header() {
         </div>
         <SearchComponent/>
         <ProjectPage/>
+        <AddElementPage/>
       </div>
     </header>
   );

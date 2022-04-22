@@ -1,0 +1,8 @@
+@use '../../../styles/commonStyles' as *;
+
+.generalAddComponent {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: getSize(4);
+  background-color: $ultraLightBackgroundColor;
+}
