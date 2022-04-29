@@ -4,8 +4,8 @@ import './selectComponent.scss';
 export const SelectComponent = ({
                                   optionList,
                                   name,
-                                  required
-                                }: { optionList: string[]; name: string; required: boolean }) => {
+                                  required=false
+                                }: { optionList: string[]; name: string; required?: boolean }) => {
 
   const options = optionList
     .map(name => <option key={name} value={name}>{name}</option>);

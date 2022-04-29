@@ -9,6 +9,7 @@ $activeTabColor: #4c82e9;
 $lightBorderColor: #aadbff;
 $ultraLightBackgroundColor: #fafafa;
 $almostWhite: #fdfdfd;
+$ultraLightActiveColor: #82caff;
 
 //Animation
 $common-animation: all 200ms ease-in;
@@ -35,6 +36,7 @@ $baseSize: 10px;
   activeTabColor: $activeTabColor;
   lightBorderColor: $lightBorderColor;
   ultraLightBackgroundColor: $ultraLightBackgroundColor;
+  ultraLightActiveColor: $ultraLightActiveColor;
   almostWhite: $almostWhite;
   commonAnimation: $common-animation;
   commonShadow: $commonShadow;

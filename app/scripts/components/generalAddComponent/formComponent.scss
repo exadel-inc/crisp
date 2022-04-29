@@ -1,8 +1,9 @@
 @use '../../../styles/commonStyles' as *;
 
-.generalAddComponent {
+.formComponent {
   display: flex;
   flex-direction: column;
+  gap: getSize(2.4);
   margin-bottom: getSize(4);
   background-color: $ultraLightBackgroundColor;
 }
