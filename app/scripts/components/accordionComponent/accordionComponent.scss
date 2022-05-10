@@ -1,0 +1,30 @@
+@use '../../../styles/commonStyles' as *;
+
+.accordionForm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: getSize(1.2) getSize(1.6);
+  color: white;
+  border-radius: getSize(.4);
+  background-color: $ultraLightActiveColor;
+  cursor: pointer;
+  transition: $common-animation;
+
+  &:hover {
+    background-color: darken($ultraLightActiveColor, 20%);
+  }
+
+  svg {
+    transition: $common-animation;
+  }
+}
+
+.accordionFormActive {
+  background-color: $activeColor;
+
+  svg {
+    transform: rotate(-180deg);
+  }
+
+}

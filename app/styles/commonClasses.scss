@@ -25,3 +25,9 @@
   height: getSize(2);
   width: getSize(2);
 }
+
+// Required field style
+
+.required {
+  color: $activeColor;
+}
