@@ -37,7 +37,9 @@ export const GENERAL_FIELDS_NAME = {
   PROJECT: 'Project',
   PAGE: 'Page',
   ELEMENT_NAME: 'Element name',
-  ELEMENT_DESCRIPTION: 'Element description'
+  ELEMENT_DESCRIPTION: 'Element description',
+  PAGE_OBJECT: 'Page object',
+  ATTRIBUTE: 'Attrubite'
 };
 
 export const SELECTORS_FIELDS_NAME = {
@@ -58,9 +60,15 @@ export const PLACEHOLDER_INPUT = {
 };
 
 export const BUTTON_NAME_ADD = 'Add';
+export const BUTTON_NAME_BULK = 'Extract & Save';
 
 export const ADD_ACCORDION_FORM_NAME = {
   GENERAL: 'General',
   SELECTORS: 'Selectors',
   ACTIONS: 'Actions'
+};
+
+export const PAGE_TITLE_NAME = {
+  ADD_ELEMENT: 'Add element',
+  ADD_BULK: 'Add element in bulk'
 };
