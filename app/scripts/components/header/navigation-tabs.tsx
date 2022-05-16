@@ -17,7 +17,8 @@ export enum NavigationTabType {
   INSPECTOR = 'inspector',
   SETTINGS = 'settings',
   SEARCH = 'search',
-  ADD_ELEMENT = 'addElement'
+  ADD_ELEMENT = 'addElement',
+  ADD_BULK = 'addBulk'
 }
 
 /**
@@ -68,8 +69,8 @@ export function NavigationTabs() {
                       }/>}/>
       <CommonTabLogic handleTabClick={handleTabClick}
                       isActive={isActive}
-                      activeTab={NavigationTabType.BATCH}
-                      children={<AddBulkIcon className={isActive(NavigationTabType.BATCH) ?
+                      activeTab={NavigationTabType.ADD_BULK}
+                      children={<AddBulkIcon className={isActive(NavigationTabType.ADD_BULK) ?
                         'activeIconFill' : 'defaultIconFill'}/>}/>
       <CommonTabLogic handleTabClick={handleTabClick}
                       isActive={isActive}

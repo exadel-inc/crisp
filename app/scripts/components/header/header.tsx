@@ -6,6 +6,7 @@ import {NavigationTabs, NavigationTabType} from './navigation-tabs';
 import {SearchComponent} from '../searchComponent/searchComponent';
 import {ProjectPage} from '../../componentPages/projectPage/projectPage';
 import {AddElementPage} from '../../componentPages/addElementPage/addElementPage';
+import {AddBulkPage} from '../../componentPages/addBulkElement/addBulkPage';
 import '../../componentPages/projectPage/projectPage.scss';
 
 /**
@@ -48,6 +49,7 @@ export function Header() {
         <SearchComponent/>
         <ProjectPage/>
         <AddElementPage/>
+        <AddBulkPage/>
       </div>
     </header>
   );
