@@ -7,6 +7,7 @@ import {SearchComponent} from '../searchComponent/searchComponent';
 import {ProjectPage} from '../../componentPages/projectPage/projectPage';
 import {AddElementPage} from '../../componentPages/addElementPage/addElementPage';
 import {AddBulkPage} from '../../componentPages/addBulkElement/addBulkPage';
+import {LogoComponent} from '../logoComponent/logoComponent';
 import '../../componentPages/projectPage/projectPage.scss';
 
 /**
@@ -43,7 +44,7 @@ export function Header() {
     <header>
       <div className="container">
         <div className="nav-logo-wrapper">
-          <div>Logo</div>
+          <LogoComponent/>
           <NavigationTabs/>
         </div>
         <SearchComponent/>
