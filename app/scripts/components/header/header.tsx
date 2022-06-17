@@ -3,10 +3,12 @@ import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
 import {elementsService, projectsService} from '../../shared/services';
 import {NavigationTabs, NavigationTabType} from './navigation-tabs';
-import {Checkbox} from '../checkbox/checkbox';
 import {SearchComponent} from '../searchComponent/searchComponent';
-import {ProjectPage} from '../projectPage/projectPage';
-import '../projectPage/projectPage.scss';
+import {ProjectPage} from '../../componentPages/projectPage/projectPage';
+import {AddElementPage} from '../../componentPages/addElementPage/addElementPage';
+import {AddBulkPage} from '../../componentPages/addBulkElement/addBulkPage';
+import {LogoComponent} from '../logoComponent/logoComponent';
+import '../../componentPages/projectPage/projectPage.scss';
 
 /**
  * Application Header
@@ -42,12 +44,13 @@ export function Header() {
     <header>
       <div className="container">
         <div className="nav-logo-wrapper">
-          <div>Logo</div>
+          <LogoComponent/>
           <NavigationTabs/>
         </div>
         <SearchComponent/>
-        <Checkbox/>
         <ProjectPage/>
+        <AddElementPage/>
+        <AddBulkPage/>
       </div>
     </header>
   );

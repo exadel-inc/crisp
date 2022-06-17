@@ -1,0 +1,20 @@
+@use './app/styles/commonStyles' as *;
+
+.generateButton {
+  padding: $baseSize getSize(1.6) $baseSize getSize(4);
+  margin: 0;
+  border: none;
+  border-radius: 1px;
+  transition: $common-animation;
+  color: $darkMainColor;
+  background: url('../../../images/icons/generateIcon.svg') no-repeat center left $baseSize;
+
+  &:hover {
+    box-shadow: $commonShadow;
+  }
+}
+
+.generateButtonActive {
+  background-image: url('../../../images/icons/generateIconActive.svg');
+  color: $activeColor;
+}

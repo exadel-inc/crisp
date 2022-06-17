@@ -1,0 +1,30 @@
+@use './app/styles/commonStyles' as *;
+
+.logo {
+  font-size: getSize(2);
+  font-weight: bold;
+  cursor: pointer;
+  transition: $common-animation;
+
+  &:hover .lastPart {
+    color: $activeColor;
+  }
+
+  &:active .lastPart {
+    color: $yellowUkraine;
+  }
+
+  &:active .firstPart {
+    color: $yellowUkraine;
+  }
+}
+
+.firstPart {
+  color: $activeColor;
+  transition: $common-animation;
+}
+
+.lastPart {
+  color: $yellowUkraine;
+  transition: $common-animation;
+}

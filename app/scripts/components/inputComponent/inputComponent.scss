@@ -1,0 +1,18 @@
+@use './app/styles/commonStyles' as *;
+
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: getSize(1.6);
+}
+
+.inputLabel {
+  color: $darkMainColor
+}
+
+.inputField {
+  border: 1px solid $lightMainColor;
+  border-radius: getSize(.4);
+  padding: getSize(1.2) getSize(1.6);
+  background-color: $almostWhite;
+}

@@ -30,3 +30,45 @@ export const TEXT_COMPONENT_BUTTON_NAME = {
   COPY: 'Copy',
   RESET: 'Reset'
 };
+
+export const BREAD_CRUMB_SEPARATOR = ' >';
+export const GENERATE_BUTTON_NAME = 'Generate';
+export const GENERAL_FIELDS_NAME = {
+  PROJECT: 'Project',
+  PAGE: 'Page',
+  ELEMENT_NAME: 'Element name',
+  ELEMENT_DESCRIPTION: 'Element description',
+  PAGE_OBJECT: 'Page object',
+  ATTRIBUTE: 'Attrubite'
+};
+
+export const SELECTORS_FIELDS_NAME = {
+  PAGE_OBJECT_PATTERN: 'Page object pattern',
+  ID: 'ID',
+  CSS: 'CSS',
+  X_PATH: 'xPath',
+  PARENT_ELEMENT: 'Parent element'
+};
+
+export const ACTIONS_FIELDS_NAME = {
+  ACTION: 'Action'
+};
+
+export const PLACEHOLDER_INPUT = {
+  FIRST_PART: 'Enter',
+  SECOND_PART: 'here'
+};
+
+export const BUTTON_NAME_ADD = 'Add';
+export const BUTTON_NAME_BULK = 'Extract & Save';
+
+export const ADD_ACCORDION_FORM_NAME = {
+  GENERAL: 'General',
+  SELECTORS: 'Selectors',
+  ACTIONS: 'Actions'
+};
+
+export const PAGE_TITLE_NAME = {
+  ADD_ELEMENT: 'Add element',
+  ADD_BULK: 'Add element in bulk'
+};

@@ -1,0 +1,12 @@
+@use './app/styles/commonStyles' as *;
+
+.pageBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: getSize(2);
+}
+
+.pageBarSelected{
+  color: $darkMainColor;
+}

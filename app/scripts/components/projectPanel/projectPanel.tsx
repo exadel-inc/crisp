@@ -24,7 +24,7 @@ export const ProjectPanel = ({
       </div>
       <div className='controlWrapper'>
         <EditComponent/>
-        <DeleteComponent/>
+        <DeleteComponent style=''/>
         <Expander changeState={changeState} isOpen={isOpen}/>
       </div>
     </div>

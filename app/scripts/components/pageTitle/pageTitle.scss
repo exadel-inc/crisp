@@ -1,0 +1,10 @@
+@use '../../../styles/commonStyles' as *;
+
+.pageTitle {
+  margin-bottom: getSize(2);
+  padding-top: getSize(3);
+  font-size: getSize(1.6);
+  line-height: getSize(1.9);
+  font-weight: bold;
+  color: black;
+}
