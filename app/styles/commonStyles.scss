@@ -5,6 +5,7 @@ $lightMainColor: #dcdcdc;
 $dangerousColor: #d1505f;
 $verticalSeparatorColor: #bee4ff;
 $lightBackgroundColor: #f5fBff;
+$darkBackgroundColor: rgba(49, 50, 55, 1);
 $activeTabColor: #4c82e9;
 $lightBorderColor: #aadbff;
 
@@ -30,6 +31,7 @@ $baseSize: 10px;
   dangerousColor: $dangerousColor;
   verticalSeparatorColor: $verticalSeparatorColor;
   lightBackgroundColor: $lightBackgroundColor;
+  darkBackgroundColor: $darkBackgroundColor;
   activeTabColor: $activeTabColor;
   lightBorderColor: $lightBorderColor;
   commonAnimation: $common-animation;
