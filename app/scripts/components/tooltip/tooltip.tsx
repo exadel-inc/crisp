@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './tooltip.less';
+import './tooltip.scss';
 
 interface TooltipProps {
   children: React.ReactNode;
