@@ -18,7 +18,7 @@ module.exports = {
     background: './app/scripts/background.ts',
     contentscript: './app/scripts/contentscript.ts',
     devtools: './app/scripts/devtools.ts',
-    crisp: './app/scripts/crisp.tsx'
+    crisp: './app/scripts/app.tsx'
   },
   output: {
     filename: 'scripts/[name].js',

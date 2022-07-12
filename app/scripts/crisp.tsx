@@ -1,13 +1,10 @@
 'use strict';
 
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
 
 import '../styles/crisp.less';
 import '../styles/crisp.scss';
 import { BatchGenerateTab } from './components/batch-generate/batch-generate.component';
-import store from './redux/store';
 import { Header } from './components/header/header';
 import { InspectorTab } from './components/inspector-tab/inspector-tab.component';
 import { MainTab } from './components/main-tab/main-tab.component';
@@ -29,16 +26,6 @@ const Main = () => <main>
   <MainNavigation/>
 </main>;
 
-const Crisp = () => (
-  <Provider store={store}>
-    <Header/>
-    <Main/>
-    <ToastComponent/>
-    <ConfirmModal/>
-    <ImportModal/>
-    <ImportTypeConfirmationModal/>
-    <ExportModal/>
-  </Provider>
-);
-
-ReactDOM.render(<Crisp />, document.getElementById('crisp'));
+export default function Crisp () {
+  return <><Header /><Main /><ToastComponent /><ConfirmModal /><ImportModal /><ImportTypeConfirmationModal /><ExportModal /></>;
+};

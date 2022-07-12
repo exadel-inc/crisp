@@ -10,6 +10,8 @@ import {CommonTabLogic} from '../tab-icons/commonTabLogic';
 import {SearchIcon} from '../tab-icons/searchIcon';
 import './navigation-tabs.scss';
 import '../../../styles/commonClasses.scss';
+import { LogoutIcon } from '../tab-icons/logoutIcon';
+import { UserActions } from '../../redux/reducers/user/user.actions';
 
 export enum NavigationTabType {
   MAIN = 'main',
@@ -18,7 +20,8 @@ export enum NavigationTabType {
   SETTINGS = 'settings',
   SEARCH = 'search',
   ADD_ELEMENT = 'addElement',
-  ADD_BULK = 'addBulk'
+  ADD_BULK = 'addBulk',
+  LOG_OUT = 'logout'
 }
 
 /**
@@ -45,6 +48,12 @@ export function NavigationTabs() {
     }
   };
 
+  const logoutHandleClick = () => {
+    const logoutAction: any = UserActions.USER_LOGOUT;
+    dispatch({ type: logoutAction });
+    localStorage.clear();
+  };
+
   return (
     <ul className="nav nav-pills d-flex justify-content-center" id="crisp-tabs">
       <CommonTabLogic handleTabClick={handleTabClick}
@@ -67,6 +76,11 @@ export function NavigationTabs() {
                       isActive={isActive}
                       activeTab={NavigationTabType.SETTINGS}
                       children={<SettingsIcon className={isActive(NavigationTabType.SETTINGS) ?
+                        'activeIconFill' : 'defaultIconFill'}/>}/>
+      <CommonTabLogic handleTabClick={logoutHandleClick}
+                      isActive={isActive}
+                      activeTab={NavigationTabType.SETTINGS}
+                      children={<LogoutIcon className={isActive(NavigationTabType.SETTINGS) ?
                         'activeIconFill' : 'defaultIconFill'}/>}/>
     </ul>
   );

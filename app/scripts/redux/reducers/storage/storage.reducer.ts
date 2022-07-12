@@ -12,17 +12,19 @@ export interface StorageState {
   elements: CrispElement[];
   framework: Framework[];
   patterns: Pattern[];
+  users: any[];
 }
 
-const initialState: StorageState = {
+export const initialStirageState: StorageState = {
   pages: [],
   projects: [],
   elements: [],
   framework: [],
   patterns: [],
+  users: [],
 };
 
-export default function storageReducer(state: StorageState = initialState, action: AnyAction) {
+export default function storageReducer(state: StorageState = initialStirageState, action: AnyAction) {
   switch (action.type) {
     case ActionTypes.WRITE_TO_STORAGE: {
 
@@ -30,6 +32,15 @@ export default function storageReducer(state: StorageState = initialState, actio
         ...state,
         [action.payload.key]: action.payload.data,
       };
+    }
+
+    case ActionTypes.WRITE_ALL_TO_STORAGE: {
+      const newState = state ? {
+        ...state,
+        ...action.payload
+      }: action.payload;
+      console.log(`----- newState: ${newState} ----`);
+      return newState;
     }
 
     default:
