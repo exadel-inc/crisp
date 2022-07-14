@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux';
-import { NavigationTabType } from '../../../components/header/navigation-tabs';
+import { NavigationTabType } from '../../../components/header/navigationTypes';
 import { ActionTypes } from './navigation.actions';
 
 export interface NavigationState {

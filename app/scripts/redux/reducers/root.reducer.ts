@@ -58,6 +58,7 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
     },
     user: userReducer(state.user, action),
     appMode: appModeReducer(state.appMode, action),
-    syncDataQueue: syncDataReducer(state.syncDataQueue, action)
+    syncDataQueue: syncDataReducer(state.syncDataQueue, action),
+    roles: []
   };
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavigationTabType} from '../header/navigation-tabs';
+import {NavigationTabType} from '../header/navigationTypes';
 
 export const CommonTabLogic = ({handleTabClick, children, isActive, activeTab}: {
   handleTabClick: any;

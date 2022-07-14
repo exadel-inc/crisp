@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { NavigateAction } from '../../redux/reducers/navigation/navigation.actions';
 import { Select } from '../shared/select/select.component';
-import { NavigationTabType } from '../header/navigation-tabs';
+import { NavigationTabType } from '../header/navigationTypes';
 import { showToast } from '../shared/toasts-component';
 import { useConfirmModal } from '../shared/confirm-modal/confirm-modal';
 import { AddType } from '../../shared/common-service';

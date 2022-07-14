@@ -1,5 +1,5 @@
 import { Action } from 'redux';
-import { NavigationTabType } from '../../../components/header/navigation-tabs';
+import { NavigationTabType } from '../../../components/header/navigationTypes';
 
 export enum ActionTypes {
   NAVIGATE = '[Navigation] navigate',

@@ -49,7 +49,7 @@ const handleSubmit = async (event: any) => {
             data.accessToken,
             data.refreshToken,
             data.expiresIn,
-            userInfo.role,
+            (userInfo.roles.length ? userInfo.roles[0] : undefined),
             host
         );
 

@@ -115,10 +115,6 @@ export function PageObjectsTab() {
 
   /* Store handling */
 
-  // true, if the tab is active
-  const isActive = useSelector((state: RootState) => 
-    state.settings.framework.tab) === SettingsFrameworkTabType.OBJECTS;
-
   // true at the option creating or editing mode
   const isEditing = useSelector((state: RootState) => state.settings.framework.objects.isEditing);
 
@@ -449,10 +445,9 @@ export function PageObjectsTab() {
     );
   }
 
-  return isActive ? (
-    <div
+  return (<div
       id={SettingsFrameworkTabType.OBJECTS}
-      className={`tab-pane fade ${isActive ? 'show active' : ''} ${isEditing ? 'crisp-show-editor' : ''}`}
+      className={`tab-pane fade show active ${isEditing ? 'crisp-show-editor' : ''}`}
     >
       <div className="container">
         <div className="row">
@@ -561,5 +556,5 @@ export function PageObjectsTab() {
         </div>
       </div>
     </div>
-  ) : null;
+  );
 }

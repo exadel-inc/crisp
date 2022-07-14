@@ -10,7 +10,7 @@ import { ImportModalState } from '../components/shared/import-modal/import-modal
 import { ExportModalState } from '../components/shared/export-modal/export-modal';
 import { ImportTypeModalState } from '../components/shared/import-type-confirmation-modal/import-type-modal';
 
-import { CurrentUser } from '../currentUser/currentUser';
+import { CurrentUser, UserRole } from '../currentUser/currentUser';
 import { appMode } from './reducers/appMode/appMode.reducerr';
 import { syncDataQueueI } from './reducers/syncDataQueue/syncDataQueue.reducer';
 
@@ -28,6 +28,7 @@ export interface RootState {
   user: CurrentUser;
   syncDataQueue: syncDataQueueI[];
   appMode: appMode;
+  roles: UserRole[];
 }
 
 const store: Store<RootState> = createStore(rootReducer, applyMiddleware(logger));

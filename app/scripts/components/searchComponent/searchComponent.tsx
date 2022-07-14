@@ -4,7 +4,7 @@ import {BigButton} from '../bigButton/bigButton';
 import {SEARCH_BUTTON_NAME, SEARCH_PLACEHOLDER} from '../../constants/constants';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
-import {NavigationTabType} from '../header/navigation-tabs';
+import {NavigationTabType} from '../header/navigationTypes';
 import './searchComponent.scss';
 
 export const SearchComponent = () => {
@@ -14,9 +14,7 @@ export const SearchComponent = () => {
     return value.length > 0;
   };
 
-  const isActive = useSelector((state: RootState) => state.navigation.tab) === NavigationTabType.SEARCH;
-
-  return (isActive ?
+  return (
       <form onSubmit={e => e.preventDefault()} className="searchForm">
         <input
           onChange={(e) => setValue(e.target.value)}
@@ -26,6 +24,6 @@ export const SearchComponent = () => {
           style={checkLengthValue() ? {background: 'none'} : {}}
         />
         <BigButton buttonName={SEARCH_BUTTON_NAME} disable={checkLengthValue()}/>
-      </form> : null
+      </form>
   );
 };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {NavigationTabType} from '../header/navigation-tabs';
+import {NavigationTabType} from '../header/navigationTypes';
 import {useDispatch} from 'react-redux';
 import {NavigateAction} from '../../redux/reducers/navigation/navigation.actions';
 import './logoComponent.scss';
