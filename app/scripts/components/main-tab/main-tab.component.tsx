@@ -5,7 +5,7 @@ import { CrispElement } from '../../elements/element';
 import { Page } from '../../pages/page';
 import { RootState } from '../../redux/store';
 import { elementsService, pagesService, projectsService } from '../../shared/services';
-import { NavigationTabType } from '../header/navigation-tabs';
+import { NavigationTabType } from '../header/navigationTypes';
 import { MainTabFooter } from './main-tab-footer';
 import { PageElememntsTab } from './page-elements-tab.component';
 import { PageElememntsTable } from './page-elements-table.component';

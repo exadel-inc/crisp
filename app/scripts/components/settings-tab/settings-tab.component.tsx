@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 
-import { NavigationTabType } from '../header/navigation-tabs';
+import { NavigationTabType } from '../header/navigationTypes';
 import { SettingsNavigation } from './settings-navigation.component';
 import { CommonTab } from './common-tab/common-tab.component';
 import { ProjectTab } from './project-tab/project-tab.component';
@@ -15,12 +15,12 @@ export function SettingsTab() {
   /**
    * is current tab active
   */
-  const isActive = useSelector((state: RootState) =>
-    state.navigation.tab) === NavigationTabType.SETTINGS;
+  const isActive = false;
+  //useSelector((state: RootState) => state.navigation.tab) === NavigationTabType.SETTINGS;
 
   return isActive ? (
     <div
-      id={NavigationTabType.SETTINGS}
+      id={'settings'}//NavigationTabType.SETTINGS
       className={`tab-pane fade ${isActive ? 'show active' : ''}`}
     >
       <SettingsNavigation/>

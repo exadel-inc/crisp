@@ -8,7 +8,7 @@ import { SetInspectedElementAction } from '../../redux/reducers/inspected-elemen
 import { NavigateAction } from '../../redux/reducers/navigation/navigation.actions';
 import { elementsService, patternService } from '../../shared/services';
 import { ActionListComponent } from '../action-list/action-list.component';
-import { NavigationTabType } from '../header/navigation-tabs';
+import { NavigationTabType } from '../header/navigationTypes';
 
 export interface PageElemementsProps {
   element: CrispElement;

@@ -7,7 +7,7 @@ import { ResetInspectedElementAction, SetInspectedElementAction } from '../../re
 import { NavigateAction } from '../../redux/reducers/navigation/navigation.actions';
 import { RootState } from '../../redux/store';
 import { elementsService, pagesService, patternService, projectsService } from '../../shared/services';
-import { NavigationTabType } from '../header/navigation-tabs';
+import { NavigationTabType } from '../header/navigationTypes';
 import { InspectorFooter, InspectorFooterButtonType } from './inspector-footer.component';
 import { InspectorLeftSide } from './inspector-left-side.component';
 import { InspectorRightSide } from './insperctor-right-side.component';

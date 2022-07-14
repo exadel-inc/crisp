@@ -1,16 +1,16 @@
 import { AnyAction } from 'redux';
-import { NavigationTabType } from '../../../components/header/navigation-tabs';
+import { NavigationTabType } from '../../../components/header/navigationTypes';
 import { ActionTypes } from './navigation.actions';
 
 export interface NavigationState {
   tab: NavigationTabType;
 }
 
-const initialState: NavigationState = {
+export const initialNavigationState: NavigationState = {
   tab: NavigationTabType.MAIN,
 };
 
-export default function navigationReducer(state: NavigationState = initialState, action: AnyAction): NavigationState {
+export default function navigationReducer(state: NavigationState = initialNavigationState, action: AnyAction): NavigationState {
   switch (action.type) {
     case ActionTypes.NAVIGATE: {
 

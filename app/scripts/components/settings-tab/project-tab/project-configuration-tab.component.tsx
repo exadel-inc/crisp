@@ -111,9 +111,6 @@ export function ConfigurationTab() {
 
   /* Store handling */
 
-  // true, if the tab is active
-  const isActive = useSelector((state: RootState) => state.settings.project.tab) === CONFIG.tab;
-
   // true at the option creating or editing mode
   const isEditing = useSelector((state: RootState) => state.settings.project.config.isEditing);
 
@@ -432,10 +429,10 @@ export function ConfigurationTab() {
     }
   };
 
-  return isActive ? (
+  return (
     <div
       id={CONFIG.tab}
-      className={`tab-pane fade ${isActive ? 'show active' : ''} ${isEditing ? 'crisp-show-editor' : ''}`}
+      className={`tab-pane fade show active ${isEditing ? 'crisp-show-editor' : ''}`}
     >
       <div className="container">
         <div className="row">
@@ -550,5 +547,5 @@ export function ConfigurationTab() {
         </div>
       </div>
     </div>
-  ) : null;
+  );
 }

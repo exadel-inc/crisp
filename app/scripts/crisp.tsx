@@ -1,44 +1,47 @@
 'use strict';
 
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-
+import {Suspense} from 'react';
 import '../styles/crisp.less';
 import '../styles/crisp.scss';
-import { BatchGenerateTab } from './components/batch-generate/batch-generate.component';
-import store from './redux/store';
 import { Header } from './components/header/header';
-import { InspectorTab } from './components/inspector-tab/inspector-tab.component';
-import { MainTab } from './components/main-tab/main-tab.component';
-import { SettingsTab } from './components/settings-tab/settings-tab.component';
 import { ToastComponent } from './components/shared/toasts-component';
 import { ConfirmModal } from './components/shared/confirm-modal/confirm-modal.component';
 import { ImportModal } from './components/shared/import-modal/import-modal.component';
 import { ImportTypeConfirmationModal } from './components/shared/import-type-confirmation-modal/import-type-confirmation-modal.component';
 import { ExportModal } from './components/shared/export-modal/export-modal.component';
+import { useSelector, shallowEqual } from 'react-redux';
+import { RootState } from './redux/store';
 
-const MainNavigation = () => <div className="tab-content">
-  <MainTab/>
-  <BatchGenerateTab/>
-  <InspectorTab/>
-  <SettingsTab/>
-</div>;
+const AdminPages = React.lazy(() => import('./componentPages/adminPages'));
+const UserPages = React.lazy(() => import('./componentPages/userPages'));
 
-const Main = () => <main>
-  <MainNavigation/>
-</main>;
+const Main = () => {
+  const isAdminMode = () => useSelector((state: RootState) => state.appMode, shallowEqual) === 'ADMIN';
+  const isAdminRole = () => useSelector((state: RootState) => state.user.role.name, shallowEqual) === 'ADMIN';
 
-const Crisp = () => (
-  <Provider store={store}>
-    <Header/>
-    <Main/>
-    <ToastComponent/>
-    <ConfirmModal/>
-    <ImportModal/>
-    <ImportTypeConfirmationModal/>
-    <ExportModal/>
-  </Provider>
-);
+  return (
+    <main>
+      {
+        isAdminRole() ? (
+          isAdminMode() ? <Suspense fallback={null}> <AdminPages /> </Suspense> : 
+            <Suspense fallback={null}> <UserPages /> </Suspense>
+        ):
+        <Suspense fallback={null}> <UserPages /> </Suspense>
+      }
+    </main>
+  );
 
-ReactDOM.render(<Crisp />, document.getElementById('crisp'));
+};
+
+export default function Crisp () {
+  return <>
+    <Header />
+    <Main />
+    <ToastComponent />
+    <ConfirmModal />
+    <ImportModal />
+    <ImportTypeConfirmationModal />
+    <ExportModal />
+  </>;
+};

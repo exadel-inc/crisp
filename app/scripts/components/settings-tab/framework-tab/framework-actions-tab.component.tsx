@@ -116,10 +116,6 @@ export function ActionsTab() {
 
   /* Store handling */
 
-  // true, if the tab is active
-  const isActive = useSelector((state: RootState) => 
-    state.settings.framework.tab) === SettingsFrameworkTabType.ACTIONS;
-
   // true at the option creating or editing mode
   const isEditing = useSelector((state: RootState) => state.settings.framework.actions.isEditing);
 
@@ -452,10 +448,9 @@ export function ActionsTab() {
     );
   }
 
-  return isActive ? (
-    <div
+  return (<div
       id={SettingsFrameworkTabType.ACTIONS}
-      className={`tab-pane fade ${isActive ? 'show active' : ''} ${isEditing ? 'crisp-show-editor' : ''}`}
+      className={`tab-pane fade show active ${isEditing ? 'crisp-show-editor' : ''}`}
     >
       <div className="container">
         <div className="row">
@@ -562,5 +557,5 @@ export function ActionsTab() {
         </div>
       </div>
     </div>
-  ) : null;
+  );
 }

@@ -110,10 +110,6 @@ export function PagesTab() {
 
   /* Store handling */
 
-  // true, if the tab is active
-  const isActive = useSelector((state: RootState) => 
-    state.settings.project.tab) === SettingsProjectTabType.PAGES;
-
   // true at the option creating or editing mode
   const isEditing = useSelector((state: RootState) => state.settings.project.pages.isEditing);
 
@@ -443,10 +439,10 @@ export function PagesTab() {
     );
   }
 
-  return isActive ? (
+  return (
     <div
       id={SettingsProjectTabType.PAGES}
-      className={`tab-pane fade ${isActive ? 'show active' : ''} ${isEditing ? 'crisp-show-editor' : ''}`}
+      className={`tab-pane fade show active ${isEditing ? 'crisp-show-editor' : ''}`}
       data-editor="none"
     >
       <div className="container">
@@ -535,5 +531,5 @@ export function PagesTab() {
         </div>
       </div>
     </div>
-  ) : null;
+  );
 }

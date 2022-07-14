@@ -37,7 +37,7 @@ export interface SettingsState {
   };
 };
 
-const initialState: SettingsState = {
+export const initialSettingsState: SettingsState = {
   tab: SettingsTabType.FRAMEWORK,
   common: {
     tab: SettingsCommonTabType.STORAGE,
@@ -74,7 +74,7 @@ const initialState: SettingsState = {
   },
 };
 
-export default function settingsReducer(state: SettingsState = initialState, action: AnyAction): SettingsState {
+export default function settingsReducer(state: SettingsState = initialSettingsState, action: AnyAction): SettingsState {
   switch (action.type) {
     case SettingsActions.NAVIGATE: {
       return {
