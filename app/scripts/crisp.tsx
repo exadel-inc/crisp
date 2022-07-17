@@ -35,7 +35,7 @@ const Main = () => {
 };
 
 export default function Crisp () {
-  return <>
+  return <div className='app-wrapper'>
     <Header />
     <Main />
     <ToastComponent />
@@ -43,5 +43,5 @@ export default function Crisp () {
     <ImportModal />
     <ImportTypeConfirmationModal />
     <ExportModal />
-  </>;
+  </div>;
 };

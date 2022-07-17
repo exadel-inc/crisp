@@ -10,11 +10,39 @@ table {
 
 /* Common */
 #crisp {
-  padding: 20px 0;
+  width: 100%;
+  height: 100%;
+
+  .app-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    height: 100%;
+    padding: 2% 5%;
+    max-width: 1000px;
+    margin: auto;
+
+    > div {
+      width: 100%;
+      margin: 0;
+      max-width: 100%;
+
+      .logo {
+        width: 60%;
+      }
+    }
+  }
 }
 
 header {
   margin-bottom: 20px;
+  width: 100%;
+
+  .container {
+    margin: 0;
+    padding: 0;
+  }
 
   #crisp-title {
     font-size: 24px;
@@ -27,6 +55,7 @@ header {
 }
 
 footer {
+  width: 100%;
   margin-top: 20px;
 }
 
@@ -38,6 +67,11 @@ footer {
 }
 
 /* Main tab */
+main {
+  width: 100%;
+  flex: 1;
+}
+
 #main {
   padding: 20px 0;
 

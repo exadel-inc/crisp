@@ -6,7 +6,7 @@ export enum appMode {
   ADMIN = 'ADMIN'
 }
 
-export default function appModeReducer(state: appMode = appMode.USER, action: AnyAction) {
+export default function appModeReducer(state: appMode = appMode.ADMIN, action: AnyAction) {
   switch (action.type) {
     case AppModeActions.ADMIN_MODE: {
       return appMode.ADMIN;

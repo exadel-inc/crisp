@@ -31,7 +31,56 @@
 .required {
   color: $activeColor;
 }
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 
-.loginForm {
-  padding: 5% 10%;
+  .loginForm {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    > div {
+      width: 100%;
+    }
+    > button {
+      width: 100%;
+      height: 40px;
+      padding: 0;
+      margin: 40px 0 0 0;
+      background-color: #0093fe;
+      color: #fff;
+  
+      &:active,
+      &:focus,
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+  #loadingBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  
+    .spinner {
+      width: 60%;
+      height: 60%;
+    }
+  
+    &.hide {
+      display: none;
+    }
+  }
 }

@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { Button } from './components/button/button';
 import { InputComponent } from './components/inputComponent/inputComponent';
 
@@ -9,6 +9,7 @@ import store from './redux/store';
 import { WriteAllDataToStorageAction } from './redux/reducers/storage/storage.actions';
 import { CurrentUser } from './currentUser/currentUser';
 import { UserActions } from './redux/reducers/user/user.actions';
+import { Spinner } from './components/spinner/spinner';
 
 
 const auth = authApi();
@@ -27,14 +28,13 @@ const initData = async (data: any) => {
     store.dispatch({...new WriteAllDataToStorageAction(data)});
 };
 
-const handleSubmit = async (event: any) => {
-    event.preventDefault();
-    const host = event.target.elements.host.value || 'http://localhost:8080';
+// http://localhost:8080
+const handleSubmit = async (email: string, password: string, host: string) => {
     localStorage.setItem('host', host);
 
     const data = await auth.login({
-        email: event.target.elements.email.value,
-        password: event.target.elements.password.value
+        email: email,
+        password: password
     });
 
     if(data) {
@@ -65,10 +65,30 @@ const handleSubmit = async (event: any) => {
 };
 
 export const Login = () => (
-    <form onSubmit={handleSubmit} className="loginForm">
-        <InputComponent name={'email'} />
-        <InputComponent name={'password'} />
-        <InputComponent name={'host'} />
-        <Button type={'submit'} buttonName={'login'} action={() => {}} iconClass={''} />
-    </form>
+    <div className='login-wrapper'>
+        <form onSubmit={async (e: any) => {
+            e.preventDefault();
+            const spinner = document.getElementById('loadingBox');
+            try {
+                spinner?.classList.remove('hide');
+                const elements: any = e.target?.elements || {};
+                const email = elements.email.value;
+                const password = elements.password.value;
+                const host = elements.host.value;
+                await handleSubmit(email, password, host);
+            } catch(err) {
+
+            } finally {
+                spinner?.classList.add('hide');
+            }
+        }} className="loginForm">
+            <InputComponent name={'email'} />
+            <InputComponent name={'password'} />
+            <InputComponent name={'host'} />
+            <Button type={'submit'} buttonName={'login'} action={() => { } } iconClass={''} />
+        </form>
+        <div id='loadingBox' className='hide'>
+            <Spinner />
+        </div>
+    </div>
 );
