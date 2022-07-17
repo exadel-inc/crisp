@@ -47,9 +47,8 @@ export function NavigationTabs() {
   };
 
   const generateNavTab = () => {
-    if(isAdminRole()) {
-      return isAdminMode()? <AdminNavigationTabs handleTabClick={handleTabClick} isActive={isActive} /> :
-        <UserNavigationTabs handleTabClick={handleTabClick} isActive={isActive} />;
+    if(isAdminRole() && isAdminMode()) {
+      return <AdminNavigationTabs handleTabClick={handleTabClick} isActive={isActive} />;
     }
 
     return <UserNavigationTabs handleTabClick={handleTabClick} isActive={isActive} />;

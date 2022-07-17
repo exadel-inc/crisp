@@ -348,7 +348,7 @@ export function ConfigurationTab() {
       id={SettingsFrameworkTabType.CONFIG}
       className={`tab-pane fade show active ${isEditing ? 'crisp-show-editor' : ''}`}
     >
-      <div className="container">
+      <div>
         <div className="row">
           <div className="col-6">
 

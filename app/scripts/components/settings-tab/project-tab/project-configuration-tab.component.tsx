@@ -434,7 +434,7 @@ export function ConfigurationTab() {
       id={CONFIG.tab}
       className={`tab-pane fade show active ${isEditing ? 'crisp-show-editor' : ''}`}
     >
-      <div className="container">
+      <div>
         <div className="row">
           <div className="col-6">
 

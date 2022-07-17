@@ -47,7 +47,7 @@ export function Header() {
 
   return (
     <header>
-      <div className="container">
+      <div>
         <div className="nav-logo-wrapper">
           <LogoComponent/>
           <NavigationTabs/>
