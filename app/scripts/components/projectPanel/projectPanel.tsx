@@ -2,6 +2,7 @@ import * as React from 'react';
 import {useContext} from 'react';
 import {EditComponent} from '../editComponent/editComponent';
 import {Expander} from '../expander/expander';
+import {useDispatch, useSelector} from 'react-redux';
 import {DeleteComponent} from '../deletComponent/deleteComponent';
 import {DEFAULT_PROJECT_PANEL_COUNT, DEFAULT_PROJECT_PANEL_NAME} from '../../constants/constants';
 import {IsOpenProject} from '../projectComponent/projectComponent';
@@ -15,6 +16,8 @@ export const ProjectPanel = ({
   projectName: string;
 }) => {
   const {isOpen, changeState} = useContext(IsOpenProject);
+  // @ts-ignore
+  const {appMode} = useSelector(state => state);
 
   return (
     <div className='projectPanelWrapper'>
@@ -23,8 +26,11 @@ export const ProjectPanel = ({
         <p className='projectName'>{projectName}</p>
       </div>
       <div className='controlWrapper'>
-        <EditComponent/>
-        <DeleteComponent style=''/>
+        {appMode === appMode.ADMIN &&
+          <>
+            <EditComponent/>
+            <DeleteComponent style=''/>
+          </>}
         <Expander changeState={changeState} isOpen={isOpen}/>
       </div>
     </div>

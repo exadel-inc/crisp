@@ -6,7 +6,7 @@ export const InputComponent = ({name, label='', placeholder='', required = false
   name: string;
   label?: string;
   placeholder?: string;
-  required?: boolean
+  required?: boolean;
 }) => {
   return (
     <div className='inputWrapper'>

@@ -7,7 +7,7 @@ import {TABLE_BUTTON_NAME} from '../../constants/constants';
 import {DeleteComponent} from '../deletComponent/deleteComponent';
 import './tableElement.scss';
 
-export const TableElement = () => {
+export const TableElement = ({name, element}: { name: string; element: any }) => {
   const [isOpen, setIsOpen] = useState(false);
   const {DELETE, EDIT, INSERT} = TABLE_BUTTON_NAME;
 
@@ -32,7 +32,7 @@ export const TableElement = () => {
             <Button buttonName={DELETE} action={() => {
             }} iconClass='tableDeleteButton'/>
           </> : <>
-            <p>avt</p>
+            <p>{name}</p>
             <p>not displayed</p>
             <DeleteComponent style='tableDeleteIcon'/>
           </>
@@ -40,7 +40,7 @@ export const TableElement = () => {
           <Expander isOpen={isOpen} changeState={changeState}/>
         </div>
       </div>
-      {isOpen ? <OpenTableElement isOpen={isOpen}/> : null}
+      {isOpen ? <OpenTableElement isOpen={isOpen} name={name} element={element}/> : null}
     </div>
   );
 };
