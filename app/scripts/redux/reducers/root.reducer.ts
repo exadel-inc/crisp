@@ -12,6 +12,8 @@ import storageReducer, { initialStirageState } from './storage/storage.reducer';
 import syncDataReducer from './syncDataQueue/syncDataQueue.reducer';
 import { UserActions } from './user/user.actions';
 import userReducer from './user/user.reducer';
+import {selectedPageReducer} from './selectedPage/selectedPage.reducer';
+import {selectedProjectReducer} from "./selectedProject/selectedProject.reducer";
 
 export default function rootReducer(state: any = {}, action: AnyAction) {
   if(action.type === UserActions.USER_LOGOUT) {
@@ -34,7 +36,9 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
       user: new CurrentUser(),
       appMode: appMode.USER,
       usersModificationData: [],
-      syncDataQueue: {}
+      syncDataQueue: {},
+      selectedPageId: null,
+      selectedProjectId: null
     };
 
     return {};
@@ -59,6 +63,8 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
     user: userReducer(state.user, action),
     appMode: appModeReducer(state.appMode, action),
     syncDataQueue: syncDataReducer(state.syncDataQueue, action),
-    roles: []
+    roles: [],
+    selectedPageId: selectedPageReducer(state.selectedPageId, action),
+    selectedProjectId: selectedProjectReducer(state.selectedProjectId, action)
   };
 }

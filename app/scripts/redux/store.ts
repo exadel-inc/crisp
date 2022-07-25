@@ -29,6 +29,8 @@ export interface RootState {
   syncDataQueue: syncDataQueueI[];
   appMode: appMode;
   roles: UserRole[];
+  selectedPageId: null;
+  selectedProjectId: null;
 }
 
 const store: Store<RootState> = createStore(rootReducer, applyMiddleware(logger));
