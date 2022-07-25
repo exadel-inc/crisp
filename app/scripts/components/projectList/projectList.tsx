@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {projectsListMoc} from '../../constants/moc';
 import {ProjectComponent} from '../projectComponent/projectComponent';
 import './projectList.scss';
+import {useSelector} from 'react-redux';
 
 export const ProjectList = () => {
   // @ts-ignore
-  const projectsData = JSON.parse(localStorage.getItem('projects'));
+  const {storage:{projects}} = useSelector(state => state);
   let projectContent = 'Project list is empty';
 
-  if (projectsData && projectsData.length > 0) {
-    projectContent = projectsData.map(
+  if (projects && projects.length > 0) {
+    projectContent = projects.map(
       // @ts-ignore
       (el, index) => {
         const {name, _id} = el;

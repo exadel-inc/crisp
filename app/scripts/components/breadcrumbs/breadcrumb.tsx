@@ -8,9 +8,8 @@ import {clearSelectedPageId} from '../../redux/reducers/selectedPage/selectedPag
 
 export const Breadcrumb = () => {
   // @ts-ignore
-  const projects = JSON.parse(localStorage.getItem('projects'));
+  const {storage: {projects, pages},} = useSelector(state => state);
   // @ts-ignore
-  const pages = JSON.parse(localStorage.getItem('pages'));
   const projectLength = projects.length;
   const [projectName, setProjectName] = useState('Empty');
   const [pageName, setPageName] = useState('Empty');
@@ -23,16 +22,18 @@ export const Breadcrumb = () => {
     return projectLength > 1 ? `${COUNT_PROJECT_TITLE}s` : `${COUNT_PROJECT_TITLE}`;
   };
 
-  useEffect(() => {
-    if (selectedProjectId) {
-      setProjectName(projects.find((el: any) => el._id === selectedProjectId).name);
+  const viewSelectedType = (setState: any, arrayOfElements: [any], id: number) => {
+    if (id) {
+      setState(arrayOfElements.find((el: any) => el._id === id).name);
     }
+  };
+
+  useEffect(() => {
+    viewSelectedType(setProjectName, projects, selectedProjectId);
   }, [selectedProjectId]);
 
   useEffect(() => {
-    if (selectedPageId) {
-      setPageName(pages.find((el: any) => el._id === selectedPageId).name);
-    }
+    viewSelectedType(setPageName, pages, selectedPageId);
   }, [selectedPageId]);
 
   return (

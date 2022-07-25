@@ -13,7 +13,7 @@ export const Pill = ({pageName = DEFAULT_PROJECT_PAGE_NAME, pageId}: { pageName:
   const {selectedPageId} = useSelector(state => state);
   const dispatch = useDispatch();
   const changeActiveStatus = () => {
-    console.log(selectedPageId);
+
     if (!selectedPageId) {
       dispatch(setSelectedPageId(pageId));
     } else {

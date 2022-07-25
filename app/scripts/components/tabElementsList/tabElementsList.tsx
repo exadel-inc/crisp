@@ -1,14 +1,15 @@
 import React from 'react';
 import {TableElement} from '../tableElement/tableElement';
+import {useSelector} from 'react-redux';
 
 export const TabElementsList = ({selectedPageId}: { selectedPageId: number }) => {
 
   // @ts-ignore
-  const elementsData = JSON.parse(localStorage.getItem('elements'));
+  const {storage: {elements}} = useSelector(state => state);
   let elementsContent = 'List of elements is empty';
 
-  if (elementsData && elementsData.length > 0) {
-    elementsContent = elementsData.filter((el: any) => el.page === selectedPageId).map(
+  if (elements && elements.length > 0) {
+    elementsContent = elements.filter((el: any) => el.page === selectedPageId).map(
       // @ts-ignore
       (el) => {
         const {name, _id} = el;
