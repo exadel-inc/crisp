@@ -12,6 +12,8 @@ import storageReducer, { initialStirageState } from './storage/storage.reducer';
 import syncDataReducer from './syncDataQueue/syncDataQueue.reducer';
 import { UserActions } from './user/user.actions';
 import userReducer from './user/user.reducer';
+import usersReducer from './users/users.reducer';
+import usersNavigationReducer from './usersNavigation/usersNavigation.reducer';
 
 export default function rootReducer(state: any = {}, action: AnyAction) {
   if(action.type === UserActions.USER_LOGOUT) {
@@ -31,13 +33,12 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
         exportModal: { show: false },
         importTypeModal: { show: false },
       },
-      user: new CurrentUser(),
+      users: [],
+      currentUser: new CurrentUser(),
       appMode: appMode.USER,
       usersModificationData: [],
       syncDataQueue: {}
     };
-
-    return {};
   }
 
   return {
@@ -56,7 +57,9 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
       exportModal: exportModalReducer(state.exportModal, action),
       importTypeModal: importTypeModalReducer(state.importTypeModal, action),
     },
-    user: userReducer(state.user, action),
+    users: usersReducer(state.users, action),
+    usersNavigation: usersNavigationReducer(state.usersNavigation, action),
+    currentUser: userReducer(state.currentUser, action),
     appMode: appModeReducer(state.appMode, action),
     syncDataQueue: syncDataReducer(state.syncDataQueue, action),
     roles: []

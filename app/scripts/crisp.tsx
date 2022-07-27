@@ -18,16 +18,19 @@ const UserPages = React.lazy(() => import('./componentPages/userPages'));
 
 const Main = () => {
   const isAdminMode = () => useSelector((state: RootState) => state.appMode, shallowEqual) === 'ADMIN';
-  const isAdminRole = () => useSelector((state: RootState) => state.user.role.name, shallowEqual) === 'ADMIN';
+  const isAdminRole = () => useSelector((state: RootState) => state.currentUser.role.name, shallowEqual) === 'ADMIN';
+  const getPage = () => {
+    if(isAdminRole() && isAdminMode()) {
+      return <Suspense fallback={null}> <AdminPages /> </Suspense>;
+    }
+
+    return <Suspense fallback={null}> <UserPages /> </Suspense>;
+  };
 
   return (
     <main>
       {
-        isAdminRole() ? (
-          isAdminMode() ? <Suspense fallback={null}> <AdminPages /> </Suspense> : 
-            <Suspense fallback={null}> <UserPages /> </Suspense>
-        ):
-        <Suspense fallback={null}> <UserPages /> </Suspense>
+        getPage()
       }
     </main>
   );

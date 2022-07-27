@@ -41,10 +41,10 @@
   border-color: $activeColor;
 
   svg {
-    fill: $activeColor;
+    fill: $activeColor !important;
 
     &:hover {
-      fill: $activeColor;
+      fill: $activeColor !important;
     }
   }
 }

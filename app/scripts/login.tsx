@@ -4,15 +4,17 @@ import React, { FormEvent } from 'react';
 import { Button } from './components/button/button';
 import { InputComponent } from './components/inputComponent/inputComponent';
 
-import { authApi } from './serverRestApi';
+import { authApi, restApi } from './serverRestApi';
 import store from './redux/store';
 import { WriteAllDataToStorageAction } from './redux/reducers/storage/storage.actions';
 import { CurrentUser } from './currentUser/currentUser';
 import { UserActions } from './redux/reducers/user/user.actions';
 import { Spinner } from './components/spinner/spinner';
+import { InitUsersToStorageAction } from './redux/reducers/users/users.actions';
 
 
 const auth = authApi();
+const userService = restApi('users');
 
 const setData = (key: string, itemData: any) => {
     localStorage.setItem(key, JSON.stringify(itemData) );
@@ -38,9 +40,10 @@ const handleSubmit = async (email: string, password: string, host: string) => {
     });
 
     if(data) {
-        await initData(data.projectInitData);
-
         const userInfo = data.user;
+        const userRole = userInfo.roles.length ? userInfo.roles[0] : undefined;
+
+        await initData(data.projectInitData);
 
         const currentUser = new CurrentUser(
             userInfo.id,
@@ -49,9 +52,21 @@ const handleSubmit = async (email: string, password: string, host: string) => {
             data.accessToken,
             data.refreshToken,
             data.expiresIn,
-            (userInfo.roles.length ? userInfo.roles[0] : undefined),
+            userRole,
             host
         );
+
+        localStorage.setItem('token', data.accessToken);
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+        if(userRole && userRole.name === 'ADMIN') {
+            const users = await userService.getAll();
+            if(users) {
+                store.dispatch({...new InitUsersToStorageAction({
+                    data: users
+                })});
+            }
+        }
 
         store.dispatch({
             type:  UserActions.USER_LOGIN,
@@ -59,8 +74,6 @@ const handleSubmit = async (email: string, password: string, host: string) => {
                 data: currentUser
             }
         });
-
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
     }
 };
 

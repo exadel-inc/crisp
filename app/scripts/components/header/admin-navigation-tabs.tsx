@@ -6,6 +6,7 @@ import {SearchIcon} from '../tab-icons/searchIcon';
 import './navigation-tabs.scss';
 import '../../../styles/commonClasses.scss';
 import { NavigationTabType as NavType } from './navigationTypes'
+import { UserManagerIcon } from '../tab-icons/userManagerIcon';
 
 /**
  * Main navigation tabs
@@ -30,7 +31,7 @@ export function AdminNavigationTabs({handleTabClick, isActive}: {
       <CommonTabLogic handleTabClick={handleTabClick}
                       isActive={isActive}
                       activeTab={NavType.USER_MANAGER}
-                      children={<SearchIcon className={isActive(NavType.USER_MANAGER) ?
+                      children={<UserManagerIcon className={isActive(NavType.USER_MANAGER) ?
                         'activeIconFill' : 'defaultIconFill'}/>}/>
     </>
   );

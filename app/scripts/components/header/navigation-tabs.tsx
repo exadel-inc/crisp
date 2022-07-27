@@ -24,7 +24,7 @@ export function NavigationTabs() {
    */
   const isActive = (tabId: NavType) => useSelector((state: RootState) => state.navigation.tab) === tabId;
   const isAdminMode = () => useSelector((state: RootState) => state.appMode) === 'ADMIN';
-  const isAdminRole = () => useSelector((state: RootState) => state.user.role.name) === 'ADMIN';
+  const isAdminRole = () => useSelector((state: RootState) => state.currentUser.role.name) === 'ADMIN';
 
   const dispatch = useDispatch();
 

@@ -12,7 +12,6 @@ export interface StorageState {
   elements: CrispElement[];
   framework: Framework[];
   patterns: Pattern[];
-  users: any[];
 }
 
 export const initialStirageState: StorageState = {
@@ -20,8 +19,7 @@ export const initialStirageState: StorageState = {
   projects: [],
   elements: [],
   framework: [],
-  patterns: [],
-  users: [],
+  patterns: []
 };
 
 export default function storageReducer(state: StorageState = initialStirageState, action: AnyAction) {

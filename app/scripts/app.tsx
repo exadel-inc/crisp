@@ -14,7 +14,7 @@ import store, { RootState } from './redux/store';
 const Crisp = React.lazy(() => import('./crisp'));
 
 const Crisp_App = () => {
-    const isLogined = useSelector((state: RootState) => state.user?.token, shallowEqual);
+    const isLogined = useSelector((state: RootState) => state.currentUser?.token, shallowEqual);
 
     return (<>
         { 

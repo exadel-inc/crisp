@@ -10,6 +10,11 @@
 
   .nav-link {
     transition: $common-animation;
+    &:hover {
+      svg {
+        fill: $activeColor !important;
+      }
+    }
   }
 
   .nav-link:hover:not(.active) .nav-svg {

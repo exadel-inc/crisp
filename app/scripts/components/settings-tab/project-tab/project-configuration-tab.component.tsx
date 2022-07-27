@@ -24,6 +24,10 @@ import { SettingsEntityType } from '../../../shared/settings-constants';
 import { showToast } from '../../shared/toasts-component';
 import { SettingsFrameworkTabType } from '../framework-tab/framework-navigation.component';
 
+import { restApi } from '../../../serverRestApi';
+
+const projectRest = restApi('projects');
+
 /**
  * Local state of editor for an option
  */
@@ -260,13 +264,19 @@ export function ConfigurationTab() {
    */
   const handleCreateOption = (): void => {
     // update editor data
+    projectRest.post({
+      ...editorData,
+      name: optionName,
+    })
+    /*
     setEitorData({
       ...editorData,
       name: optionName,
     });
+    */
 
     // display editor
-    toggleEditing(true);
+    // toggleEditing(true);
   };
 
   /**
@@ -351,7 +361,7 @@ export function ConfigurationTab() {
       });
 
       // switch to editing mode
-      toggleEditing(true);
+      // toggleEditing(true);
     }
   };
 

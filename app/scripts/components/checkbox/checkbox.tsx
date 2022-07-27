@@ -2,11 +2,14 @@ import React, {useState} from 'react';
 import {DEFAULT_SELECT_COUNT, MAIN_CHECKBOX_LABEL} from '../../constants/constants';
 import './chechbox.scss';
 
-export const Checkbox = ({checkedValue = false, count = DEFAULT_SELECT_COUNT}) => {
+export const Checkbox = ({checkedValue = false, count = DEFAULT_SELECT_COUNT, clickHandler = (...arg: any) => {}}) => {
   const [checked, setChecked] = useState(checkedValue);
 
   return (
-    <div className='checkBoxWrapper' onClick={() => setChecked(prevState => !prevState)}>
+    <div className='checkBoxWrapper' onClick={(e: any) => {
+      setChecked(prevState => !prevState);
+      clickHandler(e, checked);
+    }}>
       {count ? `${MAIN_CHECKBOX_LABEL} ${count}`: ''}
       {checked ?
         <div className='checkboxSquare checked'>

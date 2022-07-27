@@ -1,4 +1,6 @@
 import * as React from 'react';
+import { DeleteComponent } from '../../deletComponent/deleteComponent';
+import { EditComponent } from '../../editComponent/editComponent';
 
 type Props = {
   optionId: string;
@@ -14,57 +16,24 @@ type Props = {
 export function SettingsOption(props: Props) {
 
   const {
-    optionId,
+    // optionId,
     optionName,
-    isDefault = false,
-    isRadio = false,
+    // isDefault = false,
+    // isRadio = false,
     onEdit,
-    onDuplicate,
-    onRemove,
-    onChangeDefault
+    // onDuplicate,
+    onRemove
+    // , onChangeDefault
   } = props;
-
-  const renderRadio = () => (
-    <span>&nbsp;
-      <input className="form-check-input option-btn-set-default"
-        type="radio"
-        data-key={optionId}
-        id={optionId}
-        value={optionId}
-        checked={isDefault}
-        onChange={onChangeDefault}
-      />
-    </span>
-  );
 
   return (
     <li className="list-group-item py-1 d-flex justify-content-between align-items-center">
       <span>
-        { isRadio && renderRadio() }
         <span className="option-title">{optionName}</span>
       </span>
       <div className="btn-group">
-        <button
-          type="button"
-          className="btn btn-white btn-sm option-btn-edit"
-          onClick={onEdit}
-        >
-          <span className="option-btn-icon"></span>
-        </button>
-        <button
-          type="button"
-          className="btn btn-white btn-sm option-btn-duplicate"
-          onClick={onDuplicate}
-        >
-          <span className="option-btn-icon"></span>
-        </button>
-        <button
-          type="button"
-          className="btn btn-white btn-sm option-btn-remove"
-          onClick={onRemove}
-        >
-          <span className="option-btn-icon"></span>
-        </button>
+        <EditComponent clickAction={onEdit} />
+        <DeleteComponent clickAction={onRemove} />
       </div>
     </li>
   );
