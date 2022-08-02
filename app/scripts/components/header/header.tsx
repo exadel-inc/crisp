@@ -5,7 +5,7 @@ import {elementsService, projectsService} from '../../shared/services';
 import {NavigationTabs} from './navigation-tabs';
 import {LogoComponent} from '../logoComponent/logoComponent';
 import '../../componentPages/projectPage/projectPage.scss';
-import { NavigationTabType as NavType } from './navigationTypes'
+import {NavigationTabType as NavType} from './navigationTypes';
 
 /**
  * Application Header
@@ -35,7 +35,7 @@ export function Header() {
       case NavType.PROJECT:
         return 'Projects';
       case NavType.ACTION:
-      return 'Actions';
+        return 'Actions';
       case NavType.BATCH:
         return 'Add elements in bulk';
       case NavType.INSPECTOR:

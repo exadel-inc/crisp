@@ -10,8 +10,7 @@ export const ProjectPageHeader = () => {
   return (
     <div className='projectHeader'>
       <div>
-        <Breadcrumb crumbs={breadcrambsMoc} selected={() => {
-        }}/>
+        <Breadcrumb/>
       </div>
       <div>
         <SortSelector/>

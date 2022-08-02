@@ -3,7 +3,7 @@ import './button.scss';
 
 export const Button = ({buttonName, action = () => {}, iconClass, type = undefined}: {
   buttonName: string;
-  action: () => void;
+  action?: () => void;
   iconClass: string;
   type?: any;
 }) => {

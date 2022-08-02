@@ -19,7 +19,7 @@ export function AdminNavigationTabs({handleTabClick, isActive}: {
     <>
       <CommonTabLogic handleTabClick={handleTabClick}
                       isActive={isActive}
-                      activeTab={NavType.PAGE}
+                      activeTab={NavType.PROJECT}
                       children={<ProjectIcon className={isActive(NavType.PROJECT) ?
                         'activeIconFill' : 'defaultIconFill'
                       }/>}/>

@@ -1,10 +1,23 @@
 import React from 'react';
-import {projectPageMoc} from '../../constants/moc';
 import {Pill} from '../pill/pill';
 import './pillList.scss';
+import {useSelector} from 'react-redux';
 
-export const PillList = () => {
-  const pillList = projectPageMoc.map(pill => <Pill key={pill} pageName={pill}/>);
+export const PillList = ({projectId}: { projectId: number }) => {
+  // @ts-ignore
+  const {storage:{pages}} = useSelector(state => state);
+  let pagesContent = 'No elements';
 
-  return (<div className='pillList'>{pillList}</div>);
+  if (pages && pages.length > 0) {
+    pagesContent = pages.filter((el: any) => el.project === projectId).map(
+      // @ts-ignore
+      el => {
+        const {name, _id} = el;
+
+        return <Pill key={_id} pageName={name} pageId={_id}/>;
+      }
+    );
+  }
+
+  return (<div className='pillList'>{pagesContent}</div>);
 };

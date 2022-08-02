@@ -33,23 +33,18 @@ const initFreeProject = (userProjects: any[], projects: any[]) => projects.filte
 
 export function UpdateUser (props: any) {
     const user = props.user;
+    // get projects
+    const projects = useSelector( (state: RootState) => state.storage.projects, shallowEqual) || [];
 
-    if(!user) {
-        showToast('Error. User dosn\'t exist');
-    }
+    const [userProjects, setUserProjects] = useState(initUserProject(user?.projects || [], projects));
+    const [projectsFree, setProjectsFree] = useState(initFreeProject(user?.projects || [], projects));
+
+    const [userName, setUserName] = useState(user?.username || '');
+    const [userEmail, setUserEmail] = useState(user?.email || '');
 
     const dispatch = useDispatch();
 
     const showConfirmModal = useConfirmModal();
-
-    // get projects
-    const projects = useSelector( (state: RootState) => state.storage.projects, shallowEqual) as Project[];
-
-    const [userProjects, setUserProjects] = useState(initUserProject(user.projects, projects));
-    const [projectsFree, setProjectsFree] = useState(initFreeProject(user.projects, projects));
-
-    const [userName, setUserName] = useState(user.username);
-    const [userEmail, setUserEmail] = useState(user.email);
 
     const cancel = async () => {
         dispatch({
@@ -59,6 +54,11 @@ export function UpdateUser (props: any) {
             }
         });
     };
+
+    if(!user) {
+        showToast('Error. User dosn\'t exist');
+        cancel();
+    }
 
     const updateUser = async (id:string, data: any) => {
         if(id && data) {
@@ -186,7 +186,7 @@ export function UpdateUser (props: any) {
                     alignItems: "flex-start",
                     marginBottom: "20px"
                  }}>
-                    <InputComponent name={'username'} label={'User Name:'} value={userName} placeholder={'Enter user name'} changeAction={(event:any) => setUserName(event.target.value)} />
+                    <InputComponent formName={'username'} name={'username'} label={'User Name:'} value={userName} placeholder={'Enter user name'} changeAction={(event:any) => setUserName(event.target.value)} />
                 </div>
                 <div style={{ 
                     flex: 1,
@@ -197,7 +197,7 @@ export function UpdateUser (props: any) {
                     alignItems: "flex-start",
                     marginBottom: "20px"
                  }}>
-                    <InputComponent name={'email'} label={'Email:'} value={userEmail} placeholder={'Enter user email'} changeAction={(event:any) => setUserEmail(event.target.value)} />
+                    <InputComponent formName={'email'} name={'email'} label={'Email:'} value={userEmail} placeholder={'Enter user email'} changeAction={(event:any) => setUserEmail(event.target.value)} />
                 </div>
                 <div style={{
                     display: "flex",
@@ -263,15 +263,18 @@ export function UpdateUser (props: any) {
                     justifyContent: "space-between",
                     flexDirection: "row"
             }}>
-                <Button buttonName={'Update'} action={() => updateUser(
-                    user.id,
-                    {
-                    "username": userName,
-                    "email": userEmail,
-                    "currentHashedRefreshToken": user.currentHashedRefreshToken,
-                    "projects": userProjects.map(p => p.id || p._id || p) || [],
-                    "grants": []
-                }) } iconClass={''} />
+                <Button buttonName={'Update'} action={() => {
+                    debugger;
+                    updateUser(
+                        (user.id || user._id),
+                        {
+                        "username": userName,
+                        "email": userEmail,
+                        "currentHashedRefreshToken": user.currentHashedRefreshToken,
+                        "projects": userProjects.map(p => p.id || p._id || p) || [],
+                        "grants": []
+                    });
+                }} iconClass={''} />
                 <Button buttonName={'Cancel'} action={() => cancel()} iconClass={''} />
             </div>
         </div>

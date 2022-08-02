@@ -15,10 +15,10 @@ import { Button } from '../button/button';
 
 const userService = restApi('users');
 
-export default function Users () {
+export function Users () {
   const currentTab: UsersNavigationState = useSelector((state: RootState) => state?.usersNavigation, shallowEqual);
   const users = useSelector((state: any) => {
-    return state?.users
+    return state?.users;
   }, shallowEqual);
   const dispatch = useDispatch();
 

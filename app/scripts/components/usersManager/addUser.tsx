@@ -73,21 +73,21 @@ export function CreateUser () {
                     flexDirection: "column",
                     marginBottom: "20px"
                 }}>
-                    <InputComponent name={'username'} label={'User Name:'} value={userName} placeholder={'Enter user name'} changeAction={(event:any) => setUserName(event.target.value)} />
+                    <InputComponent formName={'username'} name={'username'} label={'User Name:'} value={userName} placeholder={'Enter user name'} changeAction={(event:any) => setUserName(event.target.value)} />
                 </div>
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
                     marginBottom: "20px"
                 }}>
-                    <InputComponent name={'email'} label={'Email:'} value={userEmail} placeholder={'Enter user email'} changeAction={(event:any) => setUserEmail(event.target.value)} />
+                    <InputComponent formName={'email'} name={'email'} label={'Email:'} value={userEmail} placeholder={'Enter user email'} changeAction={(event:any) => setUserEmail(event.target.value)} />
                 </div>
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
                     marginBottom: "20px"
                 }}>
-                    <InputComponent name={'password'} label={'Password:'} value={userPassword} placeholder={'Enter user password'} changeAction={(event:any) => setUserPassword(event.target.value)} />
+                    <InputComponent formName={'password'} name={'password'} label={'Password:'} value={userPassword} placeholder={'Enter user password'} changeAction={(event:any) => setUserPassword(event.target.value)} />
                 </div>
                 <div style={{
                         display: "flex",
@@ -96,7 +96,7 @@ export function CreateUser () {
                         marginBottom: "20px"
                 }}>
                     <label className='' style={{margin: 0}}>Is Admin: </label>
-                    <Checkbox count={0} checkedValue={isAdmineRole} clickHandler={(event: any, data: any) => setIsAdminRole(data)} />
+                    <Checkbox count={0} checkedValue={isAdmineRole} clickHandler={(event: any, data: any) => setIsAdminRole(!isAdmineRole)} />
                 </div>
                 <div style={{
                         width: "100%",
@@ -107,8 +107,9 @@ export function CreateUser () {
                         "email": userEmail,
                         "password": userPassword,
                         "roles": [
-                            (isAdmineRole ? "6269c6d9f1ce3bd660a1728a" : "6269c6d9f1ce3bd660a17289")
-                        ]
+                            (isAdmineRole ? "62c863d4bc85c78fc0a6ff06" : "62c863d4bc85c78fc0a6ff05")
+                        ],
+                        "date": "2022-07-29T14:11:35.118Z"
                     })} iconClass={''} />
                     <Button buttonName={'Cancel'} action={() => cancel()} iconClass={''} />
                 </div>

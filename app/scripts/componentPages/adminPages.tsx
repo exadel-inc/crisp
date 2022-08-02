@@ -5,18 +5,18 @@ import { ConfigurationTab as Framework  } from '../components/settings-tab/frame
 import { NavigationTabType } from '../components/header/navigationTypes';
 import { shallowEqual, useSelector } from 'react-redux';
 import { RootState } from '../redux/store';
-import Users from '../components/usersManager/users';
+import { Users } from '../components/usersManager/users';
 
 const getCurrentPage = (pageType: NavigationTabType) => {
   switch (pageType) {
     case NavigationTabType.PROJECT:
-      return <Project/>;
+      return <Project />;
     case NavigationTabType.FRAMEWORK:
       return <Framework/>;
     case NavigationTabType.USER_MANAGER:
       return <Users />;
     default:
-      return <Project/>;
+      return <Project />;
   }
 };
 

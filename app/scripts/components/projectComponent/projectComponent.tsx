@@ -1,9 +1,15 @@
-import React, {createContext, useState} from 'react';
+import React, {createContext, useEffect, useState} from 'react';
 import {ProjectPanel} from '../projectPanel/projectPanel';
 import {PillList} from '../pillList/pillList';
 import {AddPageButton} from '../addPageButton/addPageButton';
 import {PageTableHeader} from '../pageTableHeader/pageTableHeader';
-import {TableElement} from '../tableElement/tableElement';
+import {useDispatch, useSelector} from 'react-redux';
+import {TabElementsList} from '../tabElementsList/tabElementsList';
+import {clearSelectedPageId} from '../../redux/reducers/selectedPage/selectedPage.actionCreator';
+import {
+  clearSelectedProjectId,
+  setSelectedProjectId
+} from '../../redux/reducers/selectedProject/selectedProject.actionCreator';
 
 export const IsOpenProject = createContext({
   isOpen: false, changeState: () => {
@@ -11,21 +17,43 @@ export const IsOpenProject = createContext({
 });
 const {Provider} = IsOpenProject;
 
-export const ProjectComponent = ({projectName, counter}: { projectName: string; counter: number }) => {
+export const ProjectComponent = ({name, counter, projectId}: { name: string; counter: number; projectId: number }) => {
   const [isOpen, setIsOpen] = useState(false);
+  // @ts-ignore
+  const {selectedPageId, selectedProjectId} = useSelector(state => state);
+  const dispatch = useDispatch();
 
   const changeState = () => {
-    setIsOpen(prevState => !prevState);
+
+    if (!selectedProjectId) {
+      dispatch(setSelectedProjectId(projectId));
+    } else {
+      dispatch(clearSelectedProjectId());
+      dispatch(clearSelectedPageId());
+    }
   };
+
+  useEffect(() => {
+    if (selectedProjectId) {
+      setIsOpen(true);
+    } else {
+      setIsOpen(false);
+    }
+  }, [selectedProjectId]);
 
   return (
     <Provider value={{isOpen, changeState}}>
-      <ProjectPanel counter={counter} projectName={projectName}/>
-      {isOpen &&
-        <><PillList/>
+      <ProjectPanel counter={counter} projectName={name}/>
+      {selectedProjectId &&
+        <>
+          <PillList projectId={projectId}/>
           <AddPageButton/>
-          <PageTableHeader/>
-          <TableElement/>
+          {selectedPageId &&
+            <>
+              <PageTableHeader/>
+              <TabElementsList selectedPageId={selectedPageId}/>
+            </>
+          }
         </>
       }
     </Provider>
