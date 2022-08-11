@@ -13,7 +13,7 @@ import syncDataReducer from './syncDataQueue/syncDataQueue.reducer';
 import { UserActions } from './user/user.actions';
 import userReducer from './user/user.reducer';
 import {selectedPageReducer} from './selectedPage/selectedPage.reducer';
-import {selectedProjectReducer} from "./selectedProject/selectedProject.reducer";
+import {selectedProjectReducer} from './selectedProject/selectedProject.reducer';
 
 export default function rootReducer(state: any = {}, action: AnyAction) {
   if(action.type === UserActions.USER_LOGOUT) {

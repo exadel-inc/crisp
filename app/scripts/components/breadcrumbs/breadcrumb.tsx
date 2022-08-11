@@ -24,7 +24,7 @@ export const Breadcrumb = () => {
 
   const viewSelectedType = (setState: any, arrayOfElements: [any], id: number) => {
     if (id) {
-      setState(arrayOfElements.find((el: any) => el._id === id).name);
+      // setState(arrayOfElements.find((el: any) => el._id === id).name);
     }
   };
 
@@ -61,7 +61,7 @@ export const Breadcrumb = () => {
               }
               }
             >
-              {projectName}
+              {selectedProjectId && projectName}
             </button>
             {selectedPageId && <span> {' >'}</span>}
           </li>}
@@ -71,7 +71,7 @@ export const Breadcrumb = () => {
               className='breadcrumbButton breadcrumbLast'
               disabled
             >
-              {pageName}
+              {selectedPageId && pageName}
             </button>
           </li>
         }
