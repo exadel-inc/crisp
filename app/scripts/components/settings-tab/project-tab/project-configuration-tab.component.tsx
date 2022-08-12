@@ -40,20 +40,26 @@ export function ConfigurationTab() {
   const showConfirmModal = useConfirmModal();
   
   const deleteProject = async (id: string) => {
-    const data = await projectRest.del(id);
+    showConfirmModal({
+      title: 'Delete confirmation',
+      message: `Do you want to delete project`,
+      onConfirm: async () => {
+        const data = await projectRest.del(id);
   
-    if(data) {
-      store.dispatch({
-        type: ActionTypes.DELETE_STORAGE_ITEM,
-        payload: {
-          key: 'projects',
-          id: id
+        if(data) {
+          store.dispatch({
+            type: ActionTypes.DELETE_STORAGE_ITEM,
+            payload: {
+              key: 'projects',
+              id: id
+            }
+          });
+          showToast('Project successfully deleated');
+        } else {
+          showToast('Can\'t deleted project from db. The application synchronizes this operation automatically');
         }
-      });
-      showToast('Project successfully deleated');
-    } else {
-      showToast('Can\'t deleted project from db. The application synchronizes this operation automatically');
-    }
+      }
+    });
   };
 
   const createProject = async (createData: any) => {
@@ -78,12 +84,12 @@ export function ConfigurationTab() {
       <div className='projects-section'>
         {
           projects.map((project: any, index: number) =>
-            <><ProjectPanel counter={0} projectName={project.name} editAction={() => {
+            <><ProjectPanel counter={index+1} projectName={project.name} editAction={() => {
               showConfirmModal({
                 title: 'Update project',
                 isHideButtons: true,
                 body: <>
-                <form onSubmit={async (e: any) => {
+                <form className='admin-project-tab-form' onSubmit={async (e: any) => {
                   e.preventDefault();
                   const elements: any = e.target?.elements || {};
                   const projectName = elements.projectName.value;
@@ -95,9 +101,9 @@ export function ConfigurationTab() {
                     description: description
                   });
                 }}>
-                  <InputComponent name={'ProjectName'} formName={'projectName'} defaultValue={project.name} />
-                  <SelectComponent name={'Framework'} formName={'framework'} optionList={frameworks} defaultValue={(project.framework || project.frameworkId) } />
-                  <TextComponent isOnlyTextarea={true} formName={'description'} name={'Description'} defaultValue={project.description} />
+                  <InputComponent label='Project Name'  name={'ProjectName'} formName={'projectName'} defaultValue={project.name} />
+                  <SelectComponent name={'Framework'} formName={'framework'} optionList={frameworks} selectedId={(project.framework || project.frameworkId) } />
+                  <TextComponent label={'Description'} isOnlyTextarea={true} formName={'description'} name={'Description'} defaultValue={project.description} />
                   <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
                 </form>
                 </>
@@ -115,7 +121,7 @@ export function ConfigurationTab() {
             title: 'Create project',
             isHideButtons: true,
             body: <>
-            <form onSubmit={async (e: any) => {
+            <form className='admin-project-tab-form' onSubmit={async (e: any) => {
               e.preventDefault();
               const elements: any = e.target?.elements || {};
               const projectName = elements.projectName.value;
@@ -129,9 +135,9 @@ export function ConfigurationTab() {
                 date: "2022-07-29T14:11:35.118Z"
               });
             }}>
-              <InputComponent formName={'projectName'} name={'projectName'} defaultValue={''} />
+              <InputComponent label='Project Name'  formName={'projectName'} name={'projectName'} defaultValue={''} />
               <SelectComponent formName={'framework'} name={'framework'} optionList={frameworks} />
-              <TextComponent formName={'description'} isOnlyTextarea={true} name={'description'} defaultValue={''} />
+              <TextComponent label={'Description'} formName={'description'} isOnlyTextarea={true} name={'description'} defaultValue={''} />
               <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
             </form>
             </>

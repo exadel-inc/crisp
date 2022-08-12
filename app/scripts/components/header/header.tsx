@@ -32,6 +32,8 @@ export function Header() {
         return 'Frameworks';
       case NavType.PATTERN:
         return 'Patterns';
+      case NavType.ADMIN_PATTERN:
+        return 'Admin_Pattern';
       case NavType.PROJECT:
         return 'Projects';
       case NavType.ACTION:

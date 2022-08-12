@@ -48,7 +48,7 @@ export function Users () {
           } else {
             showToast('Can\'t remove user from db. The application synchronizes this operation automatically');
           }
-        },
+        }
       });
     } else {
       showToast('User does not exist');

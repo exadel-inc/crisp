@@ -68,6 +68,10 @@ footer {
 
 /* Main tab */
 main {
+  &.admin-mode {
+    overflow: hidden;
+  }
+
   width: 100%;
   flex: 1;
 }
@@ -235,8 +239,6 @@ main {
   height: 100%;
 
   .create-project-section {
-    flex: 1;
-
     .tableButton {
       margin: 0;
       width: 100%;
@@ -245,7 +247,8 @@ main {
   }
 
   .projects-section {
-    flex: 11;
+    height: 90%;
+    overflow-y: auto;
 
     .accordionForm {
       background-color: rgb(67, 119, 201);
@@ -288,5 +291,14 @@ main {
         }
       }
     }
+  }
+}
+
+.admin-pattern-tab-form,
+.admin-framework-tab-form,
+.admin-project-tab-form {
+  button.tableButton {
+    width: 100%;
+    margin: 0;
   }
 }

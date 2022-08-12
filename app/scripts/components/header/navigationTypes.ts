@@ -7,6 +7,7 @@ export enum NavigationTabType {
   ADD_BULK = 'addBulk',
   PAGE = 'page',
   PATTERN = 'pattern',
+  ADMIN_PATTERN = 'admin_pattern',
   USER_MANAGER = 'userManager',
   ACTION = 'action',
   PROJECT = 'project',

@@ -38,20 +38,26 @@ export function ConfigurationTab() {
   const showConfirmModal = useConfirmModal();
   
   const deleteFramework = async (id: string) => {
-    const data = await frameworkRest.del(id);
+    showConfirmModal({
+      title: 'Delete confirmation',
+      message: `Do you want to delete framework`,
+      onConfirm: async () => {
+        const data = await frameworkRest.del(id);
   
-    if(data) {
-      store.dispatch({
-        type: ActionTypes.DELETE_STORAGE_ITEM,
-        payload: {
-          key: 'framework',
-          id: id
+        if(data) {
+          store.dispatch({
+            type: ActionTypes.DELETE_STORAGE_ITEM,
+            payload: {
+              key: 'framework',
+              id: id
+            }
+          });
+          showToast('Framework successfully deleated');
+        } else {
+          showToast('Can\'t deleted framework from db. The application synchronizes this operation automatically');
         }
-      });
-      showToast('Framework successfully deleated');
-    } else {
-      showToast('Can\'t deleted framework from db. The application synchronizes this operation automatically');
-    }
+      }
+    });
   };
 
   const createFramework = async (createData: any) => {
@@ -76,12 +82,12 @@ export function ConfigurationTab() {
       <div className='projects-section'>
         {
           frameworks.map((framework: any, index: number) =>
-            <><ProjectPanel counter={0} projectName={framework.name} editAction={() => {
+            <><ProjectPanel counter={index+1} projectName={framework.name} editAction={() => {
               showConfirmModal({
                 title: 'Update framework',
                 isHideButtons: true,
                 body: <>
-                <form onSubmit={async (e: any) => {
+                <form className='admin-framework-tab-form' onSubmit={async (e: any) => {
                   e.preventDefault();
                   const elements: any = e.target?.elements || {};
                   const frameworkName = elements.frameworkName.value;
@@ -91,8 +97,8 @@ export function ConfigurationTab() {
                     description: description
                   });
                 }}>
-                  <InputComponent name={'frameworkName'} formName={'frameworkName'} defaultValue={framework.name} />
-                  <TextComponent isOnlyTextarea={true} formName={'description'} name={'Description'} defaultValue={framework.description} />
+                  <InputComponent label='Framework Name'  name={'frameworkName'} formName={'frameworkName'} defaultValue={framework.name} />
+                  <TextComponent label={'Description'} isOnlyTextarea={true} formName={'description'} name={'Description'} defaultValue={framework.description} />
                   <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
                 </form>
                 </>
@@ -110,7 +116,7 @@ export function ConfigurationTab() {
             title: 'Update framework',
             isHideButtons: true,
             body: <>
-            <form onSubmit={async (e: any) => {
+            <form className='admin-framework-tab-form' onSubmit={async (e: any) => {
               e.preventDefault();
               const elements: any = e.target?.elements || {};
               const frameworkName = elements.frameworkName.value;
@@ -121,8 +127,8 @@ export function ConfigurationTab() {
                 date: "2022-07-29T14:11:35.118Z"
               });
             }}>
-              <InputComponent formName={'frameworkName'} name={'frameworkName'} defaultValue={''} />
-              <TextComponent formName={'description'} isOnlyTextarea={true} name={'description'} defaultValue={''} />
+              <InputComponent label='Framework Name'  formName={'frameworkName'} name={'frameworkName'} defaultValue={''} />
+              <TextComponent label={'Description'} formName={'description'} isOnlyTextarea={true} name={'description'} defaultValue={''} />
               <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
             </form>
             </>

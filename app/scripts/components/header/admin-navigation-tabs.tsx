@@ -2,6 +2,7 @@ import * as React from 'react';
 import {ProjectIcon} from '../tab-icons/projectIcon';
 import {FrameworkIcon} from '../tab-icons/frameworkIcon';
 import {CommonTabLogic} from '../tab-icons/commonTabLogic';
+import {AddAdminPatternIcon} from '../tab-icons/addAdminPatterns';
 import {SearchIcon} from '../tab-icons/searchIcon';
 import './navigation-tabs.scss';
 import '../../../styles/commonClasses.scss';
@@ -27,6 +28,11 @@ export function AdminNavigationTabs({handleTabClick, isActive}: {
                       isActive={isActive}
                       activeTab={NavType.FRAMEWORK}
                       children={<FrameworkIcon className={isActive(NavType.FRAMEWORK) ?
+                        'activeIconFill' : 'defaultIconFill'}/>}/>
+      <CommonTabLogic handleTabClick={handleTabClick}
+                      isActive={isActive}
+                      activeTab={NavType.ADMIN_PATTERN}
+                      children={<AddAdminPatternIcon className={isActive(NavType.ADMIN_PATTERN) ?
                         'activeIconFill' : 'defaultIconFill'}/>}/>
       <CommonTabLogic handleTabClick={handleTabClick}
                       isActive={isActive}

@@ -13,6 +13,7 @@ import { UserNavigationTabs } from './user-navigation-tabs';
 import { AdminNavigationTabs } from './admin-navigation-tabs';
 import { Checkbox } from '../checkbox/checkbox';
 import { AppModeActions } from '../../redux/reducers/appMode/appMode.actions';
+import Switch from '../toggleComponent/toggleComponent';
 
 /**
  * Main navigation tabs
@@ -64,7 +65,9 @@ export function NavigationTabs() {
         isActive={isActive}
         activeTab={NavType.CHANGE_MODE}
         children={
-          <><Checkbox checkedValue={isAdmin} count={0} /></>
+          <>
+            <Switch label={isAdmin ? 'Admin mode': 'User mode'} isOn={isAdmin} />
+          </>
         }/>
     : '';
   };
