@@ -94,12 +94,12 @@ export function ConfigurationTab() {
                   const elements: any = e.target?.elements || {};
                   const patternName = elements.patternName.value;
                   const framework = elements.framework.value;
-                  const script = elements.description.value;
+                  const script = elements.script.value;
                   const patternType = elements.patternType.value;
                   await updatePattern(pattern._id, {
                     name: patternName,
                     frameworkId: framework,
-                    description: script,
+                    script: script,
                     type: patternType === 'action' ? 'ACTION' : 'PAGE_OBJECT'
                   });
                 }}>
@@ -115,7 +115,7 @@ export function ConfigurationTab() {
                       name: 'pageObject'
                     }
                   ]} selectedId={pattern.type} />
-                  <TextComponent label={'Description'} isOnlyTextarea={true} formName={'description'} name={'Description'} defaultValue={pattern.description} />
+                  <TextComponent label={'Script'} isOnlyTextarea={true} formName={'script'} name={'Script'} defaultValue={pattern.script} />
                   <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
                 </form>
                 </>
@@ -138,7 +138,7 @@ export function ConfigurationTab() {
               const elements: any = e.target?.elements || {};
               const patternName = elements.patternName.value;
               const framework = elements.framework.value;
-              const script = elements.description.value;
+              const script = elements.script.value;
               const patternType = elements.patternType.value;
               await createPattern({
                 name: patternName,
@@ -154,7 +154,7 @@ export function ConfigurationTab() {
                     'action',
                     'page object'
                   ]} />
-              <TextComponent label={'Description'} formName={'description'} isOnlyTextarea={true} name={'description'} defaultValue={''} />
+              <TextComponent label={'Script'} formName={'script'} isOnlyTextarea={true} name={'script'} defaultValue={''} />
               <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
             </form>
             </>
