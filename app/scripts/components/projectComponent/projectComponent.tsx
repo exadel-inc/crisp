@@ -24,8 +24,11 @@ export const ProjectComponent = ({name, counter, projectId}: { name: string; cou
   const dispatch = useDispatch();
 
   const changeState = () => {
-
     if (!selectedProjectId) {
+      dispatch(setSelectedProjectId(projectId));
+    } else if (selectedProjectId !== projectId) {
+      dispatch(clearSelectedProjectId());
+      dispatch(clearSelectedPageId());
       dispatch(setSelectedProjectId(projectId));
     } else {
       dispatch(clearSelectedProjectId());
@@ -34,7 +37,7 @@ export const ProjectComponent = ({name, counter, projectId}: { name: string; cou
   };
 
   useEffect(() => {
-    if (selectedProjectId) {
+    if (selectedProjectId && selectedProjectId === projectId) {
       setIsOpen(true);
     } else {
       setIsOpen(false);
@@ -44,7 +47,7 @@ export const ProjectComponent = ({name, counter, projectId}: { name: string; cou
   return (
     <Provider value={{isOpen, changeState}}>
       <ProjectPanel counter={counter} projectName={name}/>
-      {selectedProjectId &&
+      {selectedProjectId === projectId &&
         <>
           <PillList projectId={projectId}/>
           <AddPageButton/>

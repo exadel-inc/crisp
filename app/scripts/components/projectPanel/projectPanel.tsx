@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useContext} from 'react';
 import {EditComponent} from '../editComponent/editComponent';
 import {Expander} from '../expander/expander';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {DeleteComponent} from '../deletComponent/deleteComponent';
 import {DEFAULT_PROJECT_PANEL_COUNT, DEFAULT_PROJECT_PANEL_NAME} from '../../constants/constants';
 import {IsOpenProject} from '../projectComponent/projectComponent';
@@ -28,7 +28,9 @@ export const ProjectPanel = ({
     <div className='projectPanelWrapper'>
       <div>
         <p>{counter}.</p>
-        <p className='projectName'>{projectName}</p>
+        <p className='projectName'
+           onClick={changeState}>
+          {projectName}</p>
       </div>
       <div className='controlWrapper'>
         {appMode === AppMode.ADMIN ?

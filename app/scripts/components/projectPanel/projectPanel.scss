@@ -3,6 +3,8 @@
 .projectPanelWrapper {
   display: flex;
   justify-content: space-between;
+  margin-bottom: getSize(1);
+  border-bottom: getSize(0.1) solid $lightBorderColor;
 
   div:first-child {
     display: flex;
@@ -17,6 +19,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .controlWrapper {
