@@ -50,7 +50,7 @@ export const ProjectComponent = ({name, counter, projectId}: { name: string; cou
       {selectedProjectId === projectId &&
         <>
           <PillList projectId={projectId}/>
-          <AddPageButton/>
+          <AddPageButton projectId={projectId}/>
           {selectedPageId &&
             <>
               <PageTableHeader/>

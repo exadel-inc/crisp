@@ -8,11 +8,13 @@ export const SelectComponent = ({
                                   formName = '',
                                   required=false,
                                   disabled = false,
-                                  defaultValue = ''
+                                  defaultValue = '',
+                                  onChange
                                 }: {
                                   optionList: any[]; name: string; required?: boolean;
                                   selectedId?: string; disabled?: boolean;
-                                  defaultValue?: string; formName?: string  }) => {
+                                  defaultValue?: string; formName?: string,
+                                onChange?: Function  }) => {
 
   const options = (selectedId: string) => optionList
     .map((item:any,index: number) => {
@@ -20,12 +22,18 @@ export const SelectComponent = ({
       <option key={`option-${item._id}-${index}`} value={item._id}>{item.name}</option>
     });
 
+    let selectAttr = {
+
+    }
+
+    if(onChange) selectAttr = {...selectAttr, onChange: onChange}
+
   return (
     <div className='selectWrapper'>
       <div className='selectName'>
         {name}{required &&<span className='required'>*</span>}
       </div>
-      <select name={formName} className='select' disabled={disabled} defaultValue={selectedId}>
+      <select {...selectAttr} name={formName} className='select' disabled={disabled} defaultValue={selectedId}>
         {options(selectedId)}
       </select>
     </div>

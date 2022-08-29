@@ -30,6 +30,7 @@ export const TableElement = ({name, element}: { name: string; element: any }) =>
             <Button buttonName={INSERT} action={() => {
             }} iconClass='tableInsertButton'/>
             <Button buttonName={DELETE} action={() => {
+              
             }} iconClass='tableDeleteButton'/>
           </> : <>
             <p>{name}</p>

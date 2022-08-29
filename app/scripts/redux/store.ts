@@ -35,6 +35,8 @@ export interface RootState {
   roles: UserRole[];
   selectedPageId: null;
   selectedProjectId: null;
+  addElementData: null;
+  addInBulkData: null;
 }
 
 const store: Store<RootState> = createStore(rootReducer, applyMiddleware(logger));

@@ -109,6 +109,7 @@ export function CreateUser () {
                         "roles": [
                             (isAdmineRole ? "62c863d4bc85c78fc0a6ff06" : "62c863d4bc85c78fc0a6ff05")
                         ],
+                        "isFirstExit": false,
                         "date": "2022-07-29T14:11:35.118Z"
                     })} iconClass={''} />
                     <Button buttonName={'Cancel'} action={() => cancel()} iconClass={''} />

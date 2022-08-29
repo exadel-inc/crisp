@@ -16,6 +16,7 @@ import usersReducer from './users/users.reducer';
 import usersNavigationReducer from './usersNavigation/usersNavigation.reducer';
 import {selectedPageReducer} from './selectedPage/selectedPage.reducer';
 import {selectedProjectReducer} from './selectedProject/selectedProject.reducer';
+import addElementReducer from './addElementData/addElementData.reducer';
 
 export default function rootReducer(state: any = {}, action: AnyAction) {
   if(action.type === UserActions.USER_LOGOUT) {
@@ -41,7 +42,9 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
       usersModificationData: [],
       syncDataQueue: {},
       selectedPageId: null,
-      selectedProjectId: null
+      selectedProjectId: null,
+      addElementData: null,
+      addInBulkData: null
     };
   }
 
@@ -68,6 +71,8 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
     syncDataQueue: syncDataReducer(state.syncDataQueue, action),
     roles: [],
     selectedPageId: selectedPageReducer(state.selectedPageId, action),
-    selectedProjectId: selectedProjectReducer(state.selectedProjectId, action)
+    selectedProjectId: selectedProjectReducer(state.selectedProjectId, action),
+    addElementData: addElementReducer(state.addElementData, action),
+    addInBulkData: null
   };
 }
