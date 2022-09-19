@@ -43,8 +43,8 @@ export function NavigationTabs() {
 
   const logoutHandleClick = () => {
     const logoutAction: any = UserActions.USER_LOGOUT;
-    dispatch({ type: logoutAction });
     localStorage.clear();
+    dispatch({ type: logoutAction });
   };
 
   const generateNavTab = () => {

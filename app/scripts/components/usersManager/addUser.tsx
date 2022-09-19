@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { UserRole } from '../../currentUser/currentUser';
 import { UsersActionTypes } from '../../redux/reducers/users/users.actions';
 import { UsersNavigationActions } from '../../redux/reducers/usersNavigation/usersNavigarion.actions';
 import { usersNavigationTabsType } from '../../redux/reducers/usersNavigation/usersNavigation.reducer';
+import { RootState } from '../../redux/store';
 
 import { restApi } from '../../serverRestApi';
 import { Button } from '../button/button';
@@ -14,8 +16,17 @@ import { showToast } from '../shared/toasts-component';
 const userService = restApi('users');
 
 export function CreateUser () {
-    debugger;
     const dispatch = useDispatch();
+    const roles: UserRole[] = useSelector((state: RootState) => state?.roles, shallowEqual);
+    roles.sort(
+        (a: UserRole, b: UserRole) => {
+            if(a.name === b.name) {
+                return 0;
+            }
+
+            return a.name > b.name ? 1 : -1;
+        }
+    );
 
     const createUser = async (data: any) => {
         if(data) {
@@ -73,21 +84,21 @@ export function CreateUser () {
                     flexDirection: "column",
                     marginBottom: "20px"
                 }}>
-                    <InputComponent formName={'username'} name={'username'} label={'User Name:'} value={userName} placeholder={'Enter user name'} changeAction={(event:any) => setUserName(event.target.value)} />
+                    <InputComponent formName={'username'} name={'username'} label={'User Name:'} value={userName} placeholder={'user name'} changeAction={(event:any) => setUserName(event.target.value)} />
                 </div>
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
                     marginBottom: "20px"
                 }}>
-                    <InputComponent formName={'email'} name={'email'} label={'Email:'} value={userEmail} placeholder={'Enter user email'} changeAction={(event:any) => setUserEmail(event.target.value)} />
+                    <InputComponent formName={'email'} name={'email'} label={'Email:'} value={userEmail} placeholder={'user email'} changeAction={(event:any) => setUserEmail(event.target.value)} />
                 </div>
                 <div style={{
                     display: "flex",
                     flexDirection: "column",
                     marginBottom: "20px"
                 }}>
-                    <InputComponent formName={'password'} name={'password'} label={'Password:'} value={userPassword} placeholder={'Enter user password'} changeAction={(event:any) => setUserPassword(event.target.value)} />
+                    <InputComponent formName={'password'} name={'password'} label={'Password:'} value={userPassword} placeholder={'user password'} changeAction={(event:any) => setUserPassword(event.target.value)} />
                 </div>
                 <div style={{
                         display: "flex",
@@ -107,7 +118,7 @@ export function CreateUser () {
                         "email": userEmail,
                         "password": userPassword,
                         "roles": [
-                            (isAdmineRole ? "62c863d4bc85c78fc0a6ff06" : "62c863d4bc85c78fc0a6ff05")
+                            (isAdmineRole ? roles[0].id : roles[1].id)
                         ],
                         "isFirstExit": false,
                         "date": "2022-07-29T14:11:35.118Z"

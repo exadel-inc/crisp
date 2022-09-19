@@ -186,7 +186,7 @@ export function UpdateUser (props: any) {
                     alignItems: "flex-start",
                     marginBottom: "20px"
                  }}>
-                    <InputComponent formName={'username'} name={'username'} label={'User Name:'} value={userName} placeholder={'Enter user name'} changeAction={(event:any) => setUserName(event.target.value)} />
+                    <InputComponent formName={'username'} name={'username'} label={'User Name:'} value={userName} placeholder={'user name'} changeAction={(event:any) => setUserName(event.target.value)} />
                 </div>
                 <div style={{ 
                     flex: 1,
@@ -197,7 +197,7 @@ export function UpdateUser (props: any) {
                     alignItems: "flex-start",
                     marginBottom: "20px"
                  }}>
-                    <InputComponent formName={'email'} name={'email'} label={'Email:'} value={userEmail} placeholder={'Enter user email'} changeAction={(event:any) => setUserEmail(event.target.value)} />
+                    <InputComponent formName={'email'} name={'email'} label={'Email:'} value={userEmail} placeholder={'user email'} changeAction={(event:any) => setUserEmail(event.target.value)} />
                 </div>
                 <div style={{
                     display: "flex",
@@ -264,10 +264,8 @@ export function UpdateUser (props: any) {
                     flexDirection: "row"
             }}>
                 <Button buttonName={'Update'} action={() => {
-                    debugger;
                     updateUser(
-                        (user.id || user._id),
-                        {
+                        (user.id || user._id), {
                         "username": userName,
                         "email": userEmail,
                         "currentHashedRefreshToken": user.currentHashedRefreshToken,

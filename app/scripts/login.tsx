@@ -11,10 +11,13 @@ import { CurrentUser } from './currentUser/currentUser';
 import { UserActions } from './redux/reducers/user/user.actions';
 import { Spinner } from './components/spinner/spinner';
 import { InitUsersToStorageAction } from './redux/reducers/users/users.actions';
+import { ActionTypes } from './redux/reducers/roles/roles.actions';
 
 
 const auth = authApi();
 const userService = restApi('users');
+const roleService = restApi('roles');
+
 
 const setData = (key: string, itemData: any) => {
   localStorage.setItem(key, JSON.stringify(itemData));
@@ -34,71 +37,56 @@ const initData = async (data: any) => {
 const handleSubmit = async (email: string, password: string, host: string) => {
   localStorage.setItem('host', host);
 
-  const data = await auth.login({
+const data = await auth.login({
     email: email,
     password: password
   });
 
-  if (data) {
+  if(data) {
+    const userInfo = data.user;
+    const userRole = userInfo.roles.length ? userInfo.roles[0] : undefined;
+
     await initData(data.projectInitData);
 
-    const userInfo = data.user;
-
     const currentUser = new CurrentUser(
-      userInfo.id,
-      userInfo.name,
-      userInfo.email,
-      data.accessToken,
-      data.refreshToken,
-      data.expiresIn,
-      (userInfo.roles.length ? userInfo.roles[0] : undefined),
-      host
+        userInfo.id,
+        userInfo.name,
+        userInfo.email,
+        data.accessToken,
+        data.refreshToken,
+        data.expiresIn,
+        userRole,
+        host
     );
 
-    store.dispatch({
-      type: UserActions.USER_LOGIN,
-      payload: {
-        data: currentUser
-      }
-    });
+    localStorage.setItem('token', data.accessToken);
+    localStorage.setItem('currentUser', JSON.stringify(currentUser));
 
-    if(data) {
-        const userInfo = data.user;
-        const userRole = userInfo.roles.length ? userInfo.roles[0] : undefined;
+    const rolesData = await roleService.getAll();
 
-        await initData(data.projectInitData);
-
-        const currentUser = new CurrentUser(
-            userInfo.id,
-            userInfo.name,
-            userInfo.email,
-            data.accessToken,
-            data.refreshToken,
-            data.expiresIn,
-            userRole,
-            host
-        );
-
-        localStorage.setItem('token', data.accessToken);
-        localStorage.setItem('currentUser', JSON.stringify(currentUser));
-
-        if(userRole && userRole.name === 'ADMIN') {
-            const users = await userService.getAll();
-            if(users) {
-                store.dispatch({...new InitUsersToStorageAction({
-                    data: users
-                })});
-            }
-        }
-
-        store.dispatch({
-            type:  UserActions.USER_LOGIN,
-            payload: {
-                data: currentUser
-            }
-        });
+    if(rolesData) {
+      store.dispatch({
+          type:  ActionTypes.INIT_ROLES,
+          payload: rolesData
+      });
     }
-};
+
+    if(userRole && userRole.name === 'ADMIN') {
+        const users = await userService.getAll();
+        if(users) {
+            store.dispatch({...new InitUsersToStorageAction({
+                data: users
+            })});
+        }
+    }
+
+    store.dispatch({
+        type:  UserActions.USER_LOGIN,
+        payload: {
+            data: currentUser
+        }
+    });
+  }
 }
 export const Login = () => (
   <div className='login-wrapper'>

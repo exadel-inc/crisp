@@ -78,7 +78,6 @@ export function Users () {
                     }}>
                         {
                             users.map((user: any, index: number) => {
-                                debugger;
                                 const id = user ? user.id || user['_id'] : '';
 
                                 return <li key={`${index}_user_item_${id}`} style={{
@@ -122,7 +121,6 @@ export function Users () {
                                     }}>
                                         <EditComponent clickAction={
                                           () => {
-                                            debugger;
                                             tabClickHandler(UsersNavigationActions.UPDATE_USER, {
                                               tabName: usersNavigationTabsType.UPDATE,
                                               selectedUser: user

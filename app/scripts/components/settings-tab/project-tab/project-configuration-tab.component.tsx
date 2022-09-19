@@ -121,25 +121,25 @@ export function ConfigurationTab() {
             title: 'Create project',
             isHideButtons: true,
             body: <>
-            <form className='admin-project-tab-form' onSubmit={async (e: any) => {
-              e.preventDefault();
-              const elements: any = e.target?.elements || {};
-              const projectName = elements.projectName.value;
-              const framework = elements.framework.value;
-              const description = elements.description.value;
-              await createProject({
-                name: projectName,
-                frameworkId: framework,
-                description: description,
-                isDefault: false,
-                date: "2022-07-29T14:11:35.118Z"
-              });
-            }}>
-              <InputComponent label='Project Name'  formName={'projectName'} name={'projectName'} defaultValue={''} />
-              <SelectComponent formName={'framework'} name={'framework'} optionList={frameworks} />
-              <TextComponent label={'Description'} formName={'description'} isOnlyTextarea={true} name={'description'} defaultValue={''} />
-              <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
-            </form>
+              <form className='admin-project-tab-form' onSubmit={async (e: any) => {
+                e.preventDefault();
+                const elements: any = e.target?.elements || {};
+                const projectName = elements.projectName.value;
+                const framework = elements.framework.value;
+                const description = elements.description.value;
+                await createProject({
+                  name: projectName,
+                  frameworkId: framework,
+                  description: description,
+                  isDefault: false,
+                  date: "2022-07-29T14:11:35.118Z"
+                });
+              }}>
+                <InputComponent label='Project Name'  formName={'projectName'} name={'projectName'} defaultValue={''} />
+                <SelectComponent formName={'framework'} name={'framework'} optionList={frameworks} />
+                <TextComponent label={'Description'} formName={'description'} isOnlyTextarea={true} name={'description'} defaultValue={''} />
+                <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
+              </form>
             </>
           });
         }} />
