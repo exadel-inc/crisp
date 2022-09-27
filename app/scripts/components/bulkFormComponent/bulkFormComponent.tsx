@@ -19,10 +19,10 @@ export const BulkFormComponent = () => {
   }
   const frameworkId = project.framework;
   
-  const pages: any = useSelector((storage: RootState) => storage.storage.pages.find((page: any) => {
+  const pages: any = useSelector((store: RootState) => store.storage.pages.filter((page: any) => {
     return page.project === selectedProjectId;
   })) || [];
-  const patterns: any = useSelector((storage: RootState) => storage.storage.patterns.find((pattern: any) => {
+  const patterns: any = useSelector((store: RootState) => store.storage.patterns.filter((pattern: any) => {
     return pattern.type === PatternType.PAGE_OBJECT && pattern.framework === frameworkId;
   })) || [];
 

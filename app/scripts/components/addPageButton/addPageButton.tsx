@@ -40,7 +40,7 @@ export const AddPageButton = ({projectId}: {projectId: number}) => {
         title: 'Create page',
         isHideButtons: true,
         body: <>
-        <form className='create-page' onSubmit={async (e: any) => {
+        <form className='create-page form-modal-popup' onSubmit={async (e: any) => {
           e.preventDefault();
           const elements: any = e.target?.elements || {};
           const pageName = elements?.pageName.value || '';
@@ -54,7 +54,7 @@ export const AddPageButton = ({projectId}: {projectId: number}) => {
           });
         }}>
           <InputComponent label='Page Name'  formName={'pageName'} name={'pageName'} defaultValue={''} />
-          <TextComponent label={'Description'} formName={'description'} isOnlyTextarea={true} name={'description'} defaultValue={''} />
+          <TextComponent label={'Description'} formName={'description'} defaultValue={''} />
           <Button type={'submit'} buttonName={'Create'} iconClass={''} action={async () => {}} />
         </form>
         </>

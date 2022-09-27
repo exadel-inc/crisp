@@ -15,6 +15,7 @@ import { appMode } from './reducers/appMode/appMode.reducerr';
 import { syncDataQueueI } from './reducers/syncDataQueue/syncDataQueue.reducer';
 
 import { UsersNavigationState } from './reducers/usersNavigation/usersNavigation.reducer';
+import { IGenerateData } from './reducers/generateDatas/generateData.reducer';
 
 export interface RootState {
   navigation: NavigationState;
@@ -37,6 +38,7 @@ export interface RootState {
   selectedProjectId: null;
   addElementData: null;
   addInBulkData: null;
+  generatedDatas: IGenerateData;
 }
 
 const store: Store<RootState> = createStore(rootReducer, applyMiddleware(logger));

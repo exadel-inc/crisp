@@ -16,11 +16,11 @@ export const SelectComponent = ({
                                   defaultValue?: string; formName?: string,
                                 onChange?: Function  }) => {
 
-  const options = (selectedId: string) => optionList
-    .map((item:any,index: number) => {
+  const options = (selectedId: string) => optionList.map((item:any, index: number) => {
       return typeof item === 'string' ? <option key={item} value={item}>{item}</option> :
       <option key={`option-${item._id}-${index}`} value={item._id}>{item.name}</option>
-    });
+    }
+  );
 
     let selectAttr = {
 

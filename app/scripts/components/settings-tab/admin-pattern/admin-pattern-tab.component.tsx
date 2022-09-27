@@ -80,7 +80,7 @@ export function ConfigurationTab() {
   };
 
   return (
-    <div className='admin-project-manager'>
+    <div className='admin-project-manager data-window-section'>
       <div className='projects-section'>
         {
           patterns.map((pattern: any, index: number) =>
@@ -89,7 +89,7 @@ export function ConfigurationTab() {
                 title: 'Update pattern',
                 isHideButtons: true,
                 body: <>
-                <form className='admin-pattern-tab-form' onSubmit={async (e: any) => {
+                <form className='admin-pattern-tab-form form-modal-popup' onSubmit={async (e: any) => {
                   e.preventDefault();
                   const elements: any = e.target?.elements || {};
                   const patternName = elements.patternName.value;
@@ -115,7 +115,7 @@ export function ConfigurationTab() {
                       name: 'pageObject'
                     }
                   ]} selectedId={pattern.type} />
-                  <TextComponent label={'Script'} isOnlyTextarea={true} formName={'script'} name={'Script'} defaultValue={pattern.script} />
+                  <TextComponent label={'Script'} formName={'script'} defaultValue={pattern.script} />
                   <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
                 </form>
                 </>
@@ -133,7 +133,7 @@ export function ConfigurationTab() {
             title: 'Create pattern',
             isHideButtons: true,
             body: <>
-            <form className='admin-pattern-tab-form' onSubmit={async (e: any) => {
+            <form className='admin-pattern-tab-form form-modal-popup' onSubmit={async (e: any) => {
               e.preventDefault();
               const elements: any = e.target?.elements || {};
               const patternName = elements.patternName.value;
@@ -154,7 +154,7 @@ export function ConfigurationTab() {
                     'action',
                     'page object'
                   ]} />
-              <TextComponent label={'Script'} formName={'script'} isOnlyTextarea={true} name={'script'} defaultValue={''} />
+              <TextComponent label={'Script'} formName={'script'} defaultValue={''} />
               <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
             </form>
             </>

@@ -1,11 +1,14 @@
-import * as React from 'react';
+ import * as React from 'react';
 import {useState} from 'react';
 import {Expander} from '../expander/expander';
 import {OpenTableElement} from '../openTableElemet/openTableElement';
 import {Button} from '../button/button';
 import {TABLE_BUTTON_NAME} from '../../constants/constants';
 import {DeleteComponent} from '../deletComponent/deleteComponent';
+import { GenerateScript } from '../generateScriptTab/generateScript';
 import './tableElement.scss';
+
+const generateData = new GenerateScript();
 
 export const TableElement = ({name, element}: { name: string; element: any }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,6 +31,7 @@ export const TableElement = ({name, element}: { name: string; element: any }) =>
             <Button buttonName={EDIT} action={() => {
             }} iconClass='tableEditButton'/>
             <Button buttonName={INSERT} action={() => {
+              generateData.generateAndInputElementToScripts(element);
             }} iconClass='tableInsertButton'/>
             <Button buttonName={DELETE} action={() => {
               

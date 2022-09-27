@@ -23,9 +23,9 @@ export const FormComponent = () => {
       type: AddElementActions.INIT_DATA,
       payload: {
         data: {
-          projectId: projects.length? projects[0]: '',
+          projectId: projects.length? (projects[0].id || projects[0]._id) : '',
           elementData: {
-            pageId: pages.length? pages[0]: '',
+            pageId: pages.length? (pages[0].id || pages[0]._id): '',
             description: '',
             name: ''
           }
@@ -44,6 +44,23 @@ export const FormComponent = () => {
     });
   }
 
+  const getIdFromElementData = (fieldName: string = '') => {
+    if(addElementData?.elementData && fieldName) {
+      let data: any = addElementData.elementData;
+      const path = fieldName.split('.');
+      for(let i=0; i< path.length; ++i) {
+        const key = path[i];
+        if(!(typeof data === 'object')) break;
+
+        data = data[key];
+      }
+
+      return data || '';
+    }
+
+    return '';
+  };
+
   const actions = patterns.filter((pattern: any) => pattern.type === 'ACTION');
   const pagePatterns = patterns.filter((pattern: any) => pattern.type === 'PAGE_OBJECT');
 
@@ -55,26 +72,24 @@ export const FormComponent = () => {
   return (
     <div className='formComponent'>
       <AccordionComponent name={GENERAL}>
-        <SelectComponent name={PROJECT} selectedId={addElementData?.projectId} optionList={projects} required={true} onChange={(e: any) => {
-
-        }}/>
-        <SelectComponent name={PAGE} optionList={pages} selectedId={addElementData?.elementData.pageId} required={true} onChange={(e: any) => {setDataToAddElement('pageId', e.PROJECT.value)}}/>
-        <InputComponent name={ELEMENT_DESCRIPTION} required={true} defaultValue={addElementData?.elementData.description} changeAction={(e: any) => {setDataToAddElement('description', e.PROJECT.value)}}/>
-        <InputComponent name={ELEMENT_NAME} required={true} defaultValue={addElementData?.elementData.name} changeAction={(e: any) => {setDataToAddElement('name', e.PROJECT.value)}}/>
+        <SelectComponent name={PROJECT} selectedId={addElementData?.projectId} optionList={projects} required={true} onChange={(e: any) => {}}/>
+        <SelectComponent name={PAGE} optionList={pages} selectedId={getIdFromElementData('pageId')} required={true} onChange={(e: any) => {setDataToAddElement('pageId', e.PROJECT.value)}}/>
+        <InputComponent name={ELEMENT_DESCRIPTION} required={true} defaultValue={getIdFromElementData('description')} changeAction={(e: any) => {setDataToAddElement('description', e.PROJECT.value)}}/>
+        <InputComponent name={ELEMENT_NAME} required={true} defaultValue={getIdFromElementData('name')} changeAction={(e: any) => {setDataToAddElement('name', e.PROJECT.value)}}/>
       </AccordionComponent>
       <AccordionComponent name={SELECTORS}>
-        <SelectComponent name={PAGE_OBJECT_PATTERN} selectedId={addElementData?.elementData?.pageObjectPattern?.id || ''} optionList={pagePatterns} onChange={(e: any) => {
+        <SelectComponent name={PAGE_OBJECT_PATTERN} selectedId={getIdFromElementData('pageObjectPattern.id')} optionList={pagePatterns} onChange={(e: any) => {
           const id = e.PROJECT.value;
           const pageObjPattern = pagePatterns.filter((pageObjPattern: any) => pageObjPattern._id === id);
           setDataToAddElement('pageObjectPattern', pageObjPattern);
         }}/>
-        <InputComponent name={ID} defaultValue={addElementData?.elementData?.elementId || ''} changeAction={(e: any) => {setDataToAddElement('elementId', e.PROJECT.value)}}/>
-        <InputComponent name={CSS} defaultValue={addElementData?.elementData?.elementCss || ''} changeAction={(e: any) => {setDataToAddElement('elementCss', e.PROJECT.value)}}/>
-        <InputComponent name={X_PATH} defaultValue={addElementData?.elementData?.elementXPath || ''} changeAction={(e: any) => {setDataToAddElement('elementXPath', e.PROJECT.value)}}/>
-        <SelectComponent name={PARENT_ELEMENT}  selectedId={addElementData?.elementData?.parentElementId || ''} optionList={elements} onChange={(e: any) => {setDataToAddElement('parentElementId', e.PROJECT.value)}}/>
+        <InputComponent name={ID} defaultValue={getIdFromElementData('elementId')} changeAction={(e: any) => {setDataToAddElement('elementId', e.PROJECT.value)}}/>
+        <InputComponent name={CSS} defaultValue={getIdFromElementData('elementCss')} changeAction={(e: any) => {setDataToAddElement('elementCss', e.PROJECT.value)}}/>
+        <InputComponent name={X_PATH} defaultValue={getIdFromElementData('elementXPath')} changeAction={(e: any) => {setDataToAddElement('elementXPath', e.PROJECT.value)}}/>
+        <SelectComponent name={PARENT_ELEMENT}  selectedId={getIdFromElementData('parentElementId')} optionList={elements} onChange={(e: any) => {setDataToAddElement('parentElementId', e.PROJECT.value)}}/>
       </AccordionComponent>
       <AccordionComponent name={ACTIONS}>
-        <SelectComponent name={ACTION} selectedId={addElementData?.elementData?.actionPatterns?.id || ''} optionList={actions}  onChange={(e: any) => {
+        <SelectComponent name={ACTION} selectedId={getIdFromElementData('actionPatterns.id')} optionList={actions} onChange={(e: any) => {
           const id = e.PROJECT.value;
           const action = actions.filter((action: any) => action._id === id);
           setDataToAddElement('actionPatterns', action);

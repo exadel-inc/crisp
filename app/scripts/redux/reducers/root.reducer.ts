@@ -18,6 +18,7 @@ import {selectedPageReducer} from './selectedPage/selectedPage.reducer';
 import {selectedProjectReducer} from './selectedProject/selectedProject.reducer';
 import addElementReducer from './addElementData/addElementData.reducer';
 import RoleReducer from './roles/roles.reducer';
+import generateDatasReducer, { InitGenerateData } from './generateDatas/generateData.reducer';
 
 export default function rootReducer(state: any = {}, action: AnyAction) {
   if(action.type === UserActions.USER_LOGOUT) {
@@ -45,7 +46,8 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
       selectedPageId: null,
       selectedProjectId: null,
       addElementData: null,
-      addInBulkData: null
+      addInBulkData: null,
+      generatedDatas: InitGenerateData
     };
   }
 
@@ -74,6 +76,7 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
     selectedPageId: selectedPageReducer(state.selectedPageId, action),
     selectedProjectId: selectedProjectReducer(state.selectedProjectId, action),
     addElementData: addElementReducer(state.addElementData, action),
-    addInBulkData: null
+    addInBulkData: null,
+    generatedDatas: generateDatasReducer(state.generatedDatas, action)
   };
 }

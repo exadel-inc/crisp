@@ -78,7 +78,7 @@ export function ConfigurationTab() {
   };
 
   return (
-    <div className='admin-project-manager'>
+    <div className='admin-project-manager data-window-section'>
       <div className='projects-section'>
         {
           frameworks.map((framework: any, index: number) =>
@@ -87,7 +87,7 @@ export function ConfigurationTab() {
                 title: 'Update framework',
                 isHideButtons: true,
                 body: <>
-                <form className='admin-framework-tab-form' onSubmit={async (e: any) => {
+                <form className='admin-framework-tab-form form-modal-popup' onSubmit={async (e: any) => {
                   e.preventDefault();
                   const elements: any = e.target?.elements || {};
                   const frameworkName = elements.frameworkName.value;
@@ -98,7 +98,7 @@ export function ConfigurationTab() {
                   });
                 }}>
                   <InputComponent label='Framework Name'  name={'frameworkName'} formName={'frameworkName'} defaultValue={framework.name} />
-                  <TextComponent label={'Description'} isOnlyTextarea={true} formName={'description'} name={'Description'} defaultValue={framework.description} />
+                  <TextComponent label={'Description'} formName={'description'} defaultValue={framework.description} />
                   <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
                 </form>
                 </>
@@ -116,7 +116,7 @@ export function ConfigurationTab() {
             title: 'Update framework',
             isHideButtons: true,
             body: <>
-            <form className='admin-framework-tab-form' onSubmit={async (e: any) => {
+            <form className='admin-framework-tab-form form-modal-popup' onSubmit={async (e: any) => {
               e.preventDefault();
               const elements: any = e.target?.elements || {};
               const frameworkName = elements.frameworkName.value;
@@ -128,7 +128,7 @@ export function ConfigurationTab() {
               });
             }}>
               <InputComponent label='Framework Name'  formName={'frameworkName'} name={'frameworkName'} defaultValue={''} />
-              <TextComponent label={'Description'} formName={'description'} isOnlyTextarea={true} name={'description'} defaultValue={''} />
+              <TextComponent label={'Description'} formName={'description'} defaultValue={''} />
               <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
             </form>
             </>

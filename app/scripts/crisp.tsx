@@ -34,7 +34,7 @@ const Main = () => {
       message: `Do you want to update password?`,
       isHideButtons: true,
       body: <>
-        <form className='update-password-tab-form' onSubmit={async (e: any) => {
+        <form className='update-password-tab-form form-modal-popup' onSubmit={async (e: any) => {
           e.preventDefault();
           const elements: any = e.target?.elements || {};
           const newPassword = elements.projectName.value;
@@ -50,7 +50,7 @@ const Main = () => {
             showToast('Can\'t update user in db. The application synchronizes this operation automatically');
           }
         }}>
-          <InputComponent label='New password'  formName={'newPassword'} name={'newPassword'} defaultValue={''} />
+          <InputComponent label='New password' formName={'newPassword'} name={'newPassword'} defaultValue={''} />
           <InputComponent label='Confirm Password'  formName={'confirmPassword'} name={'confirmPassword'} defaultValue={''} />
           <Button type={'submit'} buttonName={'Update password'} iconClass={''} action={async () => {}} />
         </form>

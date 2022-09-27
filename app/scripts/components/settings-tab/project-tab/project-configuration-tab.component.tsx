@@ -80,7 +80,7 @@ export function ConfigurationTab() {
   };
 
   return (
-    <div className='admin-project-manager'>
+    <div className='admin-project-manager data-window-section'>
       <div className='projects-section'>
         {
           projects.map((project: any, index: number) =>
@@ -89,7 +89,7 @@ export function ConfigurationTab() {
                 title: 'Update project',
                 isHideButtons: true,
                 body: <>
-                <form className='admin-project-tab-form' onSubmit={async (e: any) => {
+                <form className='admin-project-tab-form form-modal-popup' onSubmit={async (e: any) => {
                   e.preventDefault();
                   const elements: any = e.target?.elements || {};
                   const projectName = elements.projectName.value;
@@ -103,7 +103,7 @@ export function ConfigurationTab() {
                 }}>
                   <InputComponent label='Project Name'  name={'ProjectName'} formName={'projectName'} defaultValue={project.name} />
                   <SelectComponent name={'Framework'} formName={'framework'} optionList={frameworks} selectedId={(project.framework || project.frameworkId) } />
-                  <TextComponent label={'Description'} isOnlyTextarea={true} formName={'description'} name={'Description'} defaultValue={project.description} />
+                  <TextComponent label={'Description'} formName={'description'} defaultValue={project.description} />
                   <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
                 </form>
                 </>
@@ -121,7 +121,7 @@ export function ConfigurationTab() {
             title: 'Create project',
             isHideButtons: true,
             body: <>
-              <form className='admin-project-tab-form' onSubmit={async (e: any) => {
+              <form className='admin-project-tab-form form-modal-popup' onSubmit={async (e: any) => {
                 e.preventDefault();
                 const elements: any = e.target?.elements || {};
                 const projectName = elements.projectName.value;
@@ -137,7 +137,7 @@ export function ConfigurationTab() {
               }}>
                 <InputComponent label='Project Name'  formName={'projectName'} name={'projectName'} defaultValue={''} />
                 <SelectComponent formName={'framework'} name={'framework'} optionList={frameworks} />
-                <TextComponent label={'Description'} formName={'description'} isOnlyTextarea={true} name={'description'} defaultValue={''} />
+                <TextComponent label={'Description'} formName={'description'} defaultValue={''} />
                 <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
               </form>
             </>
