@@ -23,7 +23,7 @@
 .accordionFormActive {
   background-color: $activeColor;
 
-  svg {
+  svg.rotate-icon {
     transform: rotate(-180deg);
   }
 

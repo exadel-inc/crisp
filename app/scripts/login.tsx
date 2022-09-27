@@ -4,14 +4,20 @@ import React, {FormEvent} from 'react';
 import {Button} from './components/button/button';
 import {InputComponent} from './components/inputComponent/inputComponent';
 
-import {authApi} from './serverRestApi';
+import { authApi, restApi } from './serverRestApi';
 import store from './redux/store';
-import {WriteAllDataToStorageAction} from './redux/reducers/storage/storage.actions';
-import {CurrentUser} from './currentUser/currentUser';
-import {UserActions} from './redux/reducers/user/user.actions';
-import {Spinner} from './components/spinner/spinner';
+import { WriteAllDataToStorageAction } from './redux/reducers/storage/storage.actions';
+import { CurrentUser } from './currentUser/currentUser';
+import { UserActions } from './redux/reducers/user/user.actions';
+import { Spinner } from './components/spinner/spinner';
+import { InitUsersToStorageAction } from './redux/reducers/users/users.actions';
+import { ActionTypes } from './redux/reducers/roles/roles.actions';
+
 
 const auth = authApi();
+const userService = restApi('users');
+const roleService = restApi('roles');
+
 
 const setData = (key: string, itemData: any) => {
   localStorage.setItem(key, JSON.stringify(itemData));
@@ -31,38 +37,57 @@ const initData = async (data: any) => {
 const handleSubmit = async (email: string, password: string, host: string) => {
   localStorage.setItem('host', host);
 
-  const data = await auth.login({
+const data = await auth.login({
     email: email,
     password: password
   });
 
-  if (data) {
+  if(data) {
+    const userInfo = data.user;
+    const userRole = userInfo.roles.length ? userInfo.roles[0] : undefined;
+
     await initData(data.projectInitData);
 
-    const userInfo = data.user;
-
     const currentUser = new CurrentUser(
-      userInfo.id,
-      userInfo.name,
-      userInfo.email,
-      data.accessToken,
-      data.refreshToken,
-      data.expiresIn,
-      (userInfo.roles.length ? userInfo.roles[0] : undefined),
-      host
+        userInfo.id,
+        userInfo.name,
+        userInfo.email,
+        data.accessToken,
+        data.refreshToken,
+        data.expiresIn,
+        userRole,
+        host
     );
 
-    store.dispatch({
-      type: UserActions.USER_LOGIN,
-      payload: {
-        data: currentUser
-      }
-    });
-
+    localStorage.setItem('token', data.accessToken);
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
-  }
-};
 
+    const rolesData = await roleService.getAll();
+
+    if(rolesData) {
+      store.dispatch({
+          type:  ActionTypes.INIT_ROLES,
+          payload: rolesData
+      });
+    }
+
+    if(userRole && userRole.name === 'ADMIN') {
+        const users = await userService.getAll();
+        if(users) {
+            store.dispatch({...new InitUsersToStorageAction({
+                data: users
+            })});
+        }
+    }
+
+    store.dispatch({
+        type:  UserActions.USER_LOGIN,
+        payload: {
+            data: currentUser
+        }
+    });
+  }
+}
 export const Login = () => (
   <div className='login-wrapper'>
     <form onSubmit={async (e: any) => {
@@ -81,9 +106,9 @@ export const Login = () => (
         spinner?.classList.add('hide');
       }
     }} className="loginForm">
-      <InputComponent name={'email'}/>
-      <InputComponent name={'password'}/>
-      <InputComponent name={'host'}/>
+      <InputComponent name={'email'} formName={'email'}/>
+      <InputComponent name={'password'} formName={'password'}/>
+      <InputComponent name={'host'} formName={'host'}/>
       <Button type={'submit'} buttonName={'login'} action={() => {
       }} iconClass={''}/>
     </form>
@@ -91,4 +116,4 @@ export const Login = () => (
       <Spinner/>
     </div>
   </div>
-);
+)

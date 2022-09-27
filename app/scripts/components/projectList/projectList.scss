@@ -3,6 +3,6 @@
 .projectList {
   //TODO need to refactor height with %
   height: 400px;
-  overflow: scroll;
+  overflow: auto;
   margin-bottom: getSize(2);
 }

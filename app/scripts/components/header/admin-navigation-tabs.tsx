@@ -2,10 +2,12 @@ import * as React from 'react';
 import {ProjectIcon} from '../tab-icons/projectIcon';
 import {FrameworkIcon} from '../tab-icons/frameworkIcon';
 import {CommonTabLogic} from '../tab-icons/commonTabLogic';
+import {AddAdminPatternIcon} from '../tab-icons/addAdminPatterns';
 import {SearchIcon} from '../tab-icons/searchIcon';
 import './navigation-tabs.scss';
 import '../../../styles/commonClasses.scss';
 import { NavigationTabType as NavType } from './navigationTypes'
+import { UserManagerIcon } from '../tab-icons/userManagerIcon';
 
 /**
  * Main navigation tabs
@@ -18,7 +20,7 @@ export function AdminNavigationTabs({handleTabClick, isActive}: {
     <>
       <CommonTabLogic handleTabClick={handleTabClick}
                       isActive={isActive}
-                      activeTab={NavType.PAGE}
+                      activeTab={NavType.PROJECT}
                       children={<ProjectIcon className={isActive(NavType.PROJECT) ?
                         'activeIconFill' : 'defaultIconFill'
                       }/>}/>
@@ -29,8 +31,13 @@ export function AdminNavigationTabs({handleTabClick, isActive}: {
                         'activeIconFill' : 'defaultIconFill'}/>}/>
       <CommonTabLogic handleTabClick={handleTabClick}
                       isActive={isActive}
+                      activeTab={NavType.ADMIN_PATTERN}
+                      children={<AddAdminPatternIcon className={isActive(NavType.ADMIN_PATTERN) ?
+                        'activeIconFill' : 'defaultIconFill'}/>}/>
+      <CommonTabLogic handleTabClick={handleTabClick}
+                      isActive={isActive}
                       activeTab={NavType.USER_MANAGER}
-                      children={<SearchIcon className={isActive(NavType.USER_MANAGER) ?
+                      children={<UserManagerIcon className={isActive(NavType.USER_MANAGER) ?
                         'activeIconFill' : 'defaultIconFill'}/>}/>
     </>
   );

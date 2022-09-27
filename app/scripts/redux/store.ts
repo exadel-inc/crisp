@@ -14,6 +14,9 @@ import { CurrentUser, UserRole } from '../currentUser/currentUser';
 import { appMode } from './reducers/appMode/appMode.reducerr';
 import { syncDataQueueI } from './reducers/syncDataQueue/syncDataQueue.reducer';
 
+import { UsersNavigationState } from './reducers/usersNavigation/usersNavigation.reducer';
+import { IGenerateData } from './reducers/generateDatas/generateData.reducer';
+
 export interface RootState {
   navigation: NavigationState;
   storage: StorageState;
@@ -25,12 +28,17 @@ export interface RootState {
     exportModal: ExportModalState;
     importTypeModal: ImportTypeModalState;
   };
-  user: CurrentUser;
+  usersNavigation: UsersNavigationState;
+  currentUser: CurrentUser;
+  users: [];
   syncDataQueue: syncDataQueueI[];
   appMode: appMode;
   roles: UserRole[];
   selectedPageId: null;
   selectedProjectId: null;
+  addElementData: null;
+  addInBulkData: null;
+  generatedDatas: IGenerateData;
 }
 
 const store: Store<RootState> = createStore(rootReducer, applyMiddleware(logger));

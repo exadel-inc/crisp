@@ -6,6 +6,12 @@ $textBorderRadius: getSize(0.4);
   display: flex;
   flex-direction: column;
 
+  .textarea-label {
+    padding-top: 16px;
+    padding-bottom: 8px;
+    color: rgb(94, 92, 92);
+  }
+
   textarea {
     min-height: getSize(10);
     margin-bottom: getSize(1.6);

@@ -13,6 +13,7 @@ import { UserNavigationTabs } from './user-navigation-tabs';
 import { AdminNavigationTabs } from './admin-navigation-tabs';
 import { Checkbox } from '../checkbox/checkbox';
 import { AppModeActions } from '../../redux/reducers/appMode/appMode.actions';
+import Switch from '../toggleComponent/toggleComponent';
 
 /**
  * Main navigation tabs
@@ -24,7 +25,7 @@ export function NavigationTabs() {
    */
   const isActive = (tabId: NavType) => useSelector((state: RootState) => state.navigation.tab) === tabId;
   const isAdminMode = () => useSelector((state: RootState) => state.appMode) === 'ADMIN';
-  const isAdminRole = () => useSelector((state: RootState) => state.user.role.name) === 'ADMIN';
+  const isAdminRole = () => useSelector((state: RootState) => state.currentUser.role.name) === 'ADMIN';
 
   const dispatch = useDispatch();
 
@@ -42,8 +43,8 @@ export function NavigationTabs() {
 
   const logoutHandleClick = () => {
     const logoutAction: any = UserActions.USER_LOGOUT;
-    dispatch({ type: logoutAction });
     localStorage.clear();
+    dispatch({ type: logoutAction });
   };
 
   const generateNavTab = () => {
@@ -64,7 +65,9 @@ export function NavigationTabs() {
         isActive={isActive}
         activeTab={NavType.CHANGE_MODE}
         children={
-          <><Checkbox checkedValue={isAdmin} count={0} /></>
+          <>
+            <Switch label={isAdmin ? 'Admin mode': 'User mode'} isOn={isAdmin} />
+          </>
         }/>
     : '';
   };

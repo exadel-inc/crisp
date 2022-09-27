@@ -4,6 +4,9 @@ import { StorageState } from './storage.reducer';
 export enum ActionTypes {
   WRITE_TO_STORAGE = '[Storage] write to storage',
   WRITE_ALL_TO_STORAGE = '[Storage] write all data to storage',
+  UPDATE_STORAGE_ITEM = '[Storage] update storage item',
+  DELETE_STORAGE_ITEM = '[Storage] update delete item',
+  ADD_STORAGE_ITEM = '[Storage] update add item'
 }
 
 export class WriteToStorageAction implements Action {

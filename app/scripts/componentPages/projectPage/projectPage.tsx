@@ -1,10 +1,9 @@
 import * as React from 'react';
 
 import {ProjectList} from '../../components/projectList/projectList';
-
 import {ProjectPageHeader} from '../../components/projectPageHeader/projectPageHeader';
-import {TextComponent} from '../../components/textComponent/textComponent';
 import {PageBar} from '../../components/pageBar/pageBar';
+import { GenerateScriptTab } from '../../components/generateScriptTab/generateScriptTab';
 
 export const ProjectPage = () => {
   return (
@@ -13,7 +12,7 @@ export const ProjectPage = () => {
       <PageBar/>
       <div className='projectPage'>
         <ProjectList/>
-        <TextComponent/>
+        <GenerateScriptTab/>
       </div>
     </>
   );

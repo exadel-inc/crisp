@@ -12,7 +12,6 @@ export interface StorageState {
   elements: CrispElement[];
   framework: Framework[];
   patterns: Pattern[];
-  users: any[];
 }
 
 export const initialStirageState: StorageState = {
@@ -20,8 +19,41 @@ export const initialStirageState: StorageState = {
   projects: [],
   elements: [],
   framework: [],
-  patterns: [],
-  users: [],
+  patterns: []
+};
+
+const updateItem = (state: any, payload: any) => {
+  const itemKey: string = payload.key;
+
+  state[itemKey] = state[itemKey].map((item: any) => {
+    return (item._id || item.id)  === payload.id ? {
+      ...item,
+      ...payload.data
+    } : item;
+  });
+
+  return state;
+};
+
+const addItem = (state: any, payload: any) => {
+  const itemKey: string = payload.key;
+
+  state[itemKey] = [
+    ...state[itemKey],
+    payload.data
+  ];
+
+  return state;
+};
+
+const removeItem = (state: any, payload: any) => {
+  const itemKey: string = payload.key;
+
+  state[itemKey] = state[itemKey].filter((item: any) => {
+    return (item._id || item.id) !== payload.id;
+  });
+
+  return state;
 };
 
 export default function storageReducer(state: StorageState = initialStirageState, action: AnyAction) {
@@ -41,6 +73,18 @@ export default function storageReducer(state: StorageState = initialStirageState
       }: action.payload;
       console.log(`----- newState: ${newState} ----`);
       return newState;
+    }
+
+    case ActionTypes.UPDATE_STORAGE_ITEM: {
+      return updateItem(state, action.payload);
+    }
+
+    case ActionTypes.DELETE_STORAGE_ITEM: {
+      return removeItem(state, action.payload);
+    }
+
+    case ActionTypes.ADD_STORAGE_ITEM: {
+      return addItem(state, action.payload);
     }
 
     default:

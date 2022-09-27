@@ -12,7 +12,7 @@ export const ConfirmModal: React.FunctionComponent = () => {
 
   const dispatch = useDispatch();
 
-  const { title, message, show, onConfirm, onCancel } = useSelector(selector);
+  const { title, message, show, onConfirm, onCancel, body, isHideButtons } = useSelector(selector);
 
   const style = {
     display: show && 'block' || 'none',
@@ -42,11 +42,13 @@ export const ConfirmModal: React.FunctionComponent = () => {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div className="modal-body">{message}</div>
-            <div className="modal-footer">
-              <button type="button" onClick={() => callback(false)} className="btn btn-secondary modal-cancel-button">Cancel</button>
-              <button type="button" onClick={() => callback(true)} className="btn btn-primary modal-accept-button">OK</button>
-            </div>
+            <div className="modal-body">{body || message}</div>{
+              isHideButtons ? <></>:
+              <div className="modal-footer">
+                <button type="button" onClick={() => callback(false)} className="btn btn-secondary modal-cancel-button">Cancel</button>
+                <button type="button" onClick={() => callback(true)} className="btn btn-primary modal-accept-button">OK</button>
+              </div>
+            }
           </div>
         </div>
       </div>

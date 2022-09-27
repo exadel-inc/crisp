@@ -12,8 +12,13 @@ import storageReducer, { initialStirageState } from './storage/storage.reducer';
 import syncDataReducer from './syncDataQueue/syncDataQueue.reducer';
 import { UserActions } from './user/user.actions';
 import userReducer from './user/user.reducer';
+import usersReducer from './users/users.reducer';
+import usersNavigationReducer from './usersNavigation/usersNavigation.reducer';
 import {selectedPageReducer} from './selectedPage/selectedPage.reducer';
-import {selectedProjectReducer} from "./selectedProject/selectedProject.reducer";
+import {selectedProjectReducer} from './selectedProject/selectedProject.reducer';
+import addElementReducer from './addElementData/addElementData.reducer';
+import RoleReducer from './roles/roles.reducer';
+import generateDatasReducer, { InitGenerateData } from './generateDatas/generateData.reducer';
 
 export default function rootReducer(state: any = {}, action: AnyAction) {
   if(action.type === UserActions.USER_LOGOUT) {
@@ -33,15 +38,17 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
         exportModal: { show: false },
         importTypeModal: { show: false },
       },
-      user: new CurrentUser(),
+      users: [],
+      currentUser: new CurrentUser(),
       appMode: appMode.USER,
       usersModificationData: [],
       syncDataQueue: {},
       selectedPageId: null,
-      selectedProjectId: null
+      selectedProjectId: null,
+      addElementData: null,
+      addInBulkData: null,
+      generatedDatas: InitGenerateData
     };
-
-    return {};
   }
 
   return {
@@ -60,11 +67,16 @@ export default function rootReducer(state: any = {}, action: AnyAction) {
       exportModal: exportModalReducer(state.exportModal, action),
       importTypeModal: importTypeModalReducer(state.importTypeModal, action),
     },
-    user: userReducer(state.user, action),
+    users: usersReducer(state.users, action),
+    usersNavigation: usersNavigationReducer(state.usersNavigation, action),
+    currentUser: userReducer(state.currentUser, action),
     appMode: appModeReducer(state.appMode, action),
     syncDataQueue: syncDataReducer(state.syncDataQueue, action),
-    roles: [],
+    roles: RoleReducer(state.roles, action),
     selectedPageId: selectedPageReducer(state.selectedPageId, action),
-    selectedProjectId: selectedProjectReducer(state.selectedProjectId, action)
+    selectedProjectId: selectedProjectReducer(state.selectedProjectId, action),
+    addElementData: addElementReducer(state.addElementData, action),
+    addInBulkData: null,
+    generatedDatas: generateDatasReducer(state.generatedDatas, action)
   };
 }

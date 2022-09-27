@@ -23,7 +23,7 @@ export const SearchComponent = () => {
           type="search"
           style={checkLengthValue() ? {background: 'none'} : {}}
         />
-        <BigButton buttonName={SEARCH_BUTTON_NAME} disable={checkLengthValue()}/>
+        <BigButton buttonName={SEARCH_BUTTON_NAME} disable={checkLengthValue()} onClick={() => {}}/>
       </form>
   );
 };
