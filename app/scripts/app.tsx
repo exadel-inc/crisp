@@ -13,24 +13,24 @@ import store, { RootState } from './redux/store';
 
 const Crisp = React.lazy(() => import('./crisp'));
 
-const Crisp_App = () => {
-    const isLogined = useSelector((state: RootState) => state.currentUser?.token, shallowEqual);
+const CrispApp = () => {
+  const isLogined = useSelector((state: RootState) => state.currentUser?.token, shallowEqual);
 
-    return (<>
-        { 
-            isLogined ? 
-            <Suspense fallback={null}> <Crisp /> </Suspense> :
-            <Login /> 
-        }
-        </>);
+  return (<>
+    {
+      isLogined ?
+        <Suspense fallback={null}> <Crisp /> </Suspense> :
+        <Login />
+    }
+  </>);
 };
 
 function App () {
-    return (
-        <Provider store={store}>
-            <Crisp_App />
-        </Provider>
-    );
+  return (
+    <Provider store={store}>
+      <CrispApp />
+    </Provider>
+  );
 }
 
 ReactDOM.render(<App />, document.getElementById('crisp'));

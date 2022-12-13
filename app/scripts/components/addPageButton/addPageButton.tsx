@@ -40,23 +40,23 @@ export const AddPageButton = ({projectId}: {projectId: number}) => {
         title: 'Create page',
         isHideButtons: true,
         body: <>
-        <form className='create-page form-modal-popup' onSubmit={async (e: any) => {
-          e.preventDefault();
-          const elements: any = e.target?.elements || {};
-          const pageName = elements?.pageName.value || '';
-          const description = elements?.description.value || '';
-          const parojectId = projectId || '';
-          await createPage({
-            "description": description,
-            "name": pageName,
-            "projectId": parojectId,
-            "date": "2022-08-16T23:57:58.153Z"
-          });
-        }}>
-          <InputComponent label='Page Name'  formName={'pageName'} name={'pageName'} defaultValue={''} />
-          <TextComponent label={'Description'} formName={'description'} defaultValue={''} />
-          <Button type={'submit'} buttonName={'Create'} iconClass={''} action={async () => {}} />
-        </form>
+          <form className='create-page form-modal-popup' onSubmit={async (e: any) => {
+            e.preventDefault();
+            const elements: any = e.target?.elements || {};
+            const pageName = elements?.pageName.value || '';
+            const description = elements?.description.value || '';
+            const parojectId = projectId || '';
+            await createPage({
+              'description': description,
+              'name': pageName,
+              'projectId': parojectId,
+              'date': '2022-08-16T23:57:58.153Z'
+            });
+          }}>
+            <InputComponent label='Page Name'  formName={'pageName'} name={'pageName'} defaultValue={''} />
+            <TextComponent label={'Description'} formName={'description'} defaultValue={''} />
+            <Button type={'submit'} buttonName={'Create'} iconClass={''} action={async () => {}} />
+          </form>
         </>
       });
     }}>

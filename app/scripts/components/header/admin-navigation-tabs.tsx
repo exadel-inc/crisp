@@ -3,10 +3,9 @@ import {ProjectIcon} from '../tab-icons/projectIcon';
 import {FrameworkIcon} from '../tab-icons/frameworkIcon';
 import {CommonTabLogic} from '../tab-icons/commonTabLogic';
 import {AddAdminPatternIcon} from '../tab-icons/addAdminPatterns';
-import {SearchIcon} from '../tab-icons/searchIcon';
 import './navigation-tabs.scss';
 import '../../../styles/commonClasses.scss';
-import { NavigationTabType as NavType } from './navigationTypes'
+import { NavigationTabType as NavType } from './navigationTypes';
 import { UserManagerIcon } from '../tab-icons/userManagerIcon';
 
 /**
@@ -19,26 +18,26 @@ export function AdminNavigationTabs({handleTabClick, isActive}: {
   return (
     <>
       <CommonTabLogic handleTabClick={handleTabClick}
-                      isActive={isActive}
-                      activeTab={NavType.PROJECT}
-                      children={<ProjectIcon className={isActive(NavType.PROJECT) ?
-                        'activeIconFill' : 'defaultIconFill'
-                      }/>}/>
+        isActive={isActive}
+        activeTab={NavType.PROJECT}
+        children={<ProjectIcon className={isActive(NavType.PROJECT) ?
+          'activeIconFill' : 'defaultIconFill'
+        }/>}/>
       <CommonTabLogic handleTabClick={handleTabClick}
-                      isActive={isActive}
-                      activeTab={NavType.FRAMEWORK}
-                      children={<FrameworkIcon className={isActive(NavType.FRAMEWORK) ?
-                        'activeIconFill' : 'defaultIconFill'}/>}/>
+        isActive={isActive}
+        activeTab={NavType.FRAMEWORK}
+        children={<FrameworkIcon className={isActive(NavType.FRAMEWORK) ?
+          'activeIconFill' : 'defaultIconFill'}/>}/>
       <CommonTabLogic handleTabClick={handleTabClick}
-                      isActive={isActive}
-                      activeTab={NavType.ADMIN_PATTERN}
-                      children={<AddAdminPatternIcon className={isActive(NavType.ADMIN_PATTERN) ?
-                        'activeIconFill' : 'defaultIconFill'}/>}/>
+        isActive={isActive}
+        activeTab={NavType.ADMIN_PATTERN}
+        children={<AddAdminPatternIcon className={isActive(NavType.ADMIN_PATTERN) ?
+          'activeIconFill' : 'defaultIconFill'}/>}/>
       <CommonTabLogic handleTabClick={handleTabClick}
-                      isActive={isActive}
-                      activeTab={NavType.USER_MANAGER}
-                      children={<UserManagerIcon className={isActive(NavType.USER_MANAGER) ?
-                        'activeIconFill' : 'defaultIconFill'}/>}/>
+        isActive={isActive}
+        activeTab={NavType.USER_MANAGER}
+        children={<UserManagerIcon className={isActive(NavType.USER_MANAGER) ?
+          'activeIconFill' : 'defaultIconFill'}/>}/>
     </>
   );
 }

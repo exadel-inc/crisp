@@ -1,22 +1,16 @@
 import * as React from 'react';
-import {useSelector} from 'react-redux';
-import {RootState} from '../../redux/store';
-import {elementsService, projectsService} from '../../shared/services';
-import {NavigationTabs} from './navigation-tabs';
-import {LogoComponent} from '../logoComponent/logoComponent';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../redux/store';
+import { elementsService } from '../../shared/services';
+import { NavigationTabs } from './navigation-tabs';
+import { LogoComponent } from '../logoComponent/logoComponent';
 import '../../componentPages/projectPage/projectPage.scss';
-import {NavigationTabType as NavType} from './navigationTypes';
+import { NavigationTabType as NavType } from './navigationTypes';
 
 /**
  * Application Header
  */
 export function Header() {
-
-  /**
-   * Current project name
-   */
-  const projectName = useSelector(() => projectsService.currentProject?.name);
-
   /**
    * Title displayed in header
    */

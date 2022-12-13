@@ -2,7 +2,7 @@ import React from 'react';
 import {TableElement} from '../tableElement/tableElement';
 import {useSelector} from 'react-redux';
 
-export const TabElementsList = ({selectedPageId}: { selectedPageId: number }) => {
+export const TabElementsList = ({selectedPageId, projectId}: { selectedPageId: number; projectId: any }) => {
 
   // @ts-ignore
   const {storage: {elements}} = useSelector(state => state);
@@ -14,7 +14,7 @@ export const TabElementsList = ({selectedPageId}: { selectedPageId: number }) =>
       (el) => {
         const {name, _id} = el;
 
-        return <TableElement key={_id} name={name} element={el}/>;
+        return <TableElement key={_id} name={name} element={el} pageId={selectedPageId} projectId={projectId}/>;
       }
     );
   }

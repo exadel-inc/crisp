@@ -9,7 +9,7 @@ import { Page } from '../../pages/page';
  */
 export function PageElememntsTab ({isActive, page, onTabNavigate}: {
   isActive: boolean;
-  page: Page,
+  page: Page;
   onTabNavigate: (pageId: string) => void;
 }) {
 

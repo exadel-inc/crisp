@@ -44,19 +44,19 @@ export function PageElemementsTableRow ({ element, onAddElement, onRemoveElement
   const updateElement = (element: CrispElement, actionPatterns: ElementPatternData[]) => {
     element.actionPatterns = actionPatterns;
     elementsService.update(element.id, element);
-  }
+  };
 
   /**
    * Function called on element add button click
   */
   const handleAddElementClick = () => {
     onAddElement(element);
-  }
+  };
 
   /**
    * Component state: display actionList dropdown
   */
-   const [displayActionList, setDisplayActionList] = useState(false);
+  const [displayActionList, setDisplayActionList] = useState(false);
 
   /**
    * Function called on element edit button click
@@ -80,16 +80,14 @@ export function PageElemementsTableRow ({ element, onAddElement, onRemoveElement
 
     const style = {
       width: `${width - 10}px`
-    }
+    };
 
-    return displayActionList
-    ? <div className="action-list-wrapper" data-key={element.id} style={style}>
-        <ActionListComponent
-          element={element}
-          onChange={(actionPatterns: ElementPatternData[]) => updateElement(element, actionPatterns)}
-        />
-      </div>
-    : null
+    return displayActionList ? <div className="action-list-wrapper" data-key={element.id} style={style}>
+      <ActionListComponent
+        element={element}
+        onChange={(actionPatterns: ElementPatternData[]) => updateElement(element, actionPatterns)}
+      />
+    </div> : null;
   };
 
   /**
@@ -97,9 +95,9 @@ export function PageElemementsTableRow ({ element, onAddElement, onRemoveElement
   */
   const handleBlur = (event: any) => {
     if (!event?.currentTarget?.contains(event.relatedTarget)) {
-      setDisplayActionList(false)
+      setDisplayActionList(false);
     }
-  }
+  };
 
   return (
     <tr className="crisp-element">
@@ -151,5 +149,4 @@ export function PageElemementsTableRow ({ element, onAddElement, onRemoveElement
       </td>
     </tr>
   );
-
 };

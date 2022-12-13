@@ -12,12 +12,12 @@ export const AddBulkPage = () => {
   const {ADD_BULK} = PAGE_TITLE_NAME;
 
   return (
-      <div>
-        <PageTitle title={ADD_BULK}/>
-        <BulkFormComponent/>
-        <div className='buttonWrapper'>
-          <BigButton buttonName={BUTTON_NAME_BULK} disable={true} onClick={() => {}}/>
-        </div>
+    <div>
+      <PageTitle title={ADD_BULK}/>
+      <BulkFormComponent/>
+      <div className='buttonWrapper'>
+        <BigButton buttonName={BUTTON_NAME_BULK} disable={true} onClick={() => {}}/>
       </div>
+    </div>
   );
 };

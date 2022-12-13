@@ -37,7 +37,7 @@ const initData = async (data: any) => {
 const handleSubmit = async (email: string, password: string, host: string) => {
   localStorage.setItem('host', host);
 
-const data = await auth.login({
+  const data = await auth.login({
     email: email,
     password: password
   });
@@ -49,14 +49,14 @@ const data = await auth.login({
     await initData(data.projectInitData);
 
     const currentUser = new CurrentUser(
-        userInfo.id,
-        userInfo.name,
-        userInfo.email,
-        data.accessToken,
-        data.refreshToken,
-        data.expiresIn,
-        userRole,
-        host
+      userInfo.id,
+      userInfo.name,
+      userInfo.email,
+      data.accessToken,
+      data.refreshToken,
+      data.expiresIn,
+      userRole,
+      host
     );
 
     localStorage.setItem('token', data.accessToken);
@@ -66,28 +66,28 @@ const data = await auth.login({
 
     if(rolesData) {
       store.dispatch({
-          type:  ActionTypes.INIT_ROLES,
-          payload: rolesData
+        type:  ActionTypes.INIT_ROLES,
+        payload: rolesData
       });
     }
 
     if(userRole && userRole.name === 'ADMIN') {
-        const users = await userService.getAll();
-        if(users) {
-            store.dispatch({...new InitUsersToStorageAction({
-                data: users
-            })});
-        }
+      const users = await userService.getAll();
+      if(users) {
+        store.dispatch({...new InitUsersToStorageAction({
+          data: users
+        })});
+      }
     }
 
     store.dispatch({
-        type:  UserActions.USER_LOGIN,
-        payload: {
-            data: currentUser
-        }
+      type:  UserActions.USER_LOGIN,
+      payload: {
+        data: currentUser
+      }
     });
   }
-}
+};
 export const Login = () => (
   <div className='login-wrapper'>
     <form onSubmit={async (e: any) => {
@@ -116,4 +116,4 @@ export const Login = () => (
       <Spinner/>
     </div>
   </div>
-)
+);

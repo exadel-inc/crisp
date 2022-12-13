@@ -1,11 +1,11 @@
+import './addElementPage.scss';
 import * as React from 'react';
+import store from '../../redux/store';
 import { useSelector } from 'react-redux';
 import { FormComponent } from '../../components/generalAddComponent/formComponent';
 import { BigButton } from '../../components/bigButton/bigButton';
 import { BUTTON_NAME_ADD, PAGE_TITLE_NAME } from '../../constants/constants';
 import { PageTitle } from '../../components/pageTitle/pageTitle';
-import './addElementPage.scss';
-import store from '../../redux/store';
 import { useConfirmModal } from '../../components/shared/confirm-modal/confirm-modal';
 import { restApi } from '../../serverRestApi';
 import { showToast } from '../../components/shared/toasts-component';
@@ -19,27 +19,29 @@ export const AddElementPage = () => {
   const {ADD_ELEMENT} = PAGE_TITLE_NAME;
 
   return (
-      <div>
-        <PageTitle title={ADD_ELEMENT}/>
-        <FormComponent/>
-        <div className='buttonWrapper'>
-          <BigButton buttonName={BUTTON_NAME_ADD} disable={true} onClick={() => {
-            
+    <div>
+      <PageTitle title={ADD_ELEMENT}/>
+      <FormComponent/>
+      <div className='buttonWrapper'>
+        <BigButton buttonName={BUTTON_NAME_ADD} disable={true} onClick={
+          () => {
+
             if(!addElementData) {
               showToast('Fill required data');
               return;
             }
+
             showConfirmModal({
               title: 'Add element confirmation',
               message: `Do you want to add element?`,
               onConfirm: async () => {
                 const elementData = addElementData.elementData;
                 const data: any = {
-                  "name": elementData.name,
-                  "description": elementData.description,
-                  "pageId": elementData.pageId,
-                  "date": "2022-08-18T23:37:12.572Z"
-                }
+                  'name': elementData.name,
+                  'description': elementData.description,
+                  'pageId': elementData.pageId,
+                  'date': '2022-08-18T23:37:12.572Z'
+                };
 
                 if(['elementId', 'elementCss', 'elementXPath'].some((item: any) => {
                   return item in elementData;
@@ -82,8 +84,9 @@ export const AddElementPage = () => {
                 }
               }
             });
-          }}/>
-        </div>
+          }
+        }/>
       </div>
+    </div>
   );
 };

@@ -10,15 +10,15 @@ import './projectPanel.scss';
 import { appMode as AppMode } from '../../redux/reducers/appMode/appMode.reducerr';
 
 export const ProjectPanel = ({
-                               counter = DEFAULT_PROJECT_PANEL_COUNT,
-                               projectName = DEFAULT_PROJECT_PANEL_NAME,
-                               editAction,
-                               deleteAction
-                             }: {
+  counter = DEFAULT_PROJECT_PANEL_COUNT,
+  projectName = DEFAULT_PROJECT_PANEL_NAME,
+  editAction,
+  deleteAction
+}: {
   counter: number;
   projectName: string;
-  editAction?: Function,
-  deleteAction?: Function
+  editAction?: Function;
+  deleteAction?: Function;
 }) => {
   const {isOpen, changeState} = useContext(IsOpenProject);
   // @ts-ignore
@@ -29,7 +29,7 @@ export const ProjectPanel = ({
       <div>
         <p>{counter}.</p>
         <p className='projectName'
-           onClick={changeState}>
+          onClick={changeState}>
           {projectName}</p>
       </div>
       <div className='controlWrapper'>

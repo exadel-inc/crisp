@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import { CrispElement } from '../../elements/element';
 import { Page } from '../../pages/page';
 import { RootState } from '../../redux/store';
@@ -49,7 +49,7 @@ export function MainTab () {
    */
   const handleAddElement = (element: CrispElement) => {
     setAddElementForScript({element});
-  }
+  };
 
   /**
    * Adds elements to the setElementsForScript list
@@ -59,9 +59,9 @@ export function MainTab () {
     const pageIds = pages.map(pg => pg.id);
     const elements = elementsService.getMany()
       .filter(el => currentPageOnly ? el.page === currentPage : pageIds.includes(el.page))
-      .sort((el1, el2) => pageIds.indexOf(el1.page) - pageIds.indexOf(el2.page))
+      .sort((el1, el2) => pageIds.indexOf(el1.page) - pageIds.indexOf(el2.page));
     setElementsForScript({elements, useSeparationLines: true});
-  }
+  };
 
   return isActive ? (
     <div className={`tab-pane fade show ${isActive ? 'active' : ''}`} id="main">

@@ -7,9 +7,11 @@ export const CommonTabLogic = ({handleTabClick, children, isActive, activeTab}: 
   isActive: any;
   activeTab: NavigationTabType;
 }) => {
+  const activeClass = isActive(activeTab) ? 'active': '';
+  const classStr = `nav-link crisp-tab p-2 ${activeClass}`;
   return (
     <li className="nav-item text-primary">
-      <a className={`nav-link crisp-tab p-2 ${isActive(activeTab) && 'active'}`} data-toggle="pill" data-tab-name="batch" onClick={() => handleTabClick(activeTab)}>
+      <a className={classStr} data-toggle="pill" data-tab-name="batch" onClick={() => handleTabClick(activeTab)}>
         {children}
       </a>
     </li>

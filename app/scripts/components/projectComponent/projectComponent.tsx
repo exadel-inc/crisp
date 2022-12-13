@@ -54,7 +54,7 @@ export const ProjectComponent = ({name, counter, projectId}: { name: string; cou
           {selectedPageId &&
             <>
               <PageTableHeader/>
-              <TabElementsList selectedPageId={selectedPageId}/>
+              <TabElementsList projectId={projectId} selectedPageId={selectedPageId}/>
             </>
           }
         </>

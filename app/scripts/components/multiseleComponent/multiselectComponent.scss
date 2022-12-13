@@ -1,0 +1,145 @@
+@use '../../../styles/commonStyles' as *;
+
+.element-pattern-attributes-multiselect {
+  width: 100%;
+  min-width: 400px;
+  overflow: auto!important;
+  position: relative!important;
+  border-bottom: 1px solid #dee2e6!important;
+
+  .pattern-attributes-filter {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    width: 100%;
+    min-width: 400px;
+
+    #filter {
+      outline: 0;
+      border: 1px solid rgba(0,0,0,.125);
+      padding: 12px 20px;
+      border-radius: 0.25rem;
+      width: 100%;
+
+      &:focus {
+        border-color: #80bdff;
+        box-shadow: inset 0px 0px 4px 0.34rem rgba(0, 123, 255, 0.25);
+      }
+    }
+  }
+
+  .pattern-attributes-wrapper {
+    width: 100%;
+
+    .pattern-attributes {
+      min-height: 200px;
+      height: 250px;
+      resize: vertical;
+      user-select: none;
+      font-size: 0.875rem;
+      display: flex;
+      flex-direction: column;
+      padding-left: 0;
+      margin-bottom: 0;
+      width: 100%;
+
+      .pattern-attribute {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+        border-bottom-left-radius: inherit;
+        display: flex;
+        flex-direction: column;
+  
+        position: relative;
+        display: block;
+        padding: .75rem 1.25rem;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-top: none;
+  
+        &:first-child {
+          border: 1px solid rgba(0, 0, 0, 0.125);
+          border-radius: .25rem .25rem 0 0;
+        }
+  
+        &:last-child {
+          border: 1px solid rgba(0, 0, 0, 0.125);
+          border-radius:  0 0 .25rem .25rem;
+        }
+  
+        .pattern-wrapper {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+  
+          .pattern-attribute-checkbox {
+            width: 0.9em;
+            margin: 0.3em;
+          }
+          .pattern-script {
+            flex: 1;
+          }
+          .config-variable-btn {
+            margin: 0.3em 0.8em;
+            width: max-content;
+            height: 1.5em;
+            border: none;
+            background-color: rgba(0, 0, 0, 0);
+  
+            .btn-icon {
+              display: inline-block;
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+              width: 14px;
+              background-image: url(../../../images/chevron-expand.svg);
+              height: 14px;
+            }
+  
+            &:focus {
+              border: 0;
+              background-color: rgba(0, 0, 0, 0);
+              outline: none;
+            }
+          }
+        }
+  
+        .custom-variables {
+          display: none;
+
+          &.show {
+            display: block;
+          }
+
+          .custom-variable {
+            margin-bottom: 5px;
+            border: 1px solid #ced4da;
+            border-radius: .2rem;
+            display: flex;
+            align-items: center;
+
+            .custom-variable-name {
+              border-right: 1px solid #ced4da;
+              background-color: #e9ecef;
+              color: #212529;
+              padding: .25rem .5rem;
+              font-size: .875rem;
+            }
+
+            .custom-variable-value {
+              color: #212529;
+              border: 0;
+              padding: .25rem .5rem;
+              font-size: .875rem;
+              flex: 1;
+              outline: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

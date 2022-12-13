@@ -21,11 +21,11 @@ interface ScriptData {
 export function MainTabFooter ({elementsData, addElement, onClear, onGenerate}: {
   elementsData: {
     elements: CrispElement[];
-    useSeparationLines: boolean
-  },
+    useSeparationLines: boolean;
+  };
   addElement: {element: CrispElement | null};
-  onClear: () => void,
-  onGenerate: (currentPageOnly: boolean) => void,
+  onClear: () => void;
+  onGenerate: (currentPageOnly: boolean) => void;
 }) {
 
   /**
@@ -44,8 +44,8 @@ export function MainTabFooter ({elementsData, addElement, onClear, onGenerate}: 
    * @param useSeparationLines {boolean} Insert separation lines between elements of different pages
   */
   const getElementScripts = (elements: CrispElement[], useSeparationLines: boolean): {
-    actionScriptsData: ScriptData[],
-    poScriptsData: ScriptData[],
+    actionScriptsData: ScriptData[];
+    poScriptsData: ScriptData[];
   } => {
     const actionScriptsData: ScriptData[] = [];
     const poScriptsData: ScriptData[] = [];
@@ -97,7 +97,7 @@ export function MainTabFooter ({elementsData, addElement, onClear, onGenerate}: 
     }
 
     return {actionScriptsData, poScriptsData};
-  }
+  };
 
   /**
    * generate output for provided elements
@@ -105,7 +105,7 @@ export function MainTabFooter ({elementsData, addElement, onClear, onGenerate}: 
    * @param useSeparationLines {boolean} Insert separation lines between elements of different pages
   */
   const generateScriptForElements = (elements: CrispElement[], useSeparationLines: boolean = false): void => {
-    const { actionScriptsData, poScriptsData } = getElementScripts(elements, useSeparationLines)
+    const { actionScriptsData, poScriptsData } = getElementScripts(elements, useSeparationLines);
 
     setActionScripts(actionScriptsData.map(({script}) => script).join('\n'));
     setPageObjectScripts(poScriptsData.map(({script}) => script).join('\n'));
@@ -192,7 +192,7 @@ export function MainTabFooter ({elementsData, addElement, onClear, onGenerate}: 
         default: break;
       }
     }
-  }
+  };
 
   /**
    * Inserts a chunk of text into textarea, handles selection and final cursor position
@@ -216,17 +216,21 @@ export function MainTabFooter ({elementsData, addElement, onClear, onGenerate}: 
     setTimeout(() => {
       area.selectionEnd = `${start}${valueToInsert}\n`.length;
     });
-  }
+  };
 
   /**
    * Adds new script line on each addElement update
   */
-  useEffect(() => {addElementToScript(addElement)}, [addElement]);
+  useEffect(() => {
+    addElementToScript(addElement);
+  }, [addElement]);
 
   /**
    * Generates script on each elementsData update
   */
-  useEffect(() => {generateScriptForElements(elementsData.elements, elementsData.useSeparationLines)}, [elementsData]);
+  useEffect(() => {
+    generateScriptForElements(elementsData.elements, elementsData.useSeparationLines);
+  }, [elementsData]);
 
   /**
    * Update the 'pageObjectScripts' state changed from UI
@@ -235,7 +239,7 @@ export function MainTabFooter ({elementsData, addElement, onClear, onGenerate}: 
   const handleChangePageObjectScripts = (event: React.ChangeEvent<HTMLTextAreaElement> ): void => {
     let pageObjectScripts = event.target.value || '';
     setPageObjectScripts(pageObjectScripts);
-  }
+  };
 
   /**
    * Update the 'actionScripts' state changed from UI
@@ -244,7 +248,7 @@ export function MainTabFooter ({elementsData, addElement, onClear, onGenerate}: 
   const handleChangeActionScripts = (event: React.ChangeEvent<HTMLTextAreaElement> ): void => {
     let actionScripts = event.target.value || '';
     setActionScripts(actionScripts);
-  }
+  };
 
   return (
     <footer>

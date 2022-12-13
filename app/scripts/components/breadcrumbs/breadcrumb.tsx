@@ -42,11 +42,10 @@ export const Breadcrumb = () => {
         <li>
           <span>{projectLength}</span>
           <button className='breadcrumbButton'
-                  onClick={() => {
-                    dispatch(clearSelectedProjectId());
-                    dispatch(clearSelectedPageId());
-                  }
-                  }
+            onClick={() => {
+              dispatch(clearSelectedProjectId());
+              dispatch(clearSelectedPageId());
+            }}
           >
             <b>{getTitle()}</b></button>
           {selectedProjectId && <span> {' >'}</span>}

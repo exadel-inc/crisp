@@ -13,7 +13,7 @@ export const LogoComponent = () => {
 
   return (
     <div onClick={() => handleTabClick(NavigationTabType.MAIN)}
-         className="logo">
+      className="logo">
       <span className='firstPart'>Cri</span>
       <span className='lastPart'>sp</span>
     </div>

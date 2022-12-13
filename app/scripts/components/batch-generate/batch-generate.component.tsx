@@ -63,14 +63,14 @@ export function BatchGenerateTab () {
   const showConfirmModal = useConfirmModal();
 
   /**
-   * Validates form and trigger to display validation results for each field 
+   * Validates form and trigger to display validation results for each field
    * Retruns form validity
   */
   const validateForm = (): boolean => {
     setValidated(true);
     setTimeout(() => setValidated(false), 1500);
     return !!(attribute && page);
-  }
+  };
 
   const dispatch = useDispatch();
 
@@ -123,7 +123,7 @@ export function BatchGenerateTab () {
       message: `${newElements.length} elements were found for provided attribute: "${attribute}". Are you sure you want to add them?`,
       onConfirm: () => {
         try {
-          elementsService.addMany(newElements, AddType.SKIP_EXISTING)
+          elementsService.addMany(newElements, AddType.SKIP_EXISTING);
           showToast('Elements were created', 'success');
           navigateToMainPage();
         } catch (error) {
@@ -132,7 +132,7 @@ export function BatchGenerateTab () {
         }
       },
     });
-  }
+  };
 
 
   /**

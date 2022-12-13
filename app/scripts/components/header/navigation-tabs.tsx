@@ -1,29 +1,30 @@
-import * as React from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {ResetInspectedElementAction} from '../../redux/reducers/inspected-element/inspected-element.actions';
-import {NavigateAction} from '../../redux/reducers/navigation/navigation.actions';
-import {RootState} from '../../redux/store';
-import {CommonTabLogic} from '../tab-icons/commonTabLogic';
 import './navigation-tabs.scss';
 import '../../../styles/commonClasses.scss';
+import * as React from 'react';
+import Switch from '../toggleComponent/toggleComponent';
+import { useDispatch, useSelector } from 'react-redux';
+import { ResetInspectedElementAction } from '../../redux/reducers/inspected-element/inspected-element.actions';
+import { NavigateAction } from '../../redux/reducers/navigation/navigation.actions';
+import { RootState } from '../../redux/store';
+import { CommonTabLogic } from '../tab-icons/commonTabLogic';
 import { LogoutIcon } from '../tab-icons/logoutIcon';
 import { UserActions } from '../../redux/reducers/user/user.actions';
 import { NavigationTabType as NavType } from './navigationTypes';
 import { UserNavigationTabs } from './user-navigation-tabs';
 import { AdminNavigationTabs } from './admin-navigation-tabs';
-import { Checkbox } from '../checkbox/checkbox';
 import { AppModeActions } from '../../redux/reducers/appMode/appMode.actions';
-import Switch from '../toggleComponent/toggleComponent';
 
 /**
  * Main navigation tabs
  */
 export function NavigationTabs() {
-
   /**
    * Is current tab active
    */
-  const isActive = (tabId: NavType) => useSelector((state: RootState) => state.navigation.tab) === tabId;
+  const isActive = (tabId: NavType) => {
+    const navTabId = useSelector((state: RootState) => state.navigation.tab) || NavType.MAIN;
+    return navTabId === tabId;
+  };
   const isAdminMode = () => useSelector((state: RootState) => state.appMode) === 'ADMIN';
   const isAdminRole = () => useSelector((state: RootState) => state.currentUser.role.name) === 'ADMIN';
 
@@ -57,19 +58,18 @@ export function NavigationTabs() {
 
   const changeModeHandler = () => {
     const isAdmin: any = isAdminMode();
-    return isAdminRole() ? 
+    return isAdminRole() ?
       <CommonTabLogic handleTabClick={() => {
-          const action = isAdmin ? AppModeActions.USER_MODE : AppModeActions.ADMIN_MODE;
-          dispatch({ type: action });
-        }}
-        isActive={isActive}
-        activeTab={NavType.CHANGE_MODE}
-        children={
-          <>
-            <Switch label={isAdmin ? 'Admin mode': 'User mode'} isOn={isAdmin} />
-          </>
-        }/>
-    : '';
+        const action = isAdmin ? AppModeActions.USER_MODE : AppModeActions.ADMIN_MODE;
+        dispatch({ type: action });
+      }}
+      isActive={isActive}
+      activeTab={NavType.CHANGE_MODE}
+      children={
+        <>
+          <Switch label={isAdmin ? 'Admin mode': 'User mode'} isOn={isAdmin} />
+        </>
+      }/> : '';
   };
 
   return (
@@ -77,10 +77,10 @@ export function NavigationTabs() {
       { changeModeHandler() }
       { generateNavTab() }
       <CommonTabLogic handleTabClick={logoutHandleClick}
-                      isActive={isActive}
-                      activeTab={NavType.LOG_OUT}
-                      children={<LogoutIcon className={isActive(NavType.LOG_OUT) ?
-                        'activeIconFill' : 'defaultIconFill'}/>}/>
+        isActive={isActive}
+        activeTab={NavType.LOG_OUT}
+        children={<LogoutIcon className={isActive(NavType.LOG_OUT) ?
+          'activeIconFill' : 'defaultIconFill'}/>}/>
     </ul>
   );
 }

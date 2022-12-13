@@ -19,7 +19,7 @@ export const GenerateScriptTab = ({name = ''}) => {
 
   const tabs = Object.values(TEXT_COMPONENT_TAB_NAME).map(tab =>
     <p onClick={() => setActiveTab(tab)}
-       className={`textTab ${activeTab === tab && 'activeTextTab'}`}>{tab}</p>
+      className={`textTab ${activeTab === tab && 'activeTextTab'}`}>{tab}</p>
   );
 
   return (
