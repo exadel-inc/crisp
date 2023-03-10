@@ -22,22 +22,30 @@ export function AdminNavigationTabs({handleTabClick, isActive}: {
         activeTab={NavType.PROJECT}
         children={<ProjectIcon className={isActive(NavType.PROJECT) ?
           'activeIconFill' : 'defaultIconFill'
-        }/>}/>
+        }/>}
+        titleStr = 'Project'
+      />
       <CommonTabLogic handleTabClick={handleTabClick}
         isActive={isActive}
         activeTab={NavType.FRAMEWORK}
         children={<FrameworkIcon className={isActive(NavType.FRAMEWORK) ?
-          'activeIconFill' : 'defaultIconFill'}/>}/>
+          'activeIconFill' : 'defaultIconFill'}/>}
+        titleStr = 'Framework'
+      />
       <CommonTabLogic handleTabClick={handleTabClick}
         isActive={isActive}
         activeTab={NavType.ADMIN_PATTERN}
         children={<AddAdminPatternIcon className={isActive(NavType.ADMIN_PATTERN) ?
-          'activeIconFill' : 'defaultIconFill'}/>}/>
+          'activeIconFill' : 'defaultIconFill'}/>}
+        titleStr = 'Admin pattern'
+      />
       <CommonTabLogic handleTabClick={handleTabClick}
         isActive={isActive}
         activeTab={NavType.USER_MANAGER}
         children={<UserManagerIcon className={isActive(NavType.USER_MANAGER) ?
-          'activeIconFill' : 'defaultIconFill'}/>}/>
+          'activeIconFill' : 'defaultIconFill'}/>}
+        titleStr = 'User manager'
+      />
     </>
   );
 }

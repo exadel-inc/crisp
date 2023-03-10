@@ -32,7 +32,6 @@ export class WriteLoadedDataPayload {
     const parsedData: {[key: string]: Entity[]} = this.getValidatedData(data);
 
     switch (entity) {
-
       case SettingsEntityType.PAGE_OBJECT_PATTERN: {
         const selectedFramework = getSelectedFramework(PatternType.PAGE_OBJECT);
         // check if PO patterns are of currently selected framework
@@ -356,6 +355,7 @@ export class WriteLoadedDataPayload {
         };
         break;
       }
+
       default: {
         throw new Error(`Unknown entity name: ${entity}`);
       }
@@ -366,7 +366,6 @@ export class WriteLoadedDataPayload {
     this.onDefault = onDefault;
     this.onMerge = onMerge;
     this.onOverride = onOverride;
-
   }
 
   public successMessage: string;

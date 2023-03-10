@@ -38,16 +38,16 @@ export const ConfirmModal: React.FunctionComponent = () => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="commonConfirmModalLabel">{title}</h5>
-              <button type="button" className="close" aria-label="Close" onClick={() => callback(false)}>
+              <button title="Close" type="button" className="close" aria-label="Close" onClick={() => callback(false)}>
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div className="modal-body">{body || message}</div>{
               isHideButtons ? <></>:
-              <div className="modal-footer">
-                <button type="button" onClick={() => callback(false)} className="btn btn-secondary modal-cancel-button">Cancel</button>
-                <button type="button" onClick={() => callback(true)} className="btn btn-primary modal-accept-button">OK</button>
-              </div>
+                <div className="modal-footer">
+                  <button type="button" onClick={() => callback(false)} className="btn btn-secondary modal-cancel-button">Cancel</button>
+                  <button type="button" onClick={() => callback(true)} className="btn btn-primary modal-accept-button">OK</button>
+                </div>
             }
           </div>
         </div>

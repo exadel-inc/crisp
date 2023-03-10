@@ -217,5 +217,4 @@ export class PatternService implements CommonService<Pattern> {
   private _constructorFn(pt: any) {
     return new Pattern(pt.type, pt.framework, pt.name, pt.script, pt._id, pt.date);
   }
-
 }

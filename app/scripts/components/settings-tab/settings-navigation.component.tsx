@@ -27,7 +27,7 @@ export function SettingsNavigation() {
     dispatch({
       type: SettingsActions.NAVIGATE,
       payload: tab
-    })
+    });
   };
 
   return (

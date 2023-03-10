@@ -16,17 +16,17 @@ export const ImportTypeConfirmationModal = () => {
   const closeModal = () => {
     dispatch({...new HideAction()});
     onCancel?.();
-  }
+  };
 
   const handleMerge = () => {
     dispatch({...new HideAction()});
     onMerge?.();
-  }
+  };
 
   const handleOverride = () => {
     dispatch({...new HideAction()});
     onOverride?.();
-  }
+  };
 
   return (
     <>
@@ -44,6 +44,7 @@ export const ImportTypeConfirmationModal = () => {
               <button type="button"
                 className="close"
                 data-dismiss="modal"
+                title="Close"
                 aria-label="Close"
                 onClick={closeModal}
               >

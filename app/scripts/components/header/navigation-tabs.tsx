@@ -69,7 +69,9 @@ export function NavigationTabs() {
         <>
           <Switch label={isAdmin ? 'Admin mode': 'User mode'} isOn={isAdmin} />
         </>
-      }/> : '';
+      }
+      titleStr = 'App mode'
+      /> : '';
   };
 
   return (
@@ -80,7 +82,9 @@ export function NavigationTabs() {
         isActive={isActive}
         activeTab={NavType.LOG_OUT}
         children={<LogoutIcon className={isActive(NavType.LOG_OUT) ?
-          'activeIconFill' : 'defaultIconFill'}/>}/>
+          'activeIconFill' : 'defaultIconFill'}/>}
+        titleStr = 'Log out'
+      />
     </ul>
   );
 }

@@ -23,7 +23,7 @@ export function FrameworkNavigation() {
     dispatch({
       type: SettingsActions.NAVIGATE_FRAMEWORK,
       payload: tab
-    })
+    });
   };
 
   return (

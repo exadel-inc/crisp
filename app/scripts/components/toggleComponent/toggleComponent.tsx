@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import './toggleComponent.scss';
 
 const Switch = ({ label = '', isOn = false}: {
-  isOn: boolean,
-  label: string
+  isOn: boolean;
+  label: string;
 }) => {
   return (
     <>
-      <div className='switch-wrapper'>
+      <div className='switch-wrapper' title="App mode">
         <label
           className={`react-switch-label ${isOn ? 'checked': ''}`}
           htmlFor={`react-switch-new`}

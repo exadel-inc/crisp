@@ -49,7 +49,7 @@ export const ImportModal = () => {
         },
       );
     }
-  }; 
+  };
 
   return (
     <>
@@ -67,6 +67,7 @@ export const ImportModal = () => {
               <button type="button"
                 className="close"
                 data-dismiss="modal"
+                title="Close"
                 aria-label="Close"
                 onClick={() => callback(false)}
               >

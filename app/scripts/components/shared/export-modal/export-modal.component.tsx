@@ -35,7 +35,7 @@ export const ExportModal = () => {
     setTimeout(() => {
       setCopyButtonSucces(false);
     }, 1500);
-  }
+  };
 
   /**
    * update exportValue on each entity change
@@ -45,7 +45,7 @@ export const ExportModal = () => {
       try {
         const { data, successMessage } = new GetSavedData(entity, true);
         console.log(successMessage);
-        setExportValue(data)
+        setExportValue(data);
       } catch (error) {
         const message = (error as Error).message;
         showToast(message, 'danger');
@@ -56,7 +56,7 @@ export const ExportModal = () => {
   /**
    * Downloads saved data
   */
-   const downloadSavedData= () => {
+  const downloadSavedData= () => {
     if (exportValue && entity) {
       ImportExportUtils.download(`${entity}-data.json`, exportValue);
       console.log(`Data exported to "${entity}-data.json"`);
@@ -90,6 +90,7 @@ export const ExportModal = () => {
               <button type="button"
                 className="close"
                 data-dismiss="modal"
+                title="Close"
                 aria-label="Close"
                 onClick={() => callback(false)}
               >
