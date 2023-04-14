@@ -36,7 +36,7 @@ export function PageElememntsTable ({isActive, page, onAddElement}: {
 
   const confirmDelete = (element: CrispElement) => {
     showConfirmModal({
-      title: 'Delete confirmation',
+      title: 'Delete page',
       message: `Delete Element ${element.name}?`,
       onConfirm: () => {
         elementsService.remove(element.id);

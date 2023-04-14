@@ -64,8 +64,8 @@ export function UpdateUser (props: any) {
     if(id && data) {
       if(user) {
         showConfirmModal({
-          title: 'Update confirmation',
-          message: `Do you want to update:  ${user.username}[${user.email}]?`,
+          title: 'Update user',
+          message: `Are you sure you want to update user:  ${user.username}[${user.email}]?`,
           onConfirm: async () => {
             const resp = await userService.put(id, data);
             if(resp) {
@@ -236,7 +236,7 @@ export function UpdateUser (props: any) {
             flexDirection: 'column'
           }}>
             <div>
-              <span>Awalable Projects:</span>
+              <span>Available Projects:</span>
             </div>
             <ul style={{
               flex: 11,

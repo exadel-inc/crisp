@@ -34,8 +34,8 @@ export function Users () {
   const removeUser = async (user: any) => {
     if(user) {
       showConfirmModal({
-        title: 'Delete confirmation',
-        message: `Do you want to delete:\s\s${user.username}[${user.email}]?`,
+        title: 'Delete User',
+        message: `Are you sure you want to delete user:\s\s${user.username}[${user.email}]?`,
         onConfirm: async () => {
           const id = user.id || user._id;
           const resp = await userService.del(id);
@@ -44,7 +44,7 @@ export function Users () {
               key: id,
               data: resp
             });
-            showToast('User has been removed');
+            showToast('User successfully deleted');
           } else {
             showToast('Can\'t remove user from db. The application synchronizes this operation automatically');
           }

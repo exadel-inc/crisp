@@ -92,7 +92,7 @@ export function PageObjectsTab() {
     },
     scriptDescription: `You can use the following standard variables in your Page Object patterns:
       ${Object.values(STANDARD_VAR_NAMES as any).join(', ')} and any other custom variable names.`,
-  }
+  };
 
   // get the the current framework from the Store
   const optionFramework = projectsService.currentProject?.framework || '';
@@ -138,7 +138,7 @@ export function PageObjectsTab() {
         type: CONFIG.actions.filter,
         payload: { ...optionsFilter, framework: optionFramework },
         tab: CONFIG.tab,
-      })
+      });
     }
   }
 
@@ -176,7 +176,7 @@ export function PageObjectsTab() {
       type: CONFIG.actions.edit,
       payload: state,
       tab: CONFIG.tab
-    })
+    });
   };
 
   /**
@@ -197,7 +197,7 @@ export function PageObjectsTab() {
           framework: editorData.framework,
         },
         tab: CONFIG.tab,
-      })
+      });
     }
 
     // clear editor data
@@ -246,7 +246,7 @@ export function PageObjectsTab() {
           type: CONFIG.actions.filter,
           payload: { ...optionsFilter, name },
           tab: CONFIG.tab,
-        })
+        });
       }
     } , TYPING_DELAY);
   };
@@ -280,7 +280,7 @@ export function PageObjectsTab() {
    * @param ev {any} DOM event data
    */
   const handleChangeFrameworkFilter = (ev: any) => {
-    const framework = ev.target.value || ''
+    const framework = ev.target.value || '';
 
     // update filter state in store
     if (!isEditing) {
@@ -288,7 +288,7 @@ export function PageObjectsTab() {
         type: CONFIG.actions.filter,
         payload: { ...optionsFilter, framework },
         tab: CONFIG.tab,
-      })
+      });
     }
   };
 
@@ -385,7 +385,7 @@ export function PageObjectsTab() {
       uniqueFields: CONFIG.uniqueFields,
       dependencies: [],
       create
-    })
+    });
   };
 
   /**
@@ -399,7 +399,7 @@ export function PageObjectsTab() {
     }
 
     showConfirmModal({
-      title: 'Delete confirmation',
+      title: 'Delete framework',
       message: `Delete Page Object ${option?.name}?`,
       onConfirm: () => {
         removeOption(option, {
@@ -412,7 +412,6 @@ export function PageObjectsTab() {
     });
   };
 
-  
   const handleRestore = () => {
     showConfirmModal({
       title: 'Load defaults',
@@ -443,9 +442,10 @@ export function PageObjectsTab() {
         </div>
       </div>
     );
-  }
+  };
 
-  return (<div
+  return (
+    <div
       id={SettingsFrameworkTabType.OBJECTS}
       className={`tab-pane fade show active ${isEditing ? 'crisp-show-editor' : ''}`}
     >
@@ -464,7 +464,9 @@ export function PageObjectsTab() {
                     className="form-control form-control-sm pattern-name"
                     placeholder="Pattern name"
                     value={isEditing ? editorData.name : optionName}
-                    onChange={(ev) => {handleChangeName(ev)}}
+                    onChange={(ev) => {
+                      handleChangeName(ev);
+                    }}
                   />
                   <div className="input-group-append">
                     <button
@@ -496,7 +498,7 @@ export function PageObjectsTab() {
               <div className="row">
                 <div className="col">
                   <div className="form-group">
-                  <textarea
+                    <textarea
                       data-extra-field="description"
                       className="form-control form-control-sm pattern-template"
                       rows={3}
@@ -513,7 +515,9 @@ export function PageObjectsTab() {
                   <button
                     type="button"
                     className="btn btn-sm btn-primary btn-block option-btn-save"
-                    onClick={() => {handleSaveOption(editorData)}}
+                    onClick={() => {
+                      handleSaveOption(editorData);
+                    }}
                   >Save</button>
                 </div>
                 <div className="col d-flex justify-content-center">

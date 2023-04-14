@@ -22,7 +22,7 @@ export function ConfigurationTab() {
   const frameworks = useSelector((state: any) => state?.storage.framework, shallowEqual) || [];
   const updateProject = async (id: string, updatedData: any) => {
     const data = await projectRest.put(id, updatedData);
-  
+
     if(data) {
       store.dispatch({
         type: ActionTypes.UPDATE_STORAGE_ITEM,
@@ -38,14 +38,14 @@ export function ConfigurationTab() {
     }
   };
   const showConfirmModal = useConfirmModal();
-  
+
   const deleteProject = async (id: string) => {
     showConfirmModal({
-      title: 'Delete confirmation',
-      message: `Do you want to delete project`,
+      title: 'Delete project',
+      message: 'Are you sure you want to delete the whole project with its pages and saved elements?',
       onConfirm: async () => {
         const data = await projectRest.del(id);
-  
+
         if(data) {
           store.dispatch({
             type: ActionTypes.DELETE_STORAGE_ITEM,
@@ -54,7 +54,7 @@ export function ConfigurationTab() {
               id: id
             }
           });
-          showToast('Project successfully deleated');
+          showToast('Project successfully deleted');
         } else {
           showToast('Can\'t deleted project from db. The application synchronizes this operation automatically');
         }
@@ -64,7 +64,7 @@ export function ConfigurationTab() {
 
   const createProject = async (createData: any) => {
     const data = await projectRest.post(createData);
-  
+
     if(data) {
       store.dispatch({
         type: ActionTypes.ADD_STORAGE_ITEM,
@@ -89,23 +89,23 @@ export function ConfigurationTab() {
                 title: 'Update project',
                 isHideButtons: true,
                 body: <>
-                <form className='admin-project-tab-form form-modal-popup' onSubmit={async (e: any) => {
-                  e.preventDefault();
-                  const elements: any = e.target?.elements || {};
-                  const projectName = elements.projectName.value;
-                  const framework = elements.framework.value;
-                  const description = elements.description.value;
-                  await updateProject(project._id, {
-                    name: projectName,
-                    frameworkId: framework,
-                    description: description
-                  });
-                }}>
-                  <InputComponent label='Project Name'  name={'ProjectName'} formName={'projectName'} defaultValue={project.name} />
-                  <SelectComponent name={'Framework'} formName={'framework'} optionList={frameworks} selectedId={(project.framework || project.frameworkId) } />
-                  <TextComponent label={'Description'} formName={'description'} defaultValue={project.description} />
-                  <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
-                </form>
+                  <form className='admin-project-tab-form form-modal-popup' onSubmit={async (e: any) => {
+                    e.preventDefault();
+                    const elements: any = e.target?.elements || {};
+                    const projectName = elements.projectName.value;
+                    const framework = elements.framework.value;
+                    const description = elements.description.value;
+                    await updateProject(project._id, {
+                      name: projectName,
+                      frameworkId: framework,
+                      description: description
+                    });
+                  }}>
+                    <InputComponent label='Project Name' placeholder='project name' name={'ProjectName'} formName={'projectName'} defaultValue={project.name} />
+                    <SelectComponent label='Framework' name={'Framework'} formName={'framework'} optionList={frameworks} selectedId={(project.framework || project.frameworkId) } />
+                    <TextComponent label={'Description'} formName={'description'} defaultValue={project.description} />
+                    <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
+                  </form>
                 </>
               });
             }}
@@ -132,11 +132,11 @@ export function ConfigurationTab() {
                   frameworkId: framework,
                   description: description,
                   isDefault: false,
-                  date: "2022-07-29T14:11:35.118Z"
+                  date: '2022-07-29T14:11:35.118Z'
                 });
               }}>
-                <InputComponent label='Project Name'  formName={'projectName'} name={'projectName'} defaultValue={''} />
-                <SelectComponent formName={'framework'} name={'framework'} optionList={frameworks} />
+                <InputComponent label='Project Name' placeholder='project name' formName={'projectName'} name={'projectName'} defaultValue={''} />
+                <SelectComponent label='Framework' formName={'framework'} name={'framework'} optionList={frameworks} />
                 <TextComponent label={'Description'} formName={'description'} defaultValue={''} />
                 <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
               </form>

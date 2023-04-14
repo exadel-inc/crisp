@@ -20,7 +20,7 @@ export function ConfigurationTab() {
   const frameworks = useSelector((state: any) => state?.storage.framework, shallowEqual) || [];
   const updateProject = async (id: string, updatedData: any) => {
     const data = await frameworkRest.put(id, updatedData);
-  
+
     if(data) {
       store.dispatch({
         type: ActionTypes.UPDATE_STORAGE_ITEM,
@@ -36,14 +36,14 @@ export function ConfigurationTab() {
     }
   };
   const showConfirmModal = useConfirmModal();
-  
+
   const deleteFramework = async (id: string) => {
     showConfirmModal({
-      title: 'Delete confirmation',
-      message: `Do you want to delete framework`,
+      title: 'Delete framework',
+      message: 'Are you sure you want to delete the whole framework with its Page objects and Actions/verifications patterns?',
       onConfirm: async () => {
         const data = await frameworkRest.del(id);
-  
+
         if(data) {
           store.dispatch({
             type: ActionTypes.DELETE_STORAGE_ITEM,
@@ -62,7 +62,7 @@ export function ConfigurationTab() {
 
   const createFramework = async (createData: any) => {
     const data = await frameworkRest.post(createData);
-  
+
     if(data) {
       store.dispatch({
         type: ActionTypes.ADD_STORAGE_ITEM,
@@ -87,20 +87,20 @@ export function ConfigurationTab() {
                 title: 'Update framework',
                 isHideButtons: true,
                 body: <>
-                <form className='admin-framework-tab-form form-modal-popup' onSubmit={async (e: any) => {
-                  e.preventDefault();
-                  const elements: any = e.target?.elements || {};
-                  const frameworkName = elements.frameworkName.value;
-                  const description = elements.description.value;
-                  await updateProject(framework._id, {
-                    name: frameworkName,
-                    description: description
-                  });
-                }}>
-                  <InputComponent label='Framework Name'  name={'frameworkName'} formName={'frameworkName'} defaultValue={framework.name} />
-                  <TextComponent label={'Description'} formName={'description'} defaultValue={framework.description} />
-                  <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
-                </form>
+                  <form className='admin-framework-tab-form form-modal-popup' onSubmit={async (e: any) => {
+                    e.preventDefault();
+                    const elements: any = e.target?.elements || {};
+                    const frameworkName = elements.frameworkName.value;
+                    const description = elements.description.value;
+                    await updateProject(framework._id, {
+                      name: frameworkName,
+                      description: description
+                    });
+                  }}>
+                    <InputComponent label='Framework Name' placeholder='framework name'  name={'frameworkName'} formName={'frameworkName'} defaultValue={framework.name} />
+                    <TextComponent label={'Description'} formName={'description'} defaultValue={framework.description} />
+                    <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
+                  </form>
                 </>
               });
             }}
@@ -116,21 +116,21 @@ export function ConfigurationTab() {
             title: 'Update framework',
             isHideButtons: true,
             body: <>
-            <form className='admin-framework-tab-form form-modal-popup' onSubmit={async (e: any) => {
-              e.preventDefault();
-              const elements: any = e.target?.elements || {};
-              const frameworkName = elements.frameworkName.value;
-              const description = elements.description.value;
-              await createFramework({
-                name: frameworkName,
-                description: description,
-                date: "2022-07-29T14:11:35.118Z"
-              });
-            }}>
-              <InputComponent label='Framework Name'  formName={'frameworkName'} name={'frameworkName'} defaultValue={''} />
-              <TextComponent label={'Description'} formName={'description'} defaultValue={''} />
-              <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
-            </form>
+              <form className='admin-framework-tab-form form-modal-popup' onSubmit={async (e: any) => {
+                e.preventDefault();
+                const elements: any = e.target?.elements || {};
+                const frameworkName = elements.frameworkName.value;
+                const description = elements.description.value;
+                await createFramework({
+                  name: frameworkName,
+                  description: description,
+                  date: '2022-07-29T14:11:35.118Z'
+                });
+              }}>
+                <InputComponent label='Framework Name' placeholder='framework name' formName={'frameworkName'} name={'frameworkName'} defaultValue={''} />
+                <TextComponent label={'Description'} formName={'description'} defaultValue={''} />
+                <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
+              </form>
             </>
           });
         }} />

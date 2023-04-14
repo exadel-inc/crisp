@@ -7,8 +7,8 @@ import {DEFAULT_PROJECT_PAGE_NAME} from '../../constants/constants';
 import {useDispatch, useSelector} from 'react-redux';
 import {clearSelectedPageId, setSelectedPageId} from '../../redux/reducers/selectedPage/selectedPage.actionCreator';
 import {ActionTypes, WriteToStorageAction} from '../../redux/reducers/storage/storage.actions';
-import store from "../../redux/store";
-import {clearSelectedProjectId} from "../../redux/reducers/selectedProject/selectedProject.actionCreator";
+import store from '../../redux/store';
+import {clearSelectedProjectId} from '../../redux/reducers/selectedProject/selectedProject.actionCreator';
 import { restApi } from '../../serverRestApi';
 import { showToast } from '../shared/toasts-component';
 import { useConfirmModal } from '../shared/confirm-modal/confirm-modal';
@@ -36,7 +36,7 @@ export const Pill = ({pageName = DEFAULT_PROJECT_PAGE_NAME, pageId}: { pageName:
     if(pageId) {
       showConfirmModal({
         title: 'Delete page',
-        message: `Do you want to delete page?`,
+        message: 'Do you want to delete page?',
         onConfirm: async () => {
           const resp = await pageRest.del(pageId.toString());
           if(resp) {
@@ -48,7 +48,7 @@ export const Pill = ({pageName = DEFAULT_PROJECT_PAGE_NAME, pageId}: { pageName:
               payload: {
                 key: 'pages',
                 id: pageId
-            }});
+              }});
             showToast('Page has been removed');
           } else {
             showToast('Can\'t remove page from db. The application synchronizes this operation automatically');

@@ -1,4 +1,4 @@
- import * as React from 'react';
+import * as React from 'react';
 import {useState} from 'react';
 import {Expander} from '../expander/expander';
 import {OpenTableElement} from '../openTableElemet/openTableElement';
@@ -36,7 +36,7 @@ export const TableElement = ({name, element, pageId, projectId}: { name: string;
     if(elId) {
       showConfirmModal({
         title: 'Delete element',
-        message: `Do you want to delete element?`,
+        message: 'Do you want to delete element?',
         onConfirm: async () => {
           const resp = await elementsService.del(elId.toString());
           if(resp) {

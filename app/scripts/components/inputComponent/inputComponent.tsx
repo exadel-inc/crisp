@@ -3,22 +3,22 @@ import {PLACEHOLDER_INPUT} from '../../constants/constants';
 import './inputComponent.scss';
 
 export const InputComponent = ({
-    name, label='', placeholder='',
-    defaultValue = '', value = '', required = false,
-    changeAction = undefined,
-    disabled = false,
-    formName = ''}: {
+  name, label='', placeholder='',
+  defaultValue = '', value = '', required = false,
+  changeAction = undefined,
+  disabled = false,
+  formName = ''}: {
   name: string;
   label?: string;
   placeholder?: string;
-  required?: boolean,
-  changeAction?: Function | undefined,
-  value?: string,
-  disabled?: boolean,
-  defaultValue?: string,
-  formName?: string
+  required?: boolean;
+  changeAction?: Function | undefined;
+  value?: string;
+  disabled?: boolean;
+  defaultValue?: string;
+  formName?: string;
 }) => {
-  let inputProps: any = {}
+  let inputProps: any = {};
 
   if(changeAction) {
     inputProps.onChange = (event: any) => {

@@ -6,14 +6,18 @@ export const SelectComponent = ({
   selectedId = '',
   name,
   formName = '',
+  label = '',
   required=false,
   disabled = false,
   defaultValue = '',
   onChange
 }: {
   optionList: any[]; name: string; required?: boolean;
-  selectedId?: string; disabled?: boolean;
-  defaultValue?: string; formName?: string;
+  label?: string;
+  selectedId?: string;
+  disabled?: boolean;
+  defaultValue?: string;
+  formName?: string;
   onChange?: Function;
 }) => {
 
@@ -29,7 +33,7 @@ export const SelectComponent = ({
   return (
     <div className='selectWrapper'>
       <div className='selectName'>
-        {name}{required &&<span className='required'>*</span>}
+        {label || name}{required &&<span className='required'>*</span>}
       </div>
       <select {...selectAttr} name={formName} className='select' disabled={disabled} defaultValue={selectedId}>
         {options(selectedId)}

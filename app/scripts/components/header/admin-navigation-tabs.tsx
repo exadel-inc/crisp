@@ -37,7 +37,7 @@ export function AdminNavigationTabs({handleTabClick, isActive}: {
         activeTab={NavType.ADMIN_PATTERN}
         children={<AddAdminPatternIcon className={isActive(NavType.ADMIN_PATTERN) ?
           'activeIconFill' : 'defaultIconFill'}/>}
-        titleStr = 'Admin pattern'
+        titleStr = 'Pattern'
       />
       <CommonTabLogic handleTabClick={handleTabClick}
         isActive={isActive}

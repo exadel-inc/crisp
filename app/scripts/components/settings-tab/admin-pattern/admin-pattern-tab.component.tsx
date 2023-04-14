@@ -22,7 +22,7 @@ export function ConfigurationTab() {
   const frameworks = useSelector((state: any) => state?.storage.framework, shallowEqual) || [];
   const updatePattern = async (id: string, updatedData: any) => {
     const data = await patternsRest.put(id, updatedData);
-  
+
     if(data) {
       store.dispatch({
         type: ActionTypes.UPDATE_STORAGE_ITEM,
@@ -38,14 +38,14 @@ export function ConfigurationTab() {
     }
   };
   const showConfirmModal = useConfirmModal();
-  
+
   const deletePattern = async (id: string) => {
     showConfirmModal({
-      title: 'Delete confirmation',
-      message: `Do you want to delete pattern`,
+      title: 'Delete pattern',
+      message: 'Are you sure you want to delete this pattern?',
       onConfirm: async () => {
         const data = await patternsRest.del(id);
-  
+
         if(data) {
           store.dispatch({
             type: ActionTypes.DELETE_STORAGE_ITEM,
@@ -54,7 +54,7 @@ export function ConfigurationTab() {
               id: id
             }
           });
-          showToast('pattern successfully deleated');
+          showToast('Pattern successfully deleated');
         } else {
           showToast('Can\'t deleted pattern from db. The application synchronizes this operation automatically');
         }
@@ -64,7 +64,7 @@ export function ConfigurationTab() {
 
   const createPattern = async (createData: any) => {
     const data = await patternsRest.post(createData);
-  
+
     if(data) {
       store.dispatch({
         type: ActionTypes.ADD_STORAGE_ITEM,
@@ -89,35 +89,35 @@ export function ConfigurationTab() {
                 title: 'Update pattern',
                 isHideButtons: true,
                 body: <>
-                <form className='admin-pattern-tab-form form-modal-popup' onSubmit={async (e: any) => {
-                  e.preventDefault();
-                  const elements: any = e.target?.elements || {};
-                  const patternName = elements.patternName.value;
-                  const framework = elements.framework.value;
-                  const script = elements.script.value;
-                  const patternType = elements.patternType.value;
-                  await updatePattern(pattern._id, {
-                    name: patternName,
-                    frameworkId: framework,
-                    script: script,
-                    type: patternType === 'action' ? 'ACTION' : 'PAGE_OBJECT'
-                  });
-                }}>
-                  <InputComponent label='Pattern Name' name={'patternName'} formName={'patternName'} defaultValue={pattern.name} />
-                  <SelectComponent name={'Framework'} formName={'framework'} optionList={frameworks} selectedId={(pattern.framework || pattern.frameworkId) } />
-                  <SelectComponent name={'Pattern Type'} formName={'patternType'} optionList={[
-                    {
-                      _id: 'ACTION',
-                      name: 'action'
-                    },
-                    {
-                      _id: 'PAGE_OBJECT',
-                      name: 'pageObject'
-                    }
-                  ]} selectedId={pattern.type} />
-                  <TextComponent label={'Script'} formName={'script'} defaultValue={pattern.script} />
-                  <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
-                </form>
+                  <form className='admin-pattern-tab-form form-modal-popup' onSubmit={async (e: any) => {
+                    e.preventDefault();
+                    const elements: any = e.target?.elements || {};
+                    const patternName = elements.patternName.value;
+                    const framework = elements.framework.value;
+                    const script = elements.script.value;
+                    const patternType = elements.patternType.value;
+                    await updatePattern(pattern._id, {
+                      name: patternName,
+                      frameworkId: framework,
+                      script: script,
+                      type: patternType === 'Action' ? 'ACTION' : 'PAGE_OBJECT'
+                    });
+                  }}>
+                    <InputComponent label='Pattern Name' placeholder='pattern name' name={'patternName'} formName={'patternName'} defaultValue={pattern.name} />
+                    <SelectComponent label='Framework' name={'Framework'} formName={'framework'} optionList={frameworks} selectedId={(pattern.framework || pattern.frameworkId) } />
+                    <SelectComponent label='Pattern Type' name={'patternType'} formName={'patternType'} optionList={[
+                      {
+                        _id: 'ACTION',
+                        name: 'Action'
+                      },
+                      {
+                        _id: 'PAGE_OBJECT',
+                        name: 'Page Object'
+                      }
+                    ]} selectedId={pattern.type} />
+                    <TextComponent label={'Script'} formName={'script'} defaultValue={pattern.script} />
+                    <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
+                  </form>
                 </>
               });
             }}
@@ -128,35 +128,35 @@ export function ConfigurationTab() {
         }
       </div>
       <div className='create-project-section'>
-        <Button iconClass='' buttonName='Create pattern' action={() => {
+        <Button iconClass='' buttonName='Create Pattern' action={() => {
           showConfirmModal({
             title: 'Create pattern',
             isHideButtons: true,
             body: <>
-            <form className='admin-pattern-tab-form form-modal-popup' onSubmit={async (e: any) => {
-              e.preventDefault();
-              const elements: any = e.target?.elements || {};
-              const patternName = elements.patternName.value;
-              const framework = elements.framework.value;
-              const script = elements.script.value;
-              const patternType = elements.patternType.value;
-              await createPattern({
-                name: patternName,
-                frameworkId: framework,
-                script: script,
-                type: patternType === 'action' ? 'ACTION' : 'PAGE_OBJECT',
-                date: "2022-07-29T14:11:35.118Z"
-              });
-            }}>
-              <InputComponent label='Pattern Name'  formName={'patternName'} name={'patternName'} defaultValue={''} />
-              <SelectComponent formName={'framework'} name={'Framework'} optionList={frameworks} />
-              <SelectComponent name={'Pattern TYpe'} formName={'patternType'} optionList={[
-                    'action',
-                    'page object'
-                  ]} />
-              <TextComponent label={'Script'} formName={'script'} defaultValue={''} />
-              <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
-            </form>
+              <form className='admin-pattern-tab-form form-modal-popup' onSubmit={async (e: any) => {
+                e.preventDefault();
+                const elements: any = e.target?.elements || {};
+                const patternName = elements.patternName.value;
+                const framework = elements.framework.value;
+                const script = elements.script.value;
+                const patternType = elements.patternType.value;
+                await createPattern({
+                  name: patternName,
+                  frameworkId: framework,
+                  script: script,
+                  type: patternType === 'Action' ? 'ACTION' : 'PAGE_OBJECT',
+                  date: '2022-07-29T14:11:35.118Z'
+                });
+              }}>
+                <InputComponent label='Pattern Name' placeholder='pattern name'  formName={'patternName'} name={'patternName'} defaultValue={''} />
+                <SelectComponent label='Framework' formName={'framework'} name={'Framework'} optionList={frameworks} />
+                <SelectComponent label='Pattern Type' name={'patternType'} formName={'patternType'} optionList={[
+                  'Action',
+                  'Page Object'
+                ]} />
+                <TextComponent label={'Script'} formName={'script'} defaultValue={''} />
+                <Button type={'submit'} buttonName={'Save'} iconClass={''} action={async () => {}} />
+              </form>
             </>
           });
         }} />

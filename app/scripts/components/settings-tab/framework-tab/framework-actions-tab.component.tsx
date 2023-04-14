@@ -93,7 +93,7 @@ export function ActionsTab() {
     },
     scriptDescription: `You can use the following standard variables in your Actions patterns:
       ${Object.values(STANDARD_VAR_NAMES as any).join(', ')} and any other custom variable names.`,
-  }
+  };
 
   // get the the current framework from the Store
   const optionFramework = projectsService.currentProject?.framework || '';
@@ -139,7 +139,7 @@ export function ActionsTab() {
         type: CONFIG.actions.filter,
         payload: { ...optionsFilter, framework: optionFramework },
         tab: CONFIG.tab,
-      })
+      });
     }
   }
 
@@ -177,7 +177,7 @@ export function ActionsTab() {
       type: CONFIG.actions.edit,
       payload: state,
       tab: CONFIG.tab
-    })
+    });
   };
 
   /**
@@ -198,7 +198,7 @@ export function ActionsTab() {
           framework: editorData.framework,
         },
         tab: CONFIG.tab,
-      })
+      });
     }
 
     // clear editor data
@@ -247,7 +247,7 @@ export function ActionsTab() {
           type: CONFIG.actions.filter,
           payload: { ...optionsFilter, name },
           tab: CONFIG.tab,
-        })
+        });
       }
     } , TYPING_DELAY);
   };
@@ -281,7 +281,7 @@ export function ActionsTab() {
    * @param ev {any} DOM event data
    */
   const handleChangeFrameworkFilter = (ev: any) => {
-    const framework = ev.target.value || ''
+    const framework = ev.target.value || '';
 
     // update filter state in store
     if (!isEditing) {
@@ -289,7 +289,7 @@ export function ActionsTab() {
         type: CONFIG.actions.filter,
         payload: { ...optionsFilter, framework },
         tab: CONFIG.tab,
-      })
+      });
     }
   };
 
@@ -386,7 +386,7 @@ export function ActionsTab() {
       uniqueFields: CONFIG.uniqueFields,
       dependencies: [],
       create
-    })
+    });
   };
 
   /**
@@ -400,7 +400,7 @@ export function ActionsTab() {
     }
 
     showConfirmModal({
-      title: 'Delete confirmation',
+      title: 'Delete framework',
       message: `Delete Action ${option?.name}?`,
       onConfirm: () => {
         removeOption(option, {
@@ -446,9 +446,10 @@ export function ActionsTab() {
         </div>
       </div>
     );
-  }
+  };
 
-  return (<div
+  return (
+    <div
       id={SettingsFrameworkTabType.ACTIONS}
       className={`tab-pane fade show active ${isEditing ? 'crisp-show-editor' : ''}`}
     >
@@ -467,7 +468,9 @@ export function ActionsTab() {
                     className="form-control form-control-sm pattern-name"
                     placeholder="Pattern name"
                     value={isEditing ? editorData.name : optionName}
-                    onChange={(ev) => {handleChangeName(ev)}}
+                    onChange={(ev) => {
+                      handleChangeName(ev);
+                    }}
                   />
                   <div className="input-group-append">
                     <button
@@ -516,7 +519,9 @@ export function ActionsTab() {
                   <button
                     type="button"
                     className="btn btn-sm btn-primary btn-block option-btn-save"
-                    onClick={() => {handleSaveOption(editorData)}}
+                    onClick={() => {
+                      handleSaveOption(editorData);
+                    }}
                   >Save</button>
                 </div>
                 <div className="col d-flex justify-content-center">

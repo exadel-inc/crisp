@@ -89,7 +89,7 @@ export function PagesTab() {
       edit: SettingsActions.EDIT_PROJECT,
       filter: SettingsActions.FILTER_PROJECT,
     },
-  }
+  };
 
   // get the the current project from the Store
   const optionProject = projectsService.currentProject?.id || '';
@@ -133,7 +133,7 @@ export function PagesTab() {
         type: CONFIG.actions.filter,
         payload: { ...optionsFilter, project: optionProject },
         tab: CONFIG.tab,
-      })
+      });
     }
   }
 
@@ -173,7 +173,7 @@ export function PagesTab() {
         project: optionProject,
       },
       tab: CONFIG.tab,
-    })
+    });
   }
 
   /**
@@ -185,7 +185,7 @@ export function PagesTab() {
       type: CONFIG.actions.edit,
       payload: state,
       tab: CONFIG.tab
-    })
+    });
   };
 
   /**
@@ -206,7 +206,7 @@ export function PagesTab() {
           project: editorData.project,
         },
         tab: CONFIG.tab,
-      })
+      });
     }
 
     // clear editor data
@@ -255,7 +255,7 @@ export function PagesTab() {
           type: CONFIG.actions.filter,
           payload: { ...optionsFilter, name },
           tab: CONFIG.tab,
-        })
+        });
       }
     } , TYPING_DELAY);
   };
@@ -265,7 +265,7 @@ export function PagesTab() {
    * @param ev {any} DOM event data
    */
   const handleChangeProjectFilter = (ev: any) => {
-    const project = ev.target.value || ''
+    const project = ev.target.value || '';
 
     // update filter state in store
     if (!isEditing) {
@@ -273,7 +273,7 @@ export function PagesTab() {
         type: CONFIG.actions.filter,
         payload: { ...optionsFilter, project },
         tab: CONFIG.tab,
-      })
+      });
     }
   };
 
@@ -392,7 +392,7 @@ export function PagesTab() {
       uniqueFields: CONFIG.uniqueFields,
       dependencies,
       create
-    })
+    });
   };
 
   /**
@@ -405,7 +405,7 @@ export function PagesTab() {
       return;
     }
     showConfirmModal({
-      title: 'Delete confirmation',
+      title: 'Delete project',
       message: `Delete Page ${option?.name} with saved Elements?`,
       onConfirm: () => {
         removeOption(option, {
@@ -437,7 +437,7 @@ export function PagesTab() {
         </div>
       </div>
     );
-  }
+  };
 
   return (
     <div
@@ -460,7 +460,9 @@ export function PagesTab() {
                     className="form-control form-control-sm pattern-name"
                     placeholder="Page name"
                     value={isEditing ? editorData.name : optionName}
-                    onChange={(ev) => {handleChangeName(ev)}}
+                    onChange={(ev) => {
+                      handleChangeName(ev);
+                    }}
                   />
                   <div className="input-group-append">
                     <button
@@ -493,7 +495,9 @@ export function PagesTab() {
                 <button
                   type="button"
                   className="btn btn-sm btn-primary btn-block option-btn-save"
-                  onClick={() => {handleSaveOption(editorData)}}
+                  onClick={() => {
+                    handleSaveOption(editorData);
+                  }}
                 >Save</button>
               </div>
               <div className="col d-flex justify-content-center">
